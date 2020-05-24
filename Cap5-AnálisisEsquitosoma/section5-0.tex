@@ -64,6 +64,14 @@ Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será ne
     \end{eqnarray}
 \end{Prop}
 Usando las relaciones \ref{equation-E(S)-probInicial} y \ref{equation-E(gamma)-probInicial} los precedentes postulados pueden ser expresados usando solo las distribuciones iniciales y las transiciones $\Pi_{i,j}(0,t)$ y $P_{m,n}(0,t)$.
+Con los postulados expuestos, nos encontramos en el caso de un proceso de nacimiento y muerte, del cual, su sistema de ecuaciones diferenciales estaría dado por
+\begin{eqnarray}
+    \begin{array}{cr}
+        \frac{P_{m,n}(s,t)}{\partial t} = & -(\frac{1}{2}\nu_1E[S(t)]+\tilde{\mu}_1)P_{m,n}(s,t)+\frac{1}{2}\nu_1E[S(t)]P_{m,n-1}(s,t) \\
+         & +\tilde{\mu}_1 (n+1)P_{m,n+1}(s,t)
+    \end{array}
+    \label{tesis-edo-p_n}
+\end{eqnarray}
 \begin{Obs}
     Claramente, las suposiciones realizadas solo representan una aproximación de lo que representan una infección real. Se ignora la infección específica por edad o sexo en la población humana.Las tasas de mortalidad son independientes de la edad y de la densidad de población. Hubiera sido más natural considerar a $P_{m,m+1}(t,t+h)$ y $\Pi_{i,i+1}(t,t+h)$ proporcional a $S(t)$ y a $\sum_{k=1}^{N_1}\gamma_k(t)$ respectivamente, pero resulta más conveniente reemplazar estas cantidades por sus esperanzas.\\
     Además, estos postulados no tienen en cuenta los efectos de edad en la tasa de oviposición de un esquistosoma femenino emparejado.Tampoco hemos considerado el posible desarrollo de resistencia a la infección en los huéspedes o los períodos latentes durante los cuales las cercarias y las esquistosomas se desarrollan hasta sus formas maduras.\\A pesar de estas simplificaciones y omisiones, confiamos en que nuestras hipótesis retratan principales
