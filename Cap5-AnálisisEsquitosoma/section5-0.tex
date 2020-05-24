@@ -46,9 +46,10 @@ Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será ne
         Si reemplazamos el valor de $\sum_{k=1}^{N_1}\gamma_k(t)$ por su esperanza que $E\big[\sum_{k=1}^{N_1}\gamma_k(t)\big]$ se obtiene que
         $$\Pi_{i,i+1}(t,t+h)=(N_2-i)P_{0,1}(t,t+h)= \nu_2(N_2-i)E\bigg[\sum_{k=1}^{N_1}\gamma_k(t)\bigg]h+o(h)\quad ,i\leq N_2-1, h\rightarrow 0$$
         \item La probabilidad de que no haya ningún cambio entre el tiempo $t$ y $t+h$ se reduciría a  $\Pi_{i,i}(t+h)=1-\Pi_{i,i-1}(t,t+h)-\Pi_{i,i+1}(t,t+h)$, esto es $$\Pi_{i,i}(t,t+h)=1-\mu_2 i h-\nu_2(N_2-i)E\bigg[\sum_{k=1}^{N_1}\gamma_k(t)\bigg]h+o(h)$$
-    \end{enumerate} 
+    \end{enumerate}
 \end{itemize}
-\begin{Prop}
+\begin{comment}
+    \begin{Prop}
     \begin{eqnarray}
         E[S(t)]=\sum_{j=1}^{N_2}j\sum_{i=1}^{N_2}\pi_{i}\Pi_{i,j}(0,t).
         \label{equation-E(S)-probInicial}
@@ -63,15 +64,32 @@ Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será ne
         \end{array}
     \end{eqnarray}
 \end{Prop}
-Usando las relaciones \ref{equation-E(S)-probInicial} y \ref{equation-E(gamma)-probInicial} los precedentes postulados pueden ser expresados usando solo las distribuciones iniciales y las transiciones $\Pi_{i,j}(0,t)$ y $P_{m,n}(0,t)$.
-Con los postulados expuestos, nos encontramos en el caso de un proceso de nacimiento y muerte, del cual, su sistema de ecuaciones diferenciales estaría dado por
+Usando las relaciones \ref{equation-E(S)-probInicial} y \ref{equation-E(gamma)-probInicial} los precedentes postulados pueden ser expresados usando solo las distribuciones iniciales y las transiciones $\Pi_{i,j}(0,t)$ y $P_{m,n}(0,t)$.\\
+\end{comment}
+Por los postulados precedentes, $M_k(t), F_k(t)$ y $S(t)$ son procesos de nacimiento y muerte , del cual, los sistemas de ecuaciones diferenciales asociados a las distribuciones $\{P_{m,n}(s,t)\}_{n=1}^\infty$ y $\{\Pi_{i,j}(s,t)\}_{j=1}^\infty$ son
 \begin{eqnarray}
     \begin{array}{cr}
-        \frac{P_{m,n}(s,t)}{\partial t} = & -(\frac{1}{2}\nu_1E[S(t)]+\tilde{\mu}_1)P_{m,n}(s,t)+\frac{1}{2}\nu_1E[S(t)]P_{m,n-1}(s,t) \\
-         & +\tilde{\mu}_1 (n+1)P_{m,n+1}(s,t)
+        \frac{P_{m,n}(s,t)}{\partial t} = & -\bigg[\frac{1}{2}\nu_1E[S(t)]+\mu_1\bigg]P_{m,n}(s,t)+\frac{1}{2}\nu_1E[S(t)]P_{m,n-1}(s,t) \\
+        & +\mu_1 (n+1)P_{m,n+1}(s,t)
     \end{array}
     \label{tesis-edo-p_n}
 \end{eqnarray}
+\begin{eqnarray}
+    \begin{array}{cr}
+     \frac{\partial\Pi_{i,j}(s,t)}{\partial t}= & -\bigg[\nu_2(N_2-j)E\big[\sum_{k=1}^{N_1}\gamma(t)\big]+\mu_2\bigg]\Pi_{i,j}(t)
+     +\tilde{\mu}_1 (j+1)\Pi_{i,j+1}(t)
+     \\&+\nu_2(N_2-j)E\big[\sum_{k=1}^{N_1}\gamma(t)\big]\Pi_{i,j-1}(t)
+    \end{array}
+\end{eqnarray}Es conveniente extender las definiciones de $P_{m,n}$ y $\Pi_{i,j}$ estableciendo $$P_{m,n}(s,s)=\delta_{m,n}\quad m,n=0,1\cdots, s\geq 0$$
+y
+$$\Pi_{i,j}(s,s)=\delta_{i,j}\quad i,j=0,1\cdots,N_2, s\geq 0$$
+donde 
+$$\delta_{h,k}=
+    \begin{cases}
+    1, & \mbox{ $h=k$ } \\
+    0, & \mbox{ $h\not=k$}
+    \end{cases}$$
+La cuales llegarían a ser las condiciones iniciales de nuestros sistemas de ecuaciones diferenciales.
 Por la independencia de las distribuciones de transición, a esta sistema de ecuaciones se le conoce como problema de valor inicial de Kolmogorov.\\ El teorema de Daniel-Kolgomorov nos muestra que efectivamente existen cadenas de Markov $M_k$, $F_k$, y $S$ que cumplen las propiedades de los postulados si y solo existe solución a las ecuaciones de Chapman-Kolmogorov.
 \begin{Obs}
     Claramente, las suposiciones realizadas solo representan una aproximación de lo que representan una infección real. Se ignora la infección específica por edad o sexo en la población humana.Las tasas de mortalidad son independientes de la edad y de la densidad de población. Hubiera sido más natural considerar a $P_{m,m+1}(t,t+h)$ y $\Pi_{i,i+1}(t,t+h)$ proporcional a $S(t)$ y a $\sum_{k=1}^{N_1}\gamma_k(t)$ respectivamente, pero resulta más conveniente reemplazar estas cantidades por sus esperanzas.\\

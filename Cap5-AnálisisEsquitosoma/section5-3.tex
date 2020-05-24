@@ -1,16 +1,5 @@
 \section{Fase en el huésped intermedio}
-$$\mathbf{\Pi}_j(t)=P(S(t)=j)$$
-que describe la transición al estado m+n en la época $t_0+t$.
-Se puede notar que bajo estas hipótesis y postulados 2.1 al 2.5 expuestos en la sección anterior, tenemos un proceso de nacimiento y muerte puro con parámetros $$\lambda_j=\nu_2(N_2-j)E\big[\sum_{k=1}^{N_1}\gamma(t)\big],\quad\mu_j=\tilde{\mu}_2 j,\quad j\in\N$$
-Reemplazando obtenemos también el siguiente sistema infinito de ecuaciones diferenciales $$\mathbf{\Pi}'_j(t)=-(\nu_2(N_2-j)E\big[\sum_{k=1}^{N_1}\gamma(t)\big]+\tilde{\mu}_2)\mathbf{\Pi}_j(t)+\nu_2(N_2-j)E\big[\sum_{k=1}^{N_1}\gamma(t)\big]\mathbf{\Pi_{j-1}}(t)+\tilde{\mu}_1 (j+1)\mathbf{\Pi_{j+1}}(t),\quad n\in\N$$
-Si se denomina $X(t)=E\big[\sum_{k=1}^{N_1}\gamma(t)\big]$ la ecuación quedaría:
-$$\mathbf{\Pi}'_j(t)=-(\nu_2(N_2-j)X(t)+\tilde{\mu}_2)\mathbf{\Pi}_j(t)+\nu_2(N_2-j)X(t)\mathbf{\Pi_{j-1}}(t)+\tilde{\mu}_1 (n+1)\mathbf{\Pi_{j+1}}(t),\quad n\in\N$$
-Para $n=0$ de la misma manera , $$\mathbf{\Pi}'_0(t)=-(\nu_2(N_2-i)X(t)\tilde{\mu}_2)\mathbf{\Pi}_0(t)+\tilde{\mu}_2 \mathbf{\Pi}_1(t)$$
-Cuyas condiciones iniciales son
-\begin{eqnarray}
-\mathbf{\Pi}_j(t_0)=1\quad \mathbf{\Pi}_j(t_0)=0\quad j\not=i.
-\end{eqnarray}
-\\La función generadora de probabilidad para $ \Pii_n(t)$ es 
+La función generadora de probabilidad para $ \Pii_n(t)$ es 
 $$A(t,z)=\sum_{j=0}^\infty z^j P(S(t)=j)=\sum_{j=0}^\infty z^j \mathbf{\Pi}_j(t)$$
 Diferenciando eto, y nuevamente por el teorema *** se tiene que: $$\Az=\sum_{j=1}^\infty jz^{j-1}\mathbf{\Pi}_j(t)=\sum_{j=0}^\infty (j+1)z^{j}\mathbf{\Pi}_{j+1}(t)$$ $$\At=\sum_{j=0}^\infty\mathbf{\Pi}'_j(t)z^j=\mathbf{\Pi}'_0+\sum_{j=1}^\infty \mathbf{\Pi}'_j(t)z^j$$
 Ambas series son convergentes 
