@@ -1,0 +1,69 @@
+\section{Conceptos generales}
+    En la naturaleza se encuentran dos tipos de fenómenos o experimentos: deterministas y aleatorios. Un experimento determinista es aquel cuyo resultado es el mismo si se la repite bajo las mismas condiciones, como por ejemplo, medir el volumen de un gas cuando la presión y la temperatura son constantes en teoría produce siempre el mismo resultado.\\
+    En contraste a esto, un experimento aleatorio es aquel que, aunque se repitan bajo las mismas condiciones, el resultado no será siempre el mismo.
+\begin{Ejm}
+    Algunos ejemplos de ejemplos deterministas serían:
+    \begin{enumerate}[a)]
+        \item Medir el volumen de un gas cuando la presión y la temperatura son constantes produce, teóricamente, siempre el mismo resultado.
+        \item Medir el ángulo de un rayo de luz reflejado  en un espejo resulta siempre el mismo resultado cuando el ángulo de incidencia es el mismo y el resto de condiciones son constantes.
+    \end{enumerate}
+\end{Ejm}
+
+\begin{Ejm}
+    Algunos ejemplos de experimentos aleatorios serían:
+    \begin{enumerate}[a)]
+        \item Registrar el número de accidentes que ocurren en una determinada calle de una ciudad.
+        \item Observar si una mujer con  determinada enfermedad la trasmite a alguno de sus 3 hijos. 
+    \end{enumerate}
+\end{Ejm}
+En principio no sabremos cuál será el resultado obtenido, por ello es conveniente agrupar todos los resultados posibles. Esto nos lleva a la siguiente definición
+\begin{Def}
+Un espacio muestral es un conjunto arbitrario $\Omega$ que tiene como objetivo agrupar todos los posibles resultados del experimento aleatorio en cuestión.
+\end{Def}
+\begin{Ejm}
+Los espacios muestrales respecto a los experimentos aleatorios descritos en el ejemplo (\ref{ejm-expAleatorio}) serían:
+\begin{enumerate}[a)]
+    \item $\Omega=\{1,2,3,\ldots\}$
+    \item $\Omega=\{ \textnormal{\textquotedblleft V\textquotedblright, \textquotedblleft F\textquotedblright }\}$
+\end{enumerate}
+\end{Ejm}
+
+\begin{Def}
+    Una clase o colección $\mathscr{F}$ de subconjuntos de $\Omega$ es un $\sigma- \textit{álgebra}$ si cumple que:
+    \begin{enumerate}
+        \item $\Omega\in\mathscr{F}$
+        \item Si $A\in\mathscr{F}$ entonces $A^c\in\mathscr{F}$
+        \item Si $A_1, A_2,\ldots\in\mathscr{F}$, entonces  $\bigcup_{k=1}^\infty A_k\in\mathscr{F}$
+    \end{enumerate}
+    A los elementos de $\mathscr{F}$ se los llama eventos, sucesos o conjuntos medibles.
+\end{Def}
+Suceso vendría ser un subconjunto del espacio muestral que cumplan ciertas condiciones.
+Intuitivamente, vendría a ser como un conjunto de posibles resultados del experimento u ocurrencias. Esto se puede visualizar mejor con un ejemplo.
+\begin{Ejm}
+    Supongamos que queremos registrar el número final de las placas de los carros que circulan en una determinada calle de una ciudad, para poder aplicar la regla de pico y placa. Para este caso, el espacio muestral sería $$\Omega=\{0,\thinspace 1,\thinspace 2,\ldots 9\}.$$Sea cual sea el resultado del experimento, siempre va a pertenecer a $\Omega$, (por la definición de espacio muestral), por tanto, $\Omega$ debe ser un suceso; al cual llamaremos suceso seguro. Esto es $\Omega\in\mathscr{F}.$\\ Definamos el suceso $A=\{0,\thinspace 2,\ldots ,8\}.$ el cual se interpreta cuando la placa del auto termina en algún número par. Si tiene perfecto sentido pensar en que el resultado sea un número par (es decir que esté en A), también tiene perfecto sentido pensar que este podría ser un número impar (es decir que el resultado esté en $A^c$) es, por tanto, razonable exigir que $A^c$ sea un suceso si A lo es. Esto es $A^c\in\mathscr{F}$ si $A\in\mathscr{F}.$\\Si definimos otro suceso $B=\{1\}$ que representa cuando una placa acaba en el número $1$. Si tiene sentido pensar en la ocurrencia de $A\subset\Omega $ y en la ocurrencia de $B\subset\Omega $ por ser A y B sucesos, también tiene sentido pensar en la ocurrencia de  A o B, exigiremos entonces que la unión finita de sucesos sea un suceso. Esto es si $A,\thinspace B\in\mathscr{F}$ entonces $A\cup B\in \mathscr{F}.$
+\end{Ejm}
+Menos intuitiva es la exigencia de estabilidad frente a uniones numerables; la respuesta más
+convincente es que, de ese modo, se obtiene una teoría matemática más rica.
+\begin{Def}
+    Si $\mathscr{C}$ es una colección no vacía de subconjuntos de $\Omega$.\\La $\sigma-\textit{álgebra}$ generada por $\mathscr{C}$ denotada por $\sigma(\mathscr{C})$ es $$\sigma(\mathscr{C})=\bigcap\{\mathscr{F}|\thinspace\mathscr{F} \textit{ es un }\sigma-\textit{álgebra y }  \mathscr{C}\subset\mathscr{F}\}$$
+    Este conjunto es la menor $\sigma-$álgebra que contiene a $\mathscr{C}$.
+\end{Def}
+\begin{Ejm}
+    El conjunto $\mathscr{P}(\Omega)$ de todos los subconjuntos de $\Omega$ es trivialmente un $\sigma-álgebra$ en $\Omega$ que llamaremos discreta. No obstante, llamaremos espacio medible discreto un conjunto numerable provisto de esta $\sigma-$álgebra. En lo que sigue, cualquier conjunto numerable se supondrá provisto de la $\sigma-$álgebra discreta, a menos que se indique lo contrario.
+\end{Ejm}
+\begin{Ejm}
+    EL conjunto $\{\Omega\}$ es la más pequeña $\sigma-$álgebra que podemos considerar en $\Omega$. Se llamará $\sigma-$álgebra trivial.
+\end{Ejm}
+\begin{Def}
+    \label{def-medidaProbabilidad}
+    Sea $\mathscr{F}$ una $\sigma-$álgebra del espacio muestral $\Omega$.\\
+    Una función $P:\mathscr{F}\rightarrow [0,1]$ es una medida de probabilidad si $P(\Omega)=1$ y es $\sigma-aditiva$, es decir, si cumple que $$P\big(\bigcup_{k=1}^\infty A_k\big)=\sum_{k=1}^\infty P(A_k)$$
+    donde $A_i\cap A_j=\emptyset$ para valores de $i$ y $j$ distintos.
+\end{Def}
+Si $A\in\mathscr{F}$, el número $P(A)$ es una forma de medir la posibilidad de que suceda el evento $A$ al efectuar una vez el experimento aleatorio.\\
+Los valores de probabilidad siempre se asignan en una escala de $0$ a $1$. Una probabilidad cercana a $0$ indica que es poco probable que ocurra un evento; una probabilidad cercana a $1$ indica que es casi seguro que éste ocurra. Otras probabilidades entre $0$ y $1$ representan diversos grados de posibilidad de que el evento ocurra.\\
+La probabilidad es importante en la toma de decisiones debido a que proporciona una manera de medir, expresar y analizar las incertidumbres asociadas con eventos futuros.
+\begin{Def}
+    Sea $\Omega$ un espacio muestral, $\mathscr{F}$ un $\sigma-$álgebra de $\Omega$, P una medida de probabilidad.\\
+    A la terna $(\Omega,\thinspace\mathscr{F})$ se le llama espacio de medida o espacio medible y a la terna $(\Omega,\mathscr{F},P)$ se le conoce como espacio de probabilidad.
+\end{Def}

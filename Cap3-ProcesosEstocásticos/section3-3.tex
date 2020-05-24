@@ -1,0 +1,77 @@
+\section{Proceso de nacimiento y muerte}
+\label{section_procesoNacMu}
+El proceso puro de nacimiento no sirve como modelo realista de los cambios en poblaciones (como la de las bacterias) cuyos miembros pueden morir o desaparecer. Para este caso se requiere un proceso estocástico más personalizado da una motivación para modelar situaciones que permitan transiciones desde un estado $n$ al estado mayor $n+1$ y también al menor $n-1$. En estos caso se utiliza el proceso de nacimiento y muerte.\\
+\begin{Def}
+Un proceso estocástico $\{X_t\}_{t\geq 0}$ es  llamado proceso de nacimiento y muerte si cumple los siguientes postulados. 
+    \begin{enumerate}
+        \item Las transiciones directas de un estado $j$ son posibles a su estado siguiente $j+1$ y a su anterior $j-1$.
+        \item Si en la época $t$ el sistema se encuentra en el estado $n$, la probabilidad de que ocurra la transacción de $n$ a $n+1$ en un intervalo corto de tiempo $[t,t+h)$ es dado por $\lambda_n h+o(h)$.
+
+        \item Si en la época $t$ el sistema se encuentra en el estado $n$, la probabilidad de que ocurra la transacción de $n$ a $n-1$ en un intervalo corto de tiempo $[t,t+h)$ es dado por $\mu_n h+o(h)$.
+        \item La probabilidad de que ocurra más de un suceso dentro de este intervalo es $o(h)$.
+    \end{enumerate}
+\end{Def}
+Nuevamente, $P_n(t)$ será la probabilidad de que en el tiempo $t$ ocurran $n$ ocurrencias nuevas y $P_{i, j}(t)$ la probabilidad de cambio del estado $i$ al estado $j$ en un tiempo $t$. Usando esta notación se tiene que 
+\begin{eqnarray}
+     P_{n,n+1}(h)=\lambda_n h + o(h)
+    \label{procNacimientoMuerte-condicion-1}
+\end{eqnarray}
+\begin{eqnarray}
+    P_{n,n-1}(h)=\mu_n h + o(h)
+    \label{procNacimientoMuerte-condicion-2}
+\end{eqnarray}
+Esto implica que
+$$P_1(h)=\lambda_n h +\mu_n h+ o(h),$$
+entonces
+\begin{eqnarray}
+    P_0(h)=1-(\lambda_n+\mu_n)+o(h)
+    \label{procNacimientoMuerte-condicion-3}
+\end{eqnarray}
+\begin{eqnarray}
+    P_n(h)=o(h),\quad n\geq 2
+    \label{procNacimientoMuerte-condicion-4} 
+\end{eqnarray}
+Dado $n\in\N$, analicemos la probabilidad para un tiempo $t+h$, donde el sistema se encuentre en estado $n$, esto es $(X_{t+h}=n)$. Esto puede ocurrir solo de tres maneras independientes.
+\begin{itemize}
+     \item SITUACIÓN A: En el tiempo $t$ el sistema estaba en el estado $n$ y no ocurre ningún cambio. $A=(X_t=n,\thinspace X_{t+h}=n)$, entonces la probabilidad que suceda esta situación estará dada por $$P(A)=P(X_t=n,\thinspace X_{t+h}=n)=P(X_t=n)P(X_{t+h}=n|\thinspace X_{t}=n)=P_n(t)P_0(h)$$\\
+    Por la condición (\ref{procNacimientoMuerte-condicion-3})
+    tenemos que:
+    $$P(A)=P_n(t)(1-\lambda_n-\mu_n h)+o(h)$$
+    \item SITUACIÓN B: En la época $t$ el sistema está en el estado $n-1$ y sucede una ocurrencia. Esto es $B=(X_{t+h}=n,\thinspace X_t=n-1)$, la probabilidad de que suceda eso estará dada por
+    $$P(B)=P(X_{t+h}=n,\thinspace X_t=n-1)=P_{n-1}(t)P_{n-1,n}(h).$$
+    Por la condición (\ref{procNacimientoMuerte-condicion-1})
+    tenemos que:
+    $$P(B)=\lambda_{n-1} h P_{n-1}(t)+o(h)$$
+    \item SITUACIÓN C: En la época $t$ el sistema está en el estado $n+1$ y se cancela una ocurrencia. Esto es $C=(X_{t+h}=n,\thinspace X_t=n+1)$, la probabilidad de que suceda eso estará dada por
+    $$P(C)=P(X_{t+h}=n,\thinspace X_t=n+1)=P_{n+1}(t)P_{n+1,n}(h).$$
+    Por la condición (\ref{procNacimientoMuerte-condicion-2})
+    tenemos que:
+    $$P(C)=\mu_{n+1} h P_{n+1}(t)+o(h)$$
+    \item SITUACIÓN D: En la época $t$ el sistema estaba en el estado $n-k$ o $n+k$ y ocurrió $k$ cambios. Por la condición (\ref{procNacimientoMuerte-condicion-2})
+    $$P(D)=P_n(t)P_k(h)=o(h), \quad k\geq 2$$
+    \end{itemize}
+   Por la definición de las situaciones $A$, $B$, $C$ y $D$, estas forman una partición de $(X_{t+h}=n)$ y por ello, 
+    $$P_n(t+h) = P_n(t)(1-\lambda_n-\mu_n h) + \lambda_{n-1} h P_{n-1}(t) + \mu_{n+1} h P_{n+1}(t)+o(h)$$
+    Luego, 
+    $$\frac{P_n(t+h)-P_n(t)}{h}=-(\lambda_n+\mu_n) P_n(t)+\lambda_{n-1} P_{n-1}(t)+\mu_{n+1}P_{n+1}(t)+\frac{o(h)}{h}$$
+    Cuando $h\rightarrow 0$.
+\begin{eqnarray}
+    P'_n(t)=-(\lambda_n+\mu_n) P_n(t)+\lambda_{n-1}P_{n-1}(t)+\mu_{n+1}P_{n+1}(t)
+\label{procNacimientoMuerte-edo-n}
+\end{eqnarray}
+\begin{eqnarray}
+    P'_0(t)=-\lambda_0 P_0(t)+\mu_{1}P_{1}(t)
+\label{procNacimientoMuerte-edo-0}
+\end{eqnarray}
+Para modelar la dinámica de una población no siempre se conoce el estado en el cual se encontrará el proceso en su tiempo inicial, sin embargo con un análisis estadístico simple se puede conocer las probabilidades de que al tiempo $0$ hayan ocurrido $n$ sucesos. Esto vendría ser la distribución inicial $\{p_n\}$ tal que $p_n\in [0,1]$ y $\sum_{n=0}^\infty p_n =1$
+\begin{eqnarray}
+    P_n(0)=p_n
+\end{eqnarray}
+Gracias a estos valores iniciales tenemos soluciones únicas de \ref{procNacimientoMuerte-edo-n} y \ref{procNacimientoMuerte-edo-0} y este sistema será el que represente nuestro problema.\\
+\begin{Ejm}
+Supóngase que una población consta de elementos que pueden dividirse en dos iguales o morir. Durante cualquier intervalo corto de tiempo de longitud $h$, la probabilidad de que el elemento viviente se divide en dos es $\lambda h+ o(h)$, mientras que la probabilidad correspondiente de morir es $\mu h + o(h)$. Aquí $\lambda$ y $\mu$ son dos constantes características de la población. Si no hay interacción entre los elementos, estaremos en el caso de un proceso de nacimiento y muerte con $\lambda_n=n \lambda$\lambda y $\mu_n =n \mu$
+Las ecuaciones diferenciales básicas toman la forma:
+$$P'_0(t)=\mu P_1(t)$$
+$$P'_n(t)=-(\lambda+\mu)n P_n(t)+\lambda(n-1)P_{n-1}+\mu_{n+1}P_{n+1}(t)$$
+\end{Ejm}
+En el proceso puro de nacimiento, el sistema de ecuaciones diferenciales era infinito pero tenía la forma de relaciones de recurrencia; $P_n(t)$ podía calcularse a partir de $P_{n-1}(t)$. Nuestro nuevo sistema no tiene esta forma, por ello las $P_n(t)$ deben calcularse todas simultáneamente. Para ello será necesario describir un método para encontrar la solución de este problema y uno de ellos es resolviendo un problema de valor inicial de una ecuación diferencial parcial semilineal de primer orden.

@@ -1,0 +1,128 @@
+\section{Variables aleatorias}
+En ocasiones, dado un experimento aleatorio, estamos interesados en alguna característica numérica del resultado que se obtiene. Por ejemplo, al considerar el lanzamiento de un par de dados, pudiéramos estar interesados no en el resultado específico que se obtiene con cada dado, sino en la suma de ellos.\\
+Nuestra primera dificultad es que no todos los espacios muestrales $\Omega$ son subconjuntos de $\R$, por ello, es necesario introducir la definición de una función que traslade los elementos de $\Omega$ a números reales con los cuales podamos trabajar matemáticamente.\\
+Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en 
+\\\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\begin{Def}
+El $\sigma-$álgebra de Borel en $\R$ denotado por $\mathscr{B}(\R)$ es
+$$\mathscr{B}(\R)=\sigma(\{(a,\thinspace b)\subset\R:a\leq b\})$$
+\end{Def}
+\begin{Prop}
+\textbf{ }\\
+\begin{enumerate}
+    \item Todo intervalo de $\R$ es un booreliano.
+    \item Los subconjuntos cerrados y abiertos de $\R$ son borelianos
+\end{enumerate}
+\end{Prop}
+\begin{Def}
+Una función $\phi:\R^n\rightarrow\R^m$ es llamada boreliana si $\phi^{-1}(B)$ es un conjunto boreliano de $R^{-1}$ para todo boreliano B de $\R$.
+\end{Def}
+Recuérdese que si $\phi:\R^n\rightarrow\R^m$ es cualquier función, se cumple que $\phi^{-1}(B^c)=[\phi^{-1}(B)]^c$
+ $\phi^{-1}(\bigcup_{\lambda}B_{\lambda})=\bigcup_{\lambda}\phi^{-1}(B_\lambda)$. Esto
+implica que $\{B\subset \R^m: \phi^{-1}(B)\in B(\R^n)\}$ es un $\sigma$-álgebra de subconjuntos de $R^m$ , de manera que, para demostrar que una
+cierta función f es boreliana, basta con probar que $\phi^{-1}(B)$ es un conjunto boreliano de $\R^n$ para cualquier elemento B abierto (o cualquier elemento B de una familia de generadores de los borelianos de $\R^m$).
+Con base de esta idea, se pueden demostrar las siguientes proposiciones.
+\begin{Prop}
+$\phi:\R^n\rightarrow\R^m$,  $g:\R^m\rightarrow\R^p$ son borelianos, entonces $g\circ\phi$ es boreliano
+\end{Prop}
+\begin{Prop} Si $\phi:\R^n\rightarrow\R^m$ es continua, entonces es boreliana.
+\end{Prop}
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{Def}
+    Sean $(\Omega_1,\mathscr{F}_1)$, $(\Omega_2,\mathscr{F}_2)$ espacios medibles. Una variable aleatoria (o función medible en teoría de la medida) es una función $X:\Omega_1\rightarrow \Omega_2$ tal que para cualquier $F\in\mathscr{F}_2$ se cumple que $$X^{-1}(F)\in\mathscr{F}_1.$$
+    Al conjunto $X(\Omega_1)$ se le conocerá como el conjunto de estados de X.
+\end{Def}
+\begin{Obs}
+    Si el conjunto de estados $X(\Omega_1)$ es numerable o finito, entonces $X$ será llamado una variable aleatoria discreta.
+\end{Obs}
+\begin{Ejm}
+    Un experimento aleatorio que consiste en lanzar 2 dados. Nuestro espacio muestral sería $$\Omega_1=\{(1,1),\ldots,(1,6),\thinspace(2,1),\ldots\ldots,(2,6),\ldots,(6,6)\}$$ con $\sigma-$álgebra asociado $\mathscr{P}(\Omega_1)$.\\ $X$ es la diferencia entre el mayor y el menor de los números que se obtienen, es decir , $X:\Omega_1\rightarrow \{0,\thinspace 1,\ldots\}$ $X(a,b)=\max \{a,b\}-\min\{a,b\}$
+\end{Ejm}
+Si $(\Omega_1,\mathscr{F},P)$ es un espacio de probabilidad, gracias a a la variable aleatoria X se puede definir una nueva medida de probabilidad $P_X$ sobre el espacio de medida $(\Omega_2,\mathscr{F}_2)$, definida como $P_X(F)=P(X^{-1}(F))$, la cual está bien definida pues \\$X^{-1}(F)\in\mathscr{F}_1$,  $$P_X(\Omega_2)=P(X^{-1}(\Omega_2))=P(\Omega_1)=1$$ $$P_X\big(\bigcup_{k=1}^\infty F_k\big)=P(X^{-1}\big(\bigcup_{k=1}^\infty
+F_k\big))=P \big(\bigcup_{k=1}^\infty X^{-1}(F_k) \big)=\sum_{k=1}^\infty P(X^{-1}(F_k))=\sum_{k=1}^\infty P_X(F_k)$$
+es decir, $P_X$ es $\sigma-$aditiva.\\
+De aquí se concluye que $P_X:\mathscr{F_2}\rightarrow [0,1]$ resulta ser también una medida de probabilidad, y se le llama por tanto la medida de probabilidad inducida por la variable aleatoria $X$. Para hacer la escritura más corta, a menudo se omite el término de la variable aleatoria para $X$ suponiendo, en la mayoría de las veces que lo es. Por ello escribiremos $P$ en lugar de $P_X$\\\\
+En ocasiones, los sucesos elementales de un experimento aleatorio son conjuntos de números reales, de los cuales, aparentemente no hay necesidad de usar ninguna variable aleatoria. Sin embargo, en ocasiones, sí es necesario utilizarla por los múltiples usos que pueda tener. Veamos un ejemplo.
+\begin{Ejm}
+    \label{ejm-variableAleatoria-identidad}
+    Consideremos el experimento de arrojar un dado y observar el resultado de la tirada.\\
+    Primero, debemos construir nuestra espacio muestral, el cual para este caso sería:
+    $$\Omega= \{1,\thinspace 2,\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\thinspace\}.$$ Si se quiere, por ejemplo, calcular la probabilidad de que el resultado sea $6$, bastará con calcular $P(\{6\})$.\\ Pero si queremos introducir el uso de una variable aleatoria, para este caso se considerará a $X: \Omega \rightarrow \R$ como la función identidad (que es medible) y $X(\Omega)= \{1,\thinspace 2,\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\thinspace\}$, donde se cumple evidentemente que $$P_X(A)=P(X^{-1}(A))=P(A),\quad  A\subset\Omega$$
+\end{Ejm}
+Las variables aleatorias establecen una relación funcional entre elementos del espacio muestral asociado al experimento y números reales, por ello, de manera práctica, la mayoría de variables aleatorias discretas no puedan ser expresadas matemáticamente, por lo cual suelen usarse expresiones que den entender el comportamiento de la variable aleatoria. Por ejemplo, $X$=\textit{"Número de muertos en Enero el 2020"}, $X$=\textit{"Cantidad de bacterias en un cultivo"}, $X$=\textit{"Número de infectados por día de determinada enfermedad"}, etc.\\
+\label{ejm-variableAleatoria-carros}
+\begin{Ejm}
+    Suponga que al revisar los registros de ventas de una empresa de autos descubrimos que en Enero estuvo abierta durante $30$ días de los cuales $20$ días no vendieron nada, en $6$ días vendieron $1$ auto , en $3$ vendieron 2 autos y en $1$ día vendieron $3$ autos. Con estos datos históricos disponibles, el propietario de esta compañía está interesado en el volumen de ventas diario de los automóviles. Suponga que $X=$\textit{"cantidad de automóviles vendidos en un día determinado"}. Los registros de ventas muestran que $3$ es el número máximo vendidos en un día. El propietario considera que el historial de ventas
+    anterior representa de manera adecuada lo que ocurrirá en el futuro, así que esperaríamos
+    que la variable aleatoria $X$ asumiera uno de los valores numéricos $0, 1, 2$ o $ 3$.\\
+    Los valores posibles de la variable aleatoria son finitos; por tanto, clasificaríamos a $X$ como una
+    variable aleatoria discreta.
+\end{Ejm}
+También, de un mismo experimento aleatorio se puede definir diferentes variables aleatorias.
+\begin{Ejm}
+    Al lanzar 3 monedas al aire podemos asignar a cada suceso la variable aleatoria $X$="número de caras", pero también $Y$="número de sellos". \\
+    Antes que nada, vamos al construir el espacio muestral del experimento. Éste sería:
+    $$\Omega = \{(c,c,c), (c,x,c), (x,c,c); (c,c,x), (c,x,x,), (x,c,x), (x,x,c), (x,x,x)\}$$
+    Vemos que los posibles valores de las variable aleatorias $X$ e $Y$ son $0$, $1$, $2$ y $3$, pero ambas son funciones distintas.
+\end{Ejm}
+\begin{Obs}
+    Para un uso más práctico , el conjunto\\ $X^{-1}({a})=\{\omega\in\Omega: X(\omega)=a\}$
+    será denotado $\{X= a\}$\\
+\end{Obs}
+A continuación se demuestra que algunas operaciones básicas entre variables aleatorias producen nuevas variables aleatorias. Supongamos que $(\Omega,\thinspace \mathscr{F},\thinspace P)$ es un espacio de probabilidad dado. Todas las variables aleatorias que se consideran a continuación están definidas sobre este mismo espacio
+de probabilidad.
+\begin{Prop}
+    Si $X$ es una variable aleatoria y $c$ es una constante, entonces $c X$ también es una variable aleatoria.
+    \label{prop-variableAl-cXesVA}
+\end{Prop}
+\begin{Prop}
+    Si $X$ e $Y$ son variables aleatorias, entonces $X+Y$ es variable aleatoria
+    \label{prop-variableAl-X+YesVA}
+\end{Prop}
+\begin{comment}
+\begin{Def}
+    Sea los espacios de probabilidad $(\Omega_1,\thinspace\mathscr{F}_1,\thinspace P_1)$, $(\Omega_2,\thinspace\mathscr{F}_2,\thinspace P_2)$.
+    Un vector aleatorio es una función $X:\Omega_1\rightarrow\Omega_2$ tal que para cualquier conjunto B en $\mathscr{F}_2$, se cumple que la imagen inversa $X^{-1}(B)$ es un elemento de $\mathscr{F}_1$.
+\end{Def}
+Dado entonces que un vector aleatorio es una función de $\Omega$ en $\R^n$, éste
+puede representar de la forma $X=(X_1,\ldots, X_n)$ en donde cada coordenada es una función de $\Omega$ en $\R$.
+\begin{Prop}
+    Una función $(X_1 , . . . , X_n):\Omega\rightarrow R^n$ es un vector aleatorio si, y sólo si, cada coordenada es una variable aleatoria.
+\end{Prop}
+El resultado es análogo al caso unidimensional y puede extenderse al caso de $n$ dimensiones.
+En la mayoría de los casos, las definiciones y resultados son fácilmente extendidos a dimensiones mayores.\\
+\begin{Obs}
+    El vector aleatorio $(A,\thinspace B)$ se interpreta cuan probable es que suceda A y B a la vez. Es decir $P(A,\thinspace B)=P(A\cap B)$.
+\end{Obs}
+\end{comment}
+
+\begin{Obs}
+Denotaremos a la probabilidad de que ocurran los sucesos $A$ y $B$ de la siguiente forma $P(A,\thinspace B):=P(A\cap B)$.\\ Esto es debido a que $(A,\thinspace B)$ es conocido como un vector aleatorio, pero no será tratado como tal porque va más allá de nuestro propósito. Si quiere más información sobre esto puede consultar 
+\end{Obs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+\begin{Def}
+Se dice que un conjunto $A\subset\R$ tiene medida cero si, para cualquier $\epsilon>0$, existe una colección finita o infinita numerable de intervalos abiertos $\{I_n\}$ tal que $A\subset\bigcup I_n$ y $\sum_{n} I_n<\epsilon$
+\end{Def}
+La familia de conjuntos borelianos, si bien es bastante grande, presenta una limitación consistente en que un conjunto de medida cero puede no ser boreliano. En un problema de probabilidad, esto a su vez se traduce en que puede haber subconjuntos de conjuntos de probabilidad
+cero para los cuales, por no ser borelianos, no está definida la función de probabilidad P, y por ende, tampoco $P_X$. Esto limitaría inlcusive a la función X del cual queremos extraer un valor numérico, pues debido a esto, podría existir algún $B\in B(\R)$ tal que $X^{-1}(B)$ tenga medida cero pero no sea boreleano. Esto sigificaría que X dejaría de ser un variable aleatoria.
+Por esa razón, es conveniente considerar una $\sigma-$álgebra más grande que los borelianos, que incluya a todos los conjuntos de medida cero.
+\begin{Def}
+Diremos que un conjunto $A \subset\R $es
+Lebesgue medible si pertenece a la $\sigma$-álgebra de subconjuntos de $\R$ generada por los borelianos y los conjuntos de medida cero.
+$\mathscr{L}=\sigma(\{B: B\in B(\R) \textit{ o } B \textit{ B tiene medida cero}\})$
+\end{Def}
+\begin{Prop}
+Todo conjunto Lebesgue medible se puede expresar como la unión de un conjunto boreliano y un conjunto de medida cero.
+\end{Prop}
+\begin{Def}
+La medida de Lebesgue m en el intervalo, es la única medida de probabilidad definida sobre los subconjuntos Lebesgue medibles tal que $m(I)$ es igual a la longitud de I para cualquier intervalo
+$I\subset\R$
+\end{Def}
+La unicidad se demuestra usado la definición de $\pi-$sistema y puede ser encontrado en cualquier libro de teoría de medida o en \cite{curso_medida_rotger}. Además la existencia de esta medida fue demostrada por Henri Léon Lebesgue en el año 1902.\\
+Gracias a esto podemos considerar $\mathscr{F}=\mathscr{L}$ el espacio de probabilidad $(\Omega,\mathscr{L},m)$, $\Omega\subset\R$ pero por cuestiones de notación seguiremos usando $P=m$ como medida de probabilidad.
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

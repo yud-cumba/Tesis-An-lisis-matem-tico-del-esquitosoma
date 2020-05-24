@@ -1,0 +1,31 @@
+Si se fija z arbitrariamente,la convergencia y diferenciabilidad de la serie  \ref{fungenprob1} dependería solo de la sucesión de funciones $P_{m,n}$ usando el siguiente teorema.
+\begin{Teo}
+    (Derivación término a término)\\Sea $(f_n)$ una sucesión de funciones de clase $C^1$ en el intervalo $[a,b]$. Si la sucesión formada por los números $(f_n(c))$ converge para algún $c\in[a,b]$ y las derivadas $f'_n$ convergen uniformemente a una función g en $[a,b]$ entonces $(f_n)$ convergen uniformemente a una función f, de clase $C^1$ tal que $f'=g$ en $[a,b]$ [demostración lages]
+\end{Teo} 
+De este teorema deriva el siguiente corolario para series que será el que usaremos simplemente tomando $\sum_{k=1}^n f_k$ como la sucesión de funciones de clase $C^1$.
+\begin{Cor}
+    Sea $(f_k)$ una sucesión de funciones de clase $C^1$ en el intervalo $[a,b]$. Si la serie $\sum_{k=1}^\infty f_k(c)$ converge para algún $c\in[a,b]$ y  $\sum_{k=1}^\infty f'_k$ convergen uniformemente a una función g en $[a,b]$ entonces $\sum_{k=1}^\infty f_k$ convergen uniformemente a una función f, de clase $C^1$ tal que $f'=g$ en $[a,b]$ , es decir $\bigg(\sum_{k=1}^\infty f_k\bigg)'=\sum_{k=1}^\infty f'_k$\label{corolario1}
+\end{Cor}
+    La serie \ref{fungenprob1} es convergente para $t=s$, es decir, $\sum_{n=1}^\infty z^n P_{m,n}(s,s)=s^m<\infty$.\\$\sum_{n=0}^\infty z^nP'_{m,n}$ converge uniformemente .
+\begin{Cor}
+    Una condición necesaria para que una serie de funciones $\sum_{n=1}^\infty f_n$ sea uniformemente convergente en un conjunto A es que la sucesión de funciones $f_n$ converja uniformemente a cero en A
+    %(Dem en https://es.slideshare.net/abdiel13/calculo-diferencial-integralfuncunavar-1 pag 591
+\end{Cor}
+Entonces, como $$\lim_{n\to\infty}z^nP'_{m,n}=0$$ pues $P'_{m,n}$ definido en \ref{pderivadamn} es una función acotada Y $z\in(0,1)$ es fijo arbitrario.
+Así cumple las condiciones de nuestro corolario \ref{corolario1} y se obtiene que  obtenemos el siguiente sistema infinito de ecuaciones diferenciales, para cada $n\in\N$
+ $$\lim_{n\to\infty}z^n P'_{m,n}=0$$ pues $P'_{m,n}$ definido en \ref{pderivadamn} es una función acotada Y $z\in(0,1)$ es fijo arbitrario.
+Así cumple las condiciones de nuestro corolario \ref{corolario1} y se obtiene que 
+\begin{eqnarray}
+    \frac{\partial G(z,t)}{\partial t}=\sum_{n=0}^\infty P'_{m,n}(s,t)=P'_{m,0}(s,t)+\sum_{n=1}^\infty P'_{m,n}(s,t)
+\end{eqnarray}
+\begin{eqnarray}
+    \frac{\partial G(z,t)}{\partial t}=\sum_{n=0}^\infty P'_{m,n}(s,t)=P'_{m,0}(s,t)+\sum_{n=1}^\infty P'_{m,n}(s,t)
+\end{eqnarray}
+Para obtener la otra derivada parcial se fija t arbitrariamente, se observa que $G(t,z)$ es una serie de potencias con coeficientes $P_{m,n}(s,t)$ por lo cual será útil usar el siguiente teorema para encontrar la forma que toma su derivada con respecto a la segunda variable.
+\begin{Teo}
+    Supongamos que la serie \begin{equation}
+    \sum_{n=0}^\infty c_n x^n\label{serie}
+    \end{equation} converge para $|x|<R$, y definamos
+    $$f(x)=\sum_{n=0}^\infty c_n x^n\quad(|x|<R)$$
+    Entonces \ref{serie} converge uniformemente en $[-R-\epsilon,R+\epsilon]$, para cualquier $\epsilon$ prefijado. La función es continua y diferenciable en $(-R,R)$ y $$f'(x)=\sum n c_n x^{n-1}\quad(|x|<R)$$
+\end{Teo} 

@@ -1,0 +1,47 @@
+\section{Ecuación de Kolgomorov}
+Es conveniente extender las definiciones de $P_{m,n}$ y $\Pi_{i,j}$ estableciendo $$P_{m,n}(s,s)=\delta_{m,n}\quad m,n=0,1\cdots, s\geq 0$$
+y
+$$\Pi_{i,j}(s,s)=\delta_{i,j}\quad i,j=0,1\cdots,N_2, s\geq 0$$
+donde 
+$$\delta_{h,k}=
+    \begin{cases}
+    1, & \mbox{ $h=0$ } \\
+    0, & \mbox{ $h\not=k$}
+    \end{cases}$$
+Usando la ecuación de Chapman-Kolgomorov se obtiene que
+$$P_{m,n}(s,t)=\sum_{k=0}^\infty P_{m,k}(s,u)P_{k,n}(u,t),$$
+$$\Pi_{i,j}(s,t)=\sum_{k=0}^{N_2} \Pi_{i,k}(s,u)\Pi_{k,j}(u,t),$$
+\begin{eqnarray}
+    \begin{array}{cr}
+        \frac{\mathbf{P}_{m,n}(s,t)}{\partial t}= & -(\frac{1}{2}\nu_1E[S(t)]+\tilde{\mu}_1)\mathbf{P}_{m,n}(s,t)+\frac{1}{2}\nu_1E[S(t)]\mathbf{P}_{m,n-1}(s,t) \\
+         & +\tilde{\mu}_1 (n+1)\mathbf{P}_{m,n+1}(s,t)
+    \end{array}
+    \label{derivatePartial_P_t}
+\end{eqnarray}
+con valores iniciales $$\mathbf{P}_{m,n}(s,s)=\delta_{m,n}$$
+Además se define $P_{m,-1}(s,t)=0 $.\\
+Por la independencia de las matrices de transición, esta ecuación se le conoce como problema de valor inicial de Kolmogorov.\\ Alguna solución de las ecuaciones satisface los postulados y el teorema de Daniel-Kolgomorov que efectivamente existe cadenas de Markov $M_k$, $F_k$, y $S$ que tiene las propiedades de los postulados si y solo si hay una solución de el sistema de valor inicial que satisface las ecuaciones de Chapman-Kolmogorov y las adicionales restricciones.
+%%%%%%%%%%%%%%%%%%%
+En esta sección se investigará algunas de las consecuencias de asumir que el problema inicial de Kolgomorov tiene solución. Los resultados obtenidos tienen un valor especial en un punto de vista epidemiológico. Se muestra un método para encontrar la solución de este problema resolviendo un problema con valores iniciales de una ecuación diferencial de primer orden, de esta forma podremos investigar alguna consecuencia de asumir que nuestro problema de valor inicial de Kolmogorov tiene solución.
+
+\\Dado $m,s$, la función generadora de probabilidad para cada variable aleatoria $M_k(t)$, $k=1,2,\ldots,N_1$ $t\geq 0$, con medida de probabilidad $P_{m,}$ , donde $m$ y $s$ son fijos arbitrarios es
+
+\begin{equation}
+    G(t,z):=G(t,z;s,m)=\sum_{n=0}^\infty z^n \mathbf{P}_{m,n}(s,t)\label{tesis-funcGeneradoraDeM}
+\end{equation}
+
+%(Demostración en Rudín, principios de Análisis Matemáticos pag. 185)
+Gracias a esto se obtiene que 
+\begin{eqnarray}
+    \frac{\partial G(t,z)}{\partial z}=\sum_{n=1}^\infty nz^{n-1}P_{m,n}(s,t)=\sum_{n=0}^\infty (n+1)z^{n}P_{m,n+1}(s,t)
+    \frac{\partial G(t,z)}{\partial t} = \sum_z^n \frac{\partial P_{m,n}(s,t)}{\partial t}
+\end{eqnarray}
+Sustituyendo  en y denotando $Y(t)=E[S(t)]$ $$\frac{\partial G(t,z)}{\partial t} =-(\frac{1}{2}\nu_1Y(t)+\tilde{\mu}_1)\mathbf{P}_{m,0}(s,t)+\tilde{\mu}_1 \mathbf{P}_{m,1}(s,t)+\sum_{n=1}^\infty z^n\big((\frac{1}{2}\nu_1Y(t)+\tilde{\mu}_1)\mathbf{P}_{m,n}(s,t)$$$$+\frac{1}{2}\nu_1Y(t)\mathbf{P_{m,n-1}}(s,t)+\tilde{\mu}_{m,1} (n+1)\mathbf{P_{m,n+1}}(s,t)\big)$$
+
+$$=-\frac{1}{2}\nu_1Y(t)\sum_{n=1}^\infty\mathbf{P}_{m,n}(s,t)z^n-\tilde{\mu}_1\sum_{n=1}^\infty\mathbf{P}_{m.n}(s,t)z^n+\frac{1}{2}\nu_1Y(t)\sum_{n=1}^\infty\mathbf{P}_{m,n-1}(s,t)z^n+\tilde{\mu}_1\sum_{n=1}^\infty+\tilde{\mu}_1\mathbf{P}_{m,1}(s,t)-($$$$\frac{1}{2}\nu_1Y(t)\mathbf{P}_0(t)$$
+$$=-\frac{1}{2}\nu_1Y(t)\sum_{n=0}^\infty\mathbf{P}_{m,n}(s,t)z^n-\tilde{\mu}_1\sum_{n=0}^\infty (n+1)\mathbf{P}_{m,n+1}(s,t)z^{n+1}+\frac{1}{2}\nu_1Y(t)\sum_{n=0}^\infty P_{m,n}(s,t)z^{n+1}+\tilde{\mu}_1\sum_{n=0}^\infty(n+1)\mathbf{P}_{m,n+1}(s,t)z^n$$
+$$=-\frac{1}{2}\nu_1Y(t)G-\tilde{\mu}_1z\Gz+\frac{1}{2}\nu_1Y(s,t)z G+\tilde{\mu}_1\Gz=\frac{1}{2}\nu_1Y(t)(z-1)G-\tilde{\mu(z-1)\Gz}$$
+Finalmente tenemos la siguiente ecuación diferencial parcial
+$$ \Gt+\mu(z-1)\Gz=\frac{1}{2}\nu_1Y(t)(z-1)G$$
+con condición inicial
+$$G(s,z;s,m)=\sum_{n=0}^\infty z^n\mathbf{P}_{m,n}(s,s)=z^m$$
