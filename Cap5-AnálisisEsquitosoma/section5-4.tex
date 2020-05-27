@@ -1,0 +1,15 @@
+\section{Fase en el huésped intermedio}
+La función generadora de probabilidad para $ \Pii_n(t)$ es 
+$$A(t,z)=\sum_{j=0}^\infty z^j P(S(t)=j)=\sum_{j=0}^\infty z^j \mathbf{\Pi}_j(t)$$
+Diferenciando eto, y nuevamente por el teorema *** se tiene que: $$\Az=\sum_{j=1}^\infty jz^{j-1}\mathbf{\Pi}_j(t)=\sum_{j=0}^\infty (j+1)z^{j}\mathbf{\Pi}_{j+1}(t)$$ $$\At=\sum_{j=0}^\infty\mathbf{\Pi}'_j(t)z^j=\mathbf{\Pi}'_0+\sum_{j=1}^\infty \mathbf{\Pi}'_j(t)z^j$$
+Ambas series son convergentes 
+$$\At=-\nu_2N_2X(t)\Pii_0(t)+\tilde{\mu}_2\Pii_1(t)-\mu_2N_2X(t)\sum_{j=1}^\infty z^j\Pii_j(t)+(\tilde{\mu}_2+\nu_2X(t))\sum_{j=1}^{\infty}j\textbf{ }\Pii_j(t)z^j$$ 
+$$+\nu_2N_2X(t)\sumaa\Pii_{j-1}(t)z^j-\nu_2X(t)\sumaa\Pii_{i-1}(t)(j-1)z^j+\tilde{\mu}_2\sumaa\Pii_{j+1}(t)(j+1)z^j $$
+$$=-\mu_2N_2X(t)\sum_{j=0}^\infty z^j\Pii_j(t)+\tilde{\mu}_2\suma\Pii_{j+1}(t)(j+1)z^j+(\tilde{\mu}_2+\nu_2X(t))z\sum_{j=0}^{\infty}(j+1)j\textbf{ }\Pii_{j+1}(t)z^j$$ 
+$$+z\nu_2N_2X(t)\suma\Pii_j(t)z^j-z^2\nu_2X(t)\sumaa\Pii_{i-1}(t)(j-1)z^j$$
+$$=\nu_2N_2X(t)A+\mu_2\Az+(\tilde{\mu}_2+\nu_2X(t))z\Az+z\nu_2X(t)A-z^2\nu_2X(t)\Az$$
+$$=\Az(\nu_2X(t)z+\tilde{\mu}_2)(1-z)+\nu_2N_2X(t)A(z-1)$$
+Entonces 
+$$\At+(z-1)(\nu_2X(t)z+\tilde{\mu}_2)\Az=\nu_2N_2X(t)(z-1)A$$
+Con valores iniciales 
+$$A(t_0,z)=\suma\Pii_j(t_0)=p^j$$

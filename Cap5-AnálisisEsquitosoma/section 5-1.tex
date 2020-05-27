@@ -1,0 +1,31 @@
+\section{Sistema de Ecuaciones diferenciales de Kolgomorov}
+Por los postulados precedentes, $M_k(t), F_k(t)$ y $S(t)$ son procesos de nacimiento y muerte , dado $m\in\N$, $s\geq 0$ del cual, los sistemas de ecuaciones diferenciales asociados a las distribuciones $\{P_{m,n}(s,t)\}_{n=1}^\infty$ y $\{\Pi_{i,j}(s,t)\}_{j=1}^\infty$ son
+\begin{eqnarray}
+    \begin{array}{cr}
+        \frac{P_{m,n}(s,t)}{\partial t} = & -\bigg[\frac{1}{2}\nu_1E[S(t)]+\mu_1\bigg]P_{m,n}(s,t)+\frac{1}{2}\nu_1E[S(t)]P_{m,n-1}(s,t) \\
+        & +\mu_1 (n+1)P_{m,n+1}(s,t)
+    \end{array}
+    \label{tesis-edo-p_n}
+\end{eqnarray}
+\begin{eqnarray}
+    \begin{array}{cr}
+     \frac{\partial\Pi_{i,j}(s,t)}{\partial t}= & -\bigg[\nu_2(N_2-j)E\big[\sum_{k=1}^{N_1}\gamma(t)\big]+\mu_2\bigg]\Pi_{i,j}(t)
+     +\tilde{\mu}_1 (j+1)\Pi_{i,j+1}(t)
+     \\&+\nu_2(N_2-j)E\big[\sum_{k=1}^{N_1}\gamma(t)\big]\Pi_{i,j-1}(t)
+    \end{array}
+\end{eqnarray}Es conveniente extender las definiciones de $P_{m,n}$ y $\Pi_{i,j}$ estableciendo $$P_{m,n}(s,s)=\delta_{m,n}\quad m,n=0,1\cdots, s\geq 0$$
+y
+$$\Pi_{i,j}(s,s)=\delta_{i,j}\quad i,j=0,1\cdots,N_2, s\geq 0$$
+donde 
+$$\delta_{h,k}=
+    \begin{cases}
+    1, & \mbox{ $h=k$ } \\
+    0, & \mbox{ $h\not=k$}
+    \end{cases}$$
+La cuales llegarían a ser las condiciones iniciales de nuestros sistemas de ecuaciones diferenciales.
+Por la independencia de las distribuciones de transición, a esta sistema de ecuaciones se le conoce como problema de valor inicial de Kolmogorov.\\ El teorema de Daniel-Kolgomorov nos muestra que efectivamente existen cadenas de Markov $M_k$, $F_k$, y $S$ que cumplen las propiedades de los postulados si y solo existe solución a las ecuaciones de Chapman-Kolmogorov.
+\begin{Obs}
+    Claramente, las suposiciones realizadas solo representan una aproximación de lo que representan una infección real. Se ignora la infección específica por edad o sexo en la población humana.Las tasas de mortalidad son independientes de la edad y de la densidad de población. Hubiera sido más natural considerar a $P_{m,m+1}(t,t+h)$ y $\Pi_{i,i+1}(t,t+h)$ proporcional a $S(t)$ y a $\sum_{k=1}^{N_1}\gamma_k(t)$ respectivamente, pero resulta más conveniente reemplazar estas cantidades por sus esperanzas.\\
+    Además, estos postulados no tienen en cuenta los efectos de edad en la tasa de oviposición de un esquistosoma femenino emparejado.Tampoco hemos considerado el posible desarrollo de resistencia a la infección en los huéspedes o los períodos latentes durante los cuales las cercarias y las esquistosomas se desarrollan hasta sus formas maduras.\\A pesar de estas simplificaciones y omisiones, confiamos en que nuestras hipótesis retratan principales
+    características de las relaciones huésped-parásito con suficiente similitud para producir útiles conclusiones cualitativamente confiables.
+\end{Obs}

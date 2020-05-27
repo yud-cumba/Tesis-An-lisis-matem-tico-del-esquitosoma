@@ -1,15 +1,122 @@
-\section{Fase en el huésped intermedio}
-La función generadora de probabilidad para $ \Pii_n(t)$ es 
-$$A(t,z)=\sum_{j=0}^\infty z^j P(S(t)=j)=\sum_{j=0}^\infty z^j \mathbf{\Pi}_j(t)$$
-Diferenciando eto, y nuevamente por el teorema *** se tiene que: $$\Az=\sum_{j=1}^\infty jz^{j-1}\mathbf{\Pi}_j(t)=\sum_{j=0}^\infty (j+1)z^{j}\mathbf{\Pi}_{j+1}(t)$$ $$\At=\sum_{j=0}^\infty\mathbf{\Pi}'_j(t)z^j=\mathbf{\Pi}'_0+\sum_{j=1}^\infty \mathbf{\Pi}'_j(t)z^j$$
-Ambas series son convergentes 
-$$\At=-\nu_2N_2X(t)\Pii_0(t)+\tilde{\mu}_2\Pii_1(t)-\mu_2N_2X(t)\sum_{j=1}^\infty z^j\Pii_j(t)+(\tilde{\mu}_2+\nu_2X(t))\sum_{j=1}^{\infty}j\textbf{ }\Pii_j(t)z^j$$ 
-$$+\nu_2N_2X(t)\sumaa\Pii_{j-1}(t)z^j-\nu_2X(t)\sumaa\Pii_{i-1}(t)(j-1)z^j+\tilde{\mu}_2\sumaa\Pii_{j+1}(t)(j+1)z^j $$
-$$=-\mu_2N_2X(t)\sum_{j=0}^\infty z^j\Pii_j(t)+\tilde{\mu}_2\suma\Pii_{j+1}(t)(j+1)z^j+(\tilde{\mu}_2+\nu_2X(t))z\sum_{j=0}^{\infty}(j+1)j\textbf{ }\Pii_{j+1}(t)z^j$$ 
-$$+z\nu_2N_2X(t)\suma\Pii_j(t)z^j-z^2\nu_2X(t)\sumaa\Pii_{i-1}(t)(j-1)z^j$$
-$$=\nu_2N_2X(t)A+\mu_2\Az+(\tilde{\mu}_2+\nu_2X(t))z\Az+z\nu_2X(t)A-z^2\nu_2X(t)\Az$$
-$$=\Az(\nu_2X(t)z+\tilde{\mu}_2)(1-z)+\nu_2N_2X(t)A(z-1)$$
-Entonces 
-$$\At+(z-1)(\nu_2X(t)z+\tilde{\mu}_2)\Az=\nu_2N_2X(t)(z-1)A$$
-Con valores iniciales 
-$$A(t_0,z)=\suma\Pii_j(t_0)=p^j$$
+\section{Resolución de nuestra EDP}
+Nuestro objetivo es resolver dos EDPs semilineales armados anteriormente.
+Sea 
+$$\begin{cases}
+    G_t+\tilde{\mu}_1(z-1)G_z=\frac{1}{2}\nu_1Y(t)(z-1)G\\G(s,z)=z^m
+\end{cases}$$
+En este caso nuestra curva inicial será $\gamma(r)=(s,r)$ (recta $y=s$) con condición inicial $\phi(r)=r^m$
+Nuestro sistema para las curvas integrales \ref{sistemaedocurvaint} toma la forma
+$$\begin{cases}
+    t_r'(u)=1, & t_r(0)=s\\
+    z_r'(u)=\tilde{\mu}_1(z_r(u)-1), & z_r(0)=r
+\end{cases}$$
+Resolviendo, se obtiene que $t_r(u)=u+s$ y $z_r(u)=e^{\tilde{u_1}u(r-1)+1}$.
+La EDO \ref{edovr} 
+$$v'_r(u)=\frac{1}{2}\nu_1Y(u+s)(e^{\tilde{\mu_1}u(r-1)}) v_r(s)\quad v_r(0)=r^m$$
+Resolvamos esta EDO lineal por el método del factor integrante que en este caso sería $$U(u)=-\frac{1}{2}\nu_1(r-1)\int_0^uY(x+s)e^{ux}dx$$
+haciendo un cambio de variable en la integral anterior
+$$U(u)=-\frac{1}{2}\nu_1(r-1)\int_{s}^{u+s}Y(x+s)e^{u(x-s)}dx=-\frac{1}{2}\nu_1(r-1)\bigg[\int_0^{s+t_0}Y(x)e^{ux}dx-\int_0^{t_0}Y(x)e^{ux}dx\bigg]$$
+$$=-\frac{1}{2}\nu_1(r-1)\bigg[e^{us}e^{-u(s+t_0)}\int_0^{s+t_0}Y(x)e^{ux}dx-e^{-ut_0}\int_0^{t_0}Y(x)e^{ux}dx\bigg]$$
+Si denotamos $\beta(s)=e^{-us}\int_0^sY(x)e^{ux}dx$
+$$U(u)=-\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(s+t_0)-\beta(t_0)]$$
+de donde se obtiene $v_r(s)=r^me^{-U(s)}$
+despejando s y r en función de t y z
+$$z=t-s\quad,r=e^{-u(t-t_0)}(z-1)+1$$
+Reemplazando se tiene
+\begin{eqnarray}
+    G_t(z)=G(t,z; s,m)=[e^{-\tilde{\mu_1}(t-s)}(z-1)+1]^m \exp[\frac{1}{2}\nu_1(z-1)(\beta(t)-e^{-\tilde{\mu_1}(t-s)}\beta(s))]\label{gmk}
+\end{eqnarray}
+Recordemos que esta función generadora $G_t$ está relacionada a la variable aleatoria $M_k(t)$ y con la probabilidad de transición $P_{m,n}$.
+Por ello, por un momento usemos la notación que indica la variable aleatoria de la cual fue generada la función $G_t$, es decir, $G_{M_k(t)}(z; s,m)=\sum_{n=1}^\infty z^n P_{m,n}(s,t)$.\\ $X\sim Bin\big(m,e^{-\tilde{\mu_1}(t-s)}\big)$ , $Y\sim Pois\big(\frac{1}{2}\nu_1(\beta(t)-\beta(s)e^{-\tilde{\mu_1}(t-s)})\big)$.
+Es decir $$f_X(x)={m \choose x}p^x(1-p)^{m-x}$$
+$$f_Y(y)=e^{-\lambda}\frac{\lambda^y}{y!}$$ donde $\lambda=\frac{1}{2}\nu_1(\beta(t)-\beta(s)e^{-\tilde{\mu_1}(t-t_0)})$ , $p=e^{-\tilde{\mu_1}(t-s)}$.\\Para estas variables aleatorias tenemos que
+$$G_{X(t)}(z)=[e^{-u(t-s)}(z-1)+1]^m$$
+$$G_{Y(t)}(z)=exp[\frac{1}{2}\nu_1(z-1)(\beta(t)-e^{-u(t-s)}\beta(z))]$$
+Por la proposición \ref{gmultiplica} y por \ref{gmk} $$G_{X(t)+Y(t)}(z)=G_{X(t)}G_{Y(t)}(z)=G_{M_K(t)}(z;s,m)$$
+Entonces $X(t)+Y(t)$ y $  M_k(t)$ tienen la misma distribución. Esto es
+$$\mathbf{P}_{m,n}(s,t)=P(M_k(t)=n|M_k(s)=m)=P(X(t)+Y(t)=n|M_k(s)=m)=P(X(t)+Y(t)=n)f_{X(t)+Y(t)}(n)$$
+El cual es una convolución de las variables aleatorias $X(t)$ e $Y(t)$ definida en \ref{convolucion}. Entonces $$P_n(t)=(f_{X(t)}*f_{Y(t)})(n)=\sum_{j=0}^n f_{X(t)}(j)f_{Y(t)}(n-j)=\sum_{j=0}^m {m \choose j}p^j(1-p)^{m-j} e^{-\lambda}\frac{\lambda^{n-j}}{(n-j)!}$$
+Explícitamente, se tiene que $$P_n(t)=\exp\bigg(-\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\bigg)\sum_{j=0}^n{m \choose j}(e^{-\tilde{\mu_1}(t-t_0)})^j(1-e^{-\tilde{\mu_1}(t-t_0)})^{m-j}\frac{\big(\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\big)^{n-j}}{(n-j)!}$$
+Además 
+\begin{Lem}
+$$E(X(t)|M_k(0)=j)=je^{-\tilde{\mu}_1 t}$$
+    \begin{proof}
+        Como en este caso se conoce el valor de la distribución inicial $M_k(0)=j$
+        $$f_{(X(t)|M_k(0))}(x|j)=
+        {j \choose x} p_0^x(1-p_0)^{j-x} \quad x=0,1,\ldots,j$$
+        Donde $p_0=e^{-\tilde{\mu}_1 t}$
+        $$E(X(t)|M_k(0)=j)=\sum_{x=0}^m x f_{(X(t)|M_k(0))}(x|j)=\sum_{x=1}^j x{j \choose x}p_0^x(1-p_0)^{j-x}=\sum_{x=1}^j \frac{j!}{(x-1)!(j-x)!}p_0^x(1-p_0)^{j-x}$$ 
+        $$=jp_0\sum_{x=1}^j \frac{(m-1)!}{(x-1)!(m-x)!}p_0^{x-1}(1-p_0)^{m-x}=mp_0\sum_{x=1}^m {j-1\choose x-1} p_0^{x-1}(1-p_0)^{j-x}$$ $$=jp\sum_{x=0}^{j-1} {j-1\choose x} p_0^{x}(1-p_0)^{(j-1)-x}=jp$$
+        Como $p_0=e^{-\tilde{\mu}_1 t}$ se tiene el resultado .
+    \end{proof}
+\end{Lem}
+\begin{Lem}
+    $$E(Y(t)|M_k(0)=j)=\frac{1}{2}\nu_1\beta(t)$$
+    \begin{proof}
+        $$f_{(Y(t)|M_k(0))}(y|j)=e^{-\gamma_0}\frac{\gamma_0^y}{y!}$$ 
+        Donde $$\gamma_0=\frac{1}{2}\nu_1\beta(t)$$
+        $$E(Y(t)|M_k(0)=j)=\sum_{y=1}^\infty yf_{(Y(t)|M_k(0))}(y|j)=\sum_{y=1}^\infty ye^{-\gamma_0}\frac{\gamma_0^y}{y!}$$
+        $$=\gamma_0 e^{-\gamma_0}\sum_{y=1}^\infty  \frac{\gamma_0^{y-1}}{(y-1)!}=\gamma_0 e^{-\gamma_0}e^{\gamma_0}=\gamma_0=\frac{1}{2}\nu_1\beta(t)$$
+    \end{proof}
+\end{Lem}
+$$E(M_k(t))=\sum_{n=1}^\infty nP_n(t)$$
+\begin{eqnarray}
+    P_n(t)=\sum_{j=0}^\infty P_{j,n}(t)P_j(0)
+    \label{particion_pn}
+\end{eqnarray}
+Entonces $$E(M_k(t))=\sum_{n=1}^\infty n \sum_{j=1}^\infty P_{j,n}(0,t)P_k(0)=\sum_{j=1}^\infty P_j(0)\sum_{n=1}^\infty n P_{j,n}(0,t)=\sum_{j=1}^\infty q^{(k)}_jE(M_k(t)|M_k(0)=j)$$ $$=\sum_{j=1}^\infty q^{(k)}_jE(X(t)+Y(t)|M_k(0)=j)=\sum_{j=1}^\infty q^{(k)}_j[E(X(t)|M_k(0)=j)+E(Y(t)|M_k(0)=j)]$$ $$=\sum_{j=1}^\infty q^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\beta(t)\big)$$Analogamente se tiene que $$E(F_k(t))=\sum_{j=1}^\infty p^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
+Entonces $$E(W_k(t))=E(M_k(t))+E(F_k(t))=\sum_{j=1}^\infty( p^{(k)}_j+q^{(k)}_j)\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
+Un interés particular es el caso cuando $M_k(0)$ y $F_k(0)$ tiene una distribución de Poisson con el mismo parámetro $\frac{1}{2}\omega_k$, de \ref{particion_pn}
+$$P(M_k(t)=n)=P(F_k(t)=n)=\sum_{m=0}^\infty P_{m,n}(t) \frac{(\frac{1}{2}\omega_k)^m e^{-\frac{1}{2}\omega_k}}{m!}$$
+
+$$=\sum_{m=0}^\infty\exp\bigg(-\frac{1}{2}\nu_1(\beta(t))\bigg)\sum_{j=0}^n{m \choose j}(e^{-\tilde{\mu_1}t})^j(1-e^{-\tilde{\mu_1}t})^{m-j}\frac{(\frac{1}{2}\nu_1\beta(t))^{n-j}}{(n-j)!}\frac{(\frac{1}{2}\omega_k)^m e^{-\frac{1}{2}\nu_1\beta(t))^{n-j}\omega_k}}{m!}$$ 
+
+$$=e^{\frac{-1}{2}(\nu_1\beta(t)+\omega_k)}\sum_{m=0}^\infty\sum_{j=0}^m{m \choose j}(e^{-\tilde{\mu_1}t})^j(1-e^{-\tilde{\mu_1}t})^{m-j}\frac{1}{m!(n-j)!}(\frac{1}{2}\omega_k)^m(\frac{1}{2}\nu_1\beta(t))^{n-j}$$
+
+$$=\frac{1}{n!}e^{1/2(\beta(t)+\omega_k)} \sum_{j=0}{n\choose j}(\frac{1}{2}\omega_k e^{-\tilde{\mu}_1})^j(\frac{1}{2}\beta(t))^{n-j}\sum_{v=0}^\infty\frac{[\frac{1}{2}\omega_k e^{-\tilde{\mu}_1t}]^v}{v!}  $$
+$$\frac{1}{n!}[\frac{1}{2}(\beta(t)+\omega_k e^{-\tilde{\mu}_1t})]^n exp(-(\beta(t)+\omega_k e^{-\tilde{\mu}_1}t) ) $$
+Por convolución $$P(W_k(t)=n)=P(M_k(t)+F_k(t))$$
+Esto quiere decir que $$W_k(t)=n\sim Poisson(\beta+\omega e^{\tilde{\mu}_1 t})$$
+Ahora se estudiará las siguientes distribuciones de probabilidad.
+Se define: $$\hat{M}_k(t)=M_k(t)-\gamma_k(t)$$
+$$\hat{F}_k(t)=F_k(t)-\gamma_k(t)$$
+$M_k(t)$, $F_k(t)$ pueden ser interpretados como el número de parásitos machos y hembras, respectivamente, sin pareja en el huésped k.
+Además $$\gamma_k(t)=\frac{1}{2}(W_k(t)-\hat{M}_k(t)-\hat{F}_k(t) )$$
+\begin{Lem}
+    Dado $n\in\N,$
+    $$\{\hat{M}_k(t)\}=\bigcup_{j=0}^\infty \{F_k(t)=j\}\cap\{M_k(t)=j+n\}$$
+    \begin{proof}
+        Dado $\omega\in\bigcup_{j=0}^\infty \{F_k(t)=j\}\cap\{M_k(t)=j+n\}$, $\exists j\in\N$ tal que $$\omega\in\{F_k(t)=j\}\quad y \quad\omega\in\{M_k(t)=j+n\}$$
+        Entonces $$\gamma_k(t)(\omega)=F_k(t)(\omega)=j<M_k(t)(\omega)=j+n$$
+        $$M_k(t)(\omega)=\gamma_k(t)(\omega)+n$$
+        $$\hat{M}_k(t)(\omega)=n$$
+        Esto es $\omega\in\{\hat{M}_k(t)=n\}$\\
+        Dado $\omega\in\{\hat{M}_k(t)=n\}=\{M_k(t)-\gamma_k(t)=n\}$\\$$M_k(t)(\omega)-\gamma_k(t)(\omega)=n$$
+        como $n\geq 1$, $\gamma_k(t)$ entonces $$\hat{F}_k(t)=0\quad y \quad \gamma_k(t)=F_k(t)$$
+        i $F_k(t)(\omega)=j\in\N$
+        $$M_k(t)(\omega)=\hat{M}_k(t)(\omega)+\gamma_k(t)(\omega)=n+j$$
+        Entonces $\omega\in\{F_k(t)=j\}\cap\{M_k(t)=n+j\}$
+    \end{proof}
+\end{Lem}
+\label{LEMAIMPORTANTE}
+\begin{Lem}
+    Dado $n\in\N,$ entonces para cada k, $1\leq k\leq N_1$
+    \begin{eqnarray}
+        P(\hat{M}_k(t)=n)=e^{-\beta(t)}\sum_{\iota=0}^\infty\sum_{m=0}^\infty p_{\iota}^{(k)} q_m^{(k)}\sum_{i=0}^\iota\sum_{j=0}^m{\iota\choose i}{m\choose j} (e^{-\tilde{\mu}_1t})^{i+j}(1-e^{-\tilde{\mu}_1t})^{\iota+m-i-j}I_{n+i-j}(\beta(t))
+        \label{etiqueta1}
+    \end{eqnarray}
+    \begin{eqnarray}
+        P(\hat{F}_k(t)=n)=e^{-\beta(t)}\sum_{\iota=0}^\infty\sum_{m=0}^\infty p_{\iota}^{(k)} q_m^{(k)}\sum_{i=0}^\iota\sum_{j=0}^m{\iota\choose i}{m\choose j} (e^{-\tilde{\mu}_1t})^{i+j}(1-e^{-\tilde{\mu}_1t})^{\iota+m-i-j}I_{n+j-i}(\beta(t))
+        \label{etiqueta2}
+    \end{eqnarray}
+    Donde $I_n$ denota la función de Bessel modificada de primera especie de orden n.
+    \begin{proof}
+        Usando el Lema \ref{LEMAIMPORTANTE} y la independencia de $F_k(t)$ y $M_k(t)$ se sigue que:
+        $$P(\hat{M}_k(t)=n)=\sum_{j=0}^\infty P(F_k(t)=j)P(M_k(t)=j+n)$$
+        $$=\sum_{j=0}^\infty \big(\sum_{\iota=0}^\infty p_{\iota}^{(k)} P_{\iota ,j}(0,t) \big)\big(\sum_{m=0}^\infty q_m^{(k)}P_{m,j+n}(0,t)\big)$$
+        Donde:
+        $$P_{\iota ,j}(0,t)=\exp\big(-\frac{1}{2}\nu_1(\beta(t)\big)\sum_{i=0}^n{\iota \choose i}(e^{-\tilde{\mu_1}t})^i(1-e^{-\tilde{\mu_1}t})^{\iota-i}\frac{\big(\frac{1}{2}\nu_1(\beta(t)\big)^{\iota-i}}{(\iota-i)!}$$
+        $$P_{m ,j+n}(0,t)=\exp\big(-\frac{1}{2}\nu_1(\beta(t)\big)\sum_{i=0}^n{m \choose i}(e^{-\tilde{\mu_1}t})^i(1-e^{-\tilde{\mu_1}t})^{m-i}\frac{\big(\frac{1}{2}\nu_1(\beta(t)\big)^{j+n-i}}{(j+n-i)!}$$
+        La formula del lema sigue reemplazando estos valores en \ref{etiqueta1} y si se intercambian los role de $p_j^{(k)}$ y $q_j^{(k)}$ .Se obtiene \ref{etiqueta2} intercambiando los roles de $p_j^{k}$ y $q_m^{k}$
+    \end{proof}
+\end{Lem}
