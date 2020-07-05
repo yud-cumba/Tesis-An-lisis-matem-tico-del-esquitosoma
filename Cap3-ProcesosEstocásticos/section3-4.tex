@@ -1,31 +1,31 @@
-Si se fija z arbitrariamente,la convergencia y diferenciabilidad de la serie  \ref{fungenprob1} dependería solo de la sucesión de funciones $P_{m,n}$ usando el siguiente teorema.
+\section{Teorema de Daniell-Kolgomorov}
+    Revisamos la construcción general de un proceso estocástico.
+    Para fines de modelización nos gustaría considerar las familias de variable aleatoria $\{X_t\}_{t\in I}$ indexada por un conjunto general $I$. Cuando $I$ es discreto y finito, la familia vendría a ser un vector aleatorio con valores en el espacio producto medible $(E,\mathscr{E}^I)$ donde  $(E, \mathscr{E})$  es el espacio de medida donde se define cada $X_t$ , es decir, $X_t:(\Omega, \mathscr{F}) \rightarrow (E, \mathscr{E})$ para todo $t\in I$.
+     Tomando $\pi_t: (E^I,  \mathscr{E}^I) \rightarrow (E,  \mathscr{E})$ como la función proyección en el factor $t$, se puede definir simplemente $X:(\Omega, \mathscr{F})\rightarrow (E^I,  \mathscr{E}^I)$ con $\pi_t X = X_t$.
+      De esta forma hemos reemplazado la familia de variables aleatorias  que  cada uno toma valores en $E$ con una sola variable aleatoria que $X$ toma valores en $(E^I, c )$ donde $\mathscr{E}^I$  es el  $\sigma$-álgebra producto.
+    $\mathscr{E}^I$ es el sigma álgebra generado por conjuntos de la forma $\Pi_{i\in I}{A_i}\subset E^I$, donde $A_i\in\mathscr{E}, \forall i\in I$
+    Si $I$ no es finito o incluso no es contable este procedimiento tiene que ser aclarado.
+    Buscamos una definición para $\mathscr{E}^I$ que mantenga que para todo $t\in I$, la función proyección $\pi_i: (E^I,\mathscr{E}^I)\rightarrow (E,\mathscr{E})$ permanezca medible.
+    \\La familia de conjuntos de la forma $$\pi^{-1}_J(A), \quad J\subseteq I, \textit{J finito, }A\in\mathscr{E}^J,$$  donde $\pi_J :E^I\rightarrow E^J$	 es la proyección en las coordenadas en $J$, constituye un álgebra y son llamados conjuntos cilindros. 
+    \\La familia de conjuntos cilindros de la forma  $$\pi^{-1}_J\bigg(\prod_{t\in J}A_t\bigg), \quad J\subseteq I, \textit{J finito, }A_t\in\mathscr{E}, \textit{ para todo }t\in J,$$
+    forman un $\pi$-sistema dentro del álgebra de los conjuntos cilindros.
+    Consideramos $\mathscr{E}^I$ como el $\sigma-$álgebra generado por la familia de conjuntos cilindros.
+    Esta definición está concebido para lograr la siguiente equivalencia.
+    \begin{Lem}
+      Una función $X:(\Omega,\mathscr{F})\rightarrow (E^I,\mathscr{E}^I)$ es medible si y solo si $\pi_t X:(\Omega,\mathscr{F})\rightarrow (E,\mathscr{E})$ para todo $t\in I$
+    \end{Lem}
+    Dado un proceso $X:(\Omega,\mathscr{F})\rightarrow (E^I,\mathscr{E}^I)$ llamamos a la medida $\mu X$ en $(E^I,\mathscr{E}^I)$ dada por $\mu X(A)= P(X\in A)$ para todo $A\in I$. Además, como ya se vio, en el espacio $(E^I,\mathscr{E}^I)$ siempre podemos realizar el proceso estocástico $(X_t: \Omega \rightarrow E)$ $t\in I$ tomando $X_t(\omega)=\omega_t$ para que $X(\omega)=\omega$. Esto se llama el proceso canónico.
+    \\
+  El siguiente teorema, debido a Kolmogorov (e independientemente a Daniell) establece la existencia de una probabilidad en $(E^I,\mathscr{E}^I)$ gracias a la existencia de una familia de probabilidades que cumplen ciertas condiciones.
+\begin{Def}
+    Decimos que una familia de probabilidades $\{\mu_J\}_{J\subset I}$, donde $J$ es finito, es consistente si para cualquier $J'\subset J$ y con $\pi_{J, J}:E^J \rightarrow E^{J'}$ la proyección canónica de $E^J$ a $E^{J'}$, tenemos
+     que $$\mu_J \circ \pi_{J,J'}^{-1}= \mu_j$$
+\end{Def}
+\begin{Def}
+    Sea $(X,\mathscr{T})$ un espacio topológico y $\mathscr{F}$ un $\sigma$-álgebra sobre $X$ y $\mu$ la medida sobre el espacio medible $(X, \mathscr{F})$.Un subconjunto medible $A$ de $X$ se dice que es normal interior si
+    $$\{\mu(A) = \sup \{\mu(F) |\thinspace F \subseteq A, F \textit{ compacto y medible} \}$$
+    Una medida se llama regular de interior si cada conjunto medible es regular interior.
+\end{Def}
 \begin{Teo}
-    (Derivación término a término)\\Sea $(f_n)$ una sucesión de funciones de clase $C^1$ en el intervalo $[a,b]$. Si la sucesión formada por los números $(f_n(c))$ converge para algún $c\in[a,b]$ y las derivadas $f'_n$ convergen uniformemente a una función g en $[a,b]$ entonces $(f_n)$ convergen uniformemente a una función f, de clase $C^1$ tal que $f'=g$ en $[a,b]$ [demostración lages]
-\end{Teo} 
-De este teorema deriva el siguiente corolario para series que será el que usaremos simplemente tomando $\sum_{k=1}^n f_k$ como la sucesión de funciones de clase $C^1$.
-\begin{Cor}
-    Sea $(f_k)$ una sucesión de funciones de clase $C^1$ en el intervalo $[a,b]$. Si la serie $\sum_{k=1}^\infty f_k(c)$ converge para algún $c\in[a,b]$ y  $\sum_{k=1}^\infty f'_k$ convergen uniformemente a una función g en $[a,b]$ entonces $\sum_{k=1}^\infty f_k$ convergen uniformemente a una función f, de clase $C^1$ tal que $f'=g$ en $[a,b]$ , es decir $\bigg(\sum_{k=1}^\infty f_k\bigg)'=\sum_{k=1}^\infty f'_k$\label{corolario1}
-\end{Cor}
-    La serie \ref{fungenprob1} es convergente para $t=s$, es decir, $\sum_{n=1}^\infty z^n P_{m,n}(s,s)=s^m<\infty$.\\$\sum_{n=0}^\infty z^nP'_{m,n}$ converge uniformemente .
-\begin{Cor}
-    Una condición necesaria para que una serie de funciones $\sum_{n=1}^\infty f_n$ sea uniformemente convergente en un conjunto A es que la sucesión de funciones $f_n$ converja uniformemente a cero en A
-    %(Dem en https://es.slideshare.net/abdiel13/calculo-diferencial-integralfuncunavar-1 pag 591
-\end{Cor}
-Entonces, como $$\lim_{n\to\infty}z^nP'_{m,n}=0$$ pues $P'_{m,n}$ definido en \ref{pderivadamn} es una función acotada Y $z\in(0,1)$ es fijo arbitrario.
-Así cumple las condiciones de nuestro corolario \ref{corolario1} y se obtiene que  obtenemos el siguiente sistema infinito de ecuaciones diferenciales, para cada $n\in\N$
- $$\lim_{n\to\infty}z^n P'_{m,n}=0$$ pues $P'_{m,n}$ definido en \ref{pderivadamn} es una función acotada Y $z\in(0,1)$ es fijo arbitrario.
-Así cumple las condiciones de nuestro corolario \ref{corolario1} y se obtiene que 
-\begin{eqnarray}
-    \frac{\partial G(z,t)}{\partial t}=\sum_{n=0}^\infty P'_{m,n}(s,t)=P'_{m,0}(s,t)+\sum_{n=1}^\infty P'_{m,n}(s,t)
-\end{eqnarray}
-\begin{eqnarray}
-    \frac{\partial G(z,t)}{\partial t}=\sum_{n=0}^\infty P'_{m,n}(s,t)=P'_{m,0}(s,t)+\sum_{n=1}^\infty P'_{m,n}(s,t)
-\end{eqnarray}
-Para obtener la otra derivada parcial se fija t arbitrariamente, se observa que $G(t,z)$ es una serie de potencias con coeficientes $P_{m,n}(s,t)$ por lo cual será útil usar el siguiente teorema para encontrar la forma que toma su derivada con respecto a la segunda variable.
-\begin{Teo}
-    Supongamos que la serie \begin{equation}
-    \sum_{n=0}^\infty c_n x^n\label{serie}
-    \end{equation} converge para $|x|<R$, y definamos
-    $$f(x)=\sum_{n=0}^\infty c_n x^n\quad(|x|<R)$$
-    Entonces \ref{serie} converge uniformemente en $[-R-\epsilon,R+\epsilon]$, para cualquier $\epsilon$ prefijado. La función es continua y diferenciable en $(-R,R)$ y $$f'(x)=\sum n c_n x^{n-1}\quad(|x|<R)$$
-\end{Teo} 
+    Asumamos que $\{\mu_J\}_{J\subset I}$, donde $J$ es finito es una familia de probabilidades que son regular de interior. Entonces existe una única medida $\mu$ en $(E^I, \mathscr{E}^I)$ tal que $\mu\circ\pi_J^{-1}= \mu_J$, para todo $J\subset I$
+\end{Teo}

@@ -1,30 +1,46 @@
 \section{Resolución de nuestra EDP}
-Nuestro objetivo es resolver dos EDPs semilineales armados anteriormente.
-Sea 
+Nuestro objetivo es resolver la siguiente EDP. Dado $s>0,$
 $$\begin{cases}
     G_t+\tilde{\mu}_1(z-1)G_z=\frac{1}{2}\nu_1Y(t)(z-1)G\\G(s,z)=z^m
 \end{cases}$$
-En este caso nuestra curva inicial será $\gamma(r)=(s,r)$ (recta $y=s$) con condición inicial $\phi(r)=r^m$
-Nuestro sistema para las curvas integrales \ref{sistemaedocurvaint} toma la forma
-$$\begin{cases}
-    t_r'(u)=1, & t_r(0)=s\\
-    z_r'(u)=\tilde{\mu}_1(z_r(u)-1), & z_r(0)=r
-\end{cases}$$
-Resolviendo, se obtiene que $t_r(u)=u+s$ y $z_r(u)=e^{\tilde{u_1}u(r-1)+1}$.
-La EDO \ref{edovr} 
-$$v'_r(u)=\frac{1}{2}\nu_1Y(u+s)(e^{\tilde{\mu_1}u(r-1)}) v_r(s)\quad v_r(0)=r^m$$
-Resolvamos esta EDO lineal por el método del factor integrante que en este caso sería $$U(u)=-\frac{1}{2}\nu_1(r-1)\int_0^uY(x+s)e^{ux}dx$$
-haciendo un cambio de variable en la integral anterior
-$$U(u)=-\frac{1}{2}\nu_1(r-1)\int_{s}^{u+s}Y(x+s)e^{u(x-s)}dx=-\frac{1}{2}\nu_1(r-1)\bigg[\int_0^{s+t_0}Y(x)e^{ux}dx-\int_0^{t_0}Y(x)e^{ux}dx\bigg]$$
-$$=-\frac{1}{2}\nu_1(r-1)\bigg[e^{us}e^{-u(s+t_0)}\int_0^{s+t_0}Y(x)e^{ux}dx-e^{-ut_0}\int_0^{t_0}Y(x)e^{ux}dx\bigg]$$
-Si denotamos $\beta(s)=e^{-us}\int_0^sY(x)e^{ux}dx$
-$$U(u)=-\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(s+t_0)-\beta(t_0)]$$
-de donde se obtiene $v_r(s)=r^me^{-U(s)}$
-despejando s y r en función de t y z
-$$z=t-s\quad,r=e^{-u(t-t_0)}(z-1)+1$$
-Reemplazando se tiene
+En este caso nuestra curva inicial parametrizada por $r$ está dada por $\gamma(r)=(s,r)$ con condición inicial $\phi(r)=r^m$.\\
+Nuestro sistema de ecuaciones diferenciales para las curvas integrales $\{t_r:t_r(u)\}_{r\in\R}$, $\{z_r:z_r(u)\}_{r\in\R}$ y $\{v_r:v_r(u)\}_{r\in\R}$ toma la forma
 \begin{eqnarray}
-    G_t(z)=G(t,z; s,m)=[e^{-\tilde{\mu_1}(t-s)}(z-1)+1]^m \exp[\frac{1}{2}\nu_1(z-1)(\beta(t)-e^{-\tilde{\mu_1}(t-s)}\beta(s))]\label{gmk}
+    \begin{cases}
+    \label{edp-curvas-caracteristicas}
+        t_r'=1, & t_r(0)=s\\
+        z_r'=\mu_1(z_r-1), & z_r(0)=r\\
+        v'_r(u)=\frac{1}{2}\nu_1Y(t_r)(z_r-1)v, & v_r(0)=r^m,
+    \end{cases}
+\end{eqnarray}
+Resolviendo este sistema para cada $r\in\R$ se obtiene que explícitamente las curvas integrales $\{t_r:t_r(u)\}_{r\in\R}$ y $\{z_r:z_r(u)\}_{r\in\R}$ están dadas por $t_r(u)=u+s$ y $z_r(u)=(r-1)e^{\mu_1 u}+1$.\\
+Reemplazamos estas curvas en la ecuación \ref{edp-curvas-caracteristicas}
+$$v'_r-\frac{1}{2}\nu_1Y(u+s)(r-1)e^{\mu_1 u}v= 0, \quad v_r(0)=r^m$$
+Resolvamos esta EDO lineal por el método del factor integrante, el cual en  este caso sería
+$$\exp\bigg(-\int_0^u \frac{1}{2}\nu_1Y(x+s)(r-1)e^{\mu_1 u}\bigg).$$
+Si denotamos
+$$U(u)=-\frac{1}{2}\nu_1(r-1)\int_0^u Y(x+s)e^{\mu_1x} dx $$
+haciendo el cambio de variable $x=x-s$
+$$U(u)=-\frac{1}{2}\nu_1(r-1)\int_{s}^{u+s}Y(x)e^{u(x-s)}dx
+=-\frac{1}{2}\nu_1(r-1)\bigg[\int_0^{u+s}Y(x)e^{\mu_1 (x-s)}dx-\int_0^{s}Y(x)e^{\mu_1 (x-s)}dx\bigg]$$
+$$=-\frac{1}{2}\nu_1(r-1)e^{-\mu_1 s}\bigg[\int_0^{u+s}Y(x)e^{\mu_1 x}dx-\int_0^{t_0}Y(x)e^{\mu_1 x}dx\bigg]$$
+$$=-\frac{1}{2}\nu_1(r-1)e^{-\mu_1 s}(e^{\mu_1 u}e^{-\mu_1 u})\bigg[\int_0^{u+s}Y(x)e^{\mu_1 x}dx-\int_0^{s}Y(x)e^{\mu_1 x}dx\bigg]$$
+$$=-\frac{1}{2}\nu_1(r-1)\bigg[e^{\mu_1 u}\bigg(e^{-\mu_1 (s+u)}\int_0^{u+s}Y(x)e^{\mu_1 x}dx\bigg)-\bigg(e^{-\mu_1 s}\int_0^{s}Y(x)e^{\mu_1 x}dx\bigg)\bigg].$$
+Si denotamos $$\beta(s)=e^{-\mu_1 s}\int_0^sY(x)e^{\mu_1 x}dx$$ tenemos 
+$$U(u)=-\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(u+s)-\beta(s)]$$
+Gracias al método del factor integrante la solución general de $$v_r(u)=Ce^{U(u)}$$
+donde $$v_r(0)=r^m$$
+entonces
+$$C \exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(0+s)-\beta(s)]\bigg)=C=r^m$$
+Por lo tanto,
+$$v_r(u)=r^m\exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(u+s)-\beta(s)]\bigg)$$
+La función inversas de las curvas $t_r$ y $s_r$ vendrían a ser
+$$u=t-s\quad,r=(z-1)e^{-\mu_1(t-s)}+1$$
+Reemplazando estas curvas en la curva $v_r(u)$ se tiene que
+$$G(t,z)=[e^{-\mu_1(t-s)}(z-1)+1]^m\exp\bigg(\frac{1}{2}\nu_1((z-1)e^{-\mu_1(t-s)})[e^{\mu_1(t-s)}\beta(t)-\beta(s)]\bigg)$$
+La expresión 
+\begin{eqnarray}
+    G(t,z)=[e^{-\mu_1(t-s)}(z-1)+1]^m \exp\bigg(\frac{1}{2}\nu_1(z-1)\big(\beta(t)-e^{-\mu_1(t-s)}\beta(s)\big)\bigg)\label{gmk}
 \end{eqnarray}
 Recordemos que esta función generadora $G_t$ está relacionada a la variable aleatoria $M_k(t)$ y con la probabilidad de transición $P_{m,n}$.
 Por ello, por un momento usemos la notación que indica la variable aleatoria de la cual fue generada la función $G_t$, es decir, $G_{M_k(t)}(z; s,m)=\sum_{n=1}^\infty z^n P_{m,n}(s,t)$.\\ $X\sim Bin\big(m,e^{-\tilde{\mu_1}(t-s)}\big)$ , $Y\sim Pois\big(\frac{1}{2}\nu_1(\beta(t)-\beta(s)e^{-\tilde{\mu_1}(t-s)})\big)$.
