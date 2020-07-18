@@ -1,33 +1,34 @@
 \section{Conceptos generales}
-    En la naturaleza se encuentran dos tipos de fenómenos o experimentos: deterministas y aleatorios. Un experimento determinista es aquel cuyo resultado es el mismo si se la repite bajo las mismas condiciones, como por ejemplo, medir el volumen de un gas cuando la presión y la temperatura son constantes en teoría produce siempre el mismo resultado.\\
-    En contraste a esto, un experimento aleatorio es aquel que, aunque se repitan bajo las mismas condiciones, el resultado no será siempre el mismo.
+    En la naturaleza se pueden encuentran dos tipos de fenómenos o experimentos: deterministas y aleatorios. Un experimento determinista es aquel cuyo resultado es el mismo si se la repite bajo las mismas condiciones, como por ejemplo, medir el volumen de un gas cuando la presión y la temperatura son constantes en teoría produce siempre el mismo resultado.\\
+    En contraste a esto, un experimento aleatorio es aquel que, aunque se repitan bajo las mismas condiciones, el resultado no será siempre el mismo.\\
+    Los conceptos y teoremas expuestos en esta sección fueron tomados de \cite{intro-probabilidad}, \cite{Feller}, \cite{Rincon1} \cite{Rincon2}
 \begin{Ejm}
-    Algunos ejemplos de ejemplos deterministas serían:
+    Algunos ejemplos de experimentos deterministas:
     \begin{enumerate}[a)]
-        \item Medir el volumen de un gas cuando la presión y la temperatura son constantes produce, teóricamente, siempre el mismo resultado.
-        \item Medir el ángulo de un rayo de luz reflejado  en un espejo resulta siempre el mismo resultado cuando el ángulo de incidencia es el mismo y el resto de condiciones son constantes.
+        \item Medir el volumen de un gas cuando la presión y la temperatura son constantes.
+        \item Calcular la distancia que recorre un carro en $1$ hora a una velocidad constante.
     \end{enumerate}
 \end{Ejm}
-
 \begin{Ejm}
-    Algunos ejemplos de experimentos aleatorios serían:
+\label{Prob-Ejm-Aleatorio}
+Algunos ejemplos de experimentos aleatorios serían:
     \begin{enumerate}[a)]
         \item Registrar el número de accidentes que ocurren en una determinada calle de una ciudad.
-        \item Observar si una mujer con  determinada enfermedad la trasmite a alguno de sus 3 hijos. 
+        \item Registrar si una mujer con  determinada enfermedad la trasmite a alguno de sus 3 hijos.
     \end{enumerate}
 \end{Ejm}
-En principio no sabremos cuál será el resultado obtenido, por ello es conveniente agrupar todos los resultados posibles. Esto nos lleva a la siguiente definición
+En principio no sabremos cuál será el resultado obtenido, es decir, el experimento asociado a nuestro fenómeno, da lugar a un resultado $\omega$ de entre un conjunto de posibles resultados. Este conjunto de posibles resultados motiva a la siguiente definición.
 \begin{Def}
 Un espacio muestral es un conjunto arbitrario $\Omega$ que tiene como objetivo agrupar todos los posibles resultados del experimento aleatorio en cuestión.
 \end{Def}
 \begin{Ejm}
-Los espacios muestrales respecto a los experimentos aleatorios descritos en el ejemplo (\ref{ejm-expAleatorio}) serían:
+Los espacios muestrales respecto a los experimentos aleatorios descritos en el ejemplo (\ref{Prob-Ejm-Aleatorio}) serían:
 \begin{enumerate}[a)]
-    \item $\Omega=\{1,2,3,\ldots\}$
-    \item $\Omega=\{ \textnormal{\textquotedblleft V\textquotedblright, \textquotedblleft F\textquotedblright }\}$
+    \item $\Omega=\{0,1,2,3,\ldots\}$
+    \item $\Omega=\{\textit{true, false}\}$
 \end{enumerate}
 \end{Ejm}
-
+De manera intuitiva, los subconjuntos de resultados con una característica común reciben el nombre des sucesos aleatorios. Cuando el resultado del experimento pertenece al suceso $A$, decimos que ha ocurrido o se ha realizado $A$.
 \begin{Def}
     Una clase o colección $\mathscr{F}$ de subconjuntos de $\Omega$ es un $\sigma- \textit{álgebra}$ si cumple que:
     \begin{enumerate}
@@ -35,12 +36,13 @@ Los espacios muestrales respecto a los experimentos aleatorios descritos en el e
         \item Si $A\in\mathscr{F}$ entonces $A^c\in\mathscr{F}$
         \item Si $A_1, A_2,\ldots\in\mathscr{F}$, entonces  $\bigcup_{k=1}^\infty A_k\in\mathscr{F}$
     \end{enumerate}
-    A los elementos de $\mathscr{F}$ se los llama eventos, sucesos o conjuntos medibles.
 \end{Def}
-Suceso vendría ser un subconjunto del espacio muestral que cumplan ciertas condiciones.
-Intuitivamente, vendría a ser como un conjunto de posibles resultados del experimento u ocurrencias. Esto se puede visualizar mejor con un ejemplo.
+ Formalmente, a los elementos de un $\sigma-$álgebra $\mathscr{F}$ se los llama eventos, sucesos aleatorios o conjuntos medibles.
 \begin{Ejm}
-    Supongamos que queremos registrar el número final de las placas de los carros que circulan en una determinada calle de una ciudad, para poder aplicar la regla de pico y placa. Para este caso, el espacio muestral sería $$\Omega=\{0,\thinspace 1,\thinspace 2,\ldots 9\}.$$Sea cual sea el resultado del experimento, siempre va a pertenecer a $\Omega$, (por la definición de espacio muestral), por tanto, $\Omega$ debe ser un suceso; al cual llamaremos suceso seguro. Esto es $\Omega\in\mathscr{F}.$\\ Definamos el suceso $A=\{0,\thinspace 2,\ldots ,8\}.$ el cual se interpreta cuando la placa del auto termina en algún número par. Si tiene perfecto sentido pensar en que el resultado sea un número par (es decir que esté en A), también tiene perfecto sentido pensar que este podría ser un número impar (es decir que el resultado esté en $A^c$) es, por tanto, razonable exigir que $A^c$ sea un suceso si A lo es. Esto es $A^c\in\mathscr{F}$ si $A\in\mathscr{F}.$\\Si definimos otro suceso $B=\{1\}$ que representa cuando una placa acaba en el número $1$. Si tiene sentido pensar en la ocurrencia de $A\subset\Omega $ y en la ocurrencia de $B\subset\Omega $ por ser A y B sucesos, también tiene sentido pensar en la ocurrencia de  A o B, exigiremos entonces que la unión finita de sucesos sea un suceso. Esto es si $A,\thinspace B\in\mathscr{F}$ entonces $A\cup B\in \mathscr{F}.$
+    Supongamos que queremos registrar el número final de las placas de los carros que circulan en una determinada calle de una ciudad, para poder aplicar la regla de pico y placa. Para este caso, el espacio muestral sería 
+    $$\Omega=\{0,\thinspace 1,\thinspace 2,\ldots 9\}.$$
+    Si $\omega$ es resultado del experimento.\\
+    Sea cual sea el valor de $\omega$, $\omega \in\Omega$, por tanto, $\Omega$ debe ser un evento; al cual llamaremos evento seguro. Esto es $\Omega\in\mathscr{F}.$\\ Definamos el evento $A=\{0,\thinspace 2,\ldots ,8\}.$ Esto se interpreta cuando la placa del auto termina en algún número par. Si tiene perfecto sentido pensar en que el resultado $\omega$ pueda ser un número par (es decir $\omega\in A$), también tiene perfecto sentido pensar que este podría ser un número impar (es decir que $\omega \in A^c$) es, por tanto, razonable exigir que $A^c$ sea un suceso si $A$ lo es. Esto es $A^c\in\mathscr{F}$ si $A\in\mathscr{F}.$\\Si definimos otro suceso $B=\{1\}$ que representa cuando una placa acaba en el número $1$. Si tiene sentido pensar en la ocurrencia de $A\subset\Omega $ y en la ocurrencia de $B\subset\Omega $ por ser A y B sucesos, también tiene sentido pensar en la ocurrencia de  A o B, exigiremos entonces que la unión finita de sucesos sea un suceso. Esto es si $A,\thinspace B\in\mathscr{F}$ entonces $A\cup B\in \mathscr{F}.$
 \end{Ejm}
 Menos intuitiva es la exigencia de estabilidad frente a uniones numerables; la respuesta más
 convincente es que, de ese modo, se obtiene una teoría matemática más rica.
