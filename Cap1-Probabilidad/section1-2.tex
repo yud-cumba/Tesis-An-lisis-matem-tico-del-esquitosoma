@@ -1,6 +1,6 @@
 \section{Algunas propiedades elementales}
-
-Se escribirá algunas propiedades que cumple una medida de probabilidad que serán muy útiles para el llamado cálculo de probabilidades. Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en %%
+La importancia esencial de la aplicación de los métodos de cálculo de la probabilidad reside en su capacidad para estimar o predecir eventos. Cuanto mayor sea la cantidad de datos disponibles para calcular la probabilidad de un acontecimiento, más preciso será el resultado calculado. Dada la complejidad de los sistemas en los que suele aplicarse la teoría de la probabilidad, se requiere de ciertas propiedades que faciliten su cálculo.
+Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en \cite{intro-probabilidad}, \cite{Feller},\cite{Rincon1} \cite{Rincon2}
 \begin{Prop}
     Sea $(\Omega,\thinspace\mathscr{F},P)$ un espacio de probabilidad; $A,B\subset\Omega$ se cumple que:
     \begin{enumerate}
@@ -14,52 +14,58 @@ Se escribirá algunas propiedades que cumple una medida de probabilidad que ser�
     Sea $\Omega$ el espacio muestral de un experimento aleatorio. Decimos que la colección de eventos $\{B_1,B_2,\ldots,B_n\}$ es una partición finita de $\Omega$ si se cumplen las siguientes condiciones:
     \begin{enumerate}[a)]
         \item $B_i\subset\Omega$ $i=1,2,\ldots,n$.
-        \item $B_i\not=0$, $i=1,2,\ldots,n$.
-        \item $B_i\cap B_j=\emptyset$ , $i\not= j$.
-        \item $\bigcup_i^n B_i=\Omega$.
+        \item $B_i\not=\emptyset$, $i=1,2,\ldots,n$.
+        \item $B_i\cap B_j=\emptyset$ , para $i\not= j$.
+        \item $\bigcup_{i=1}^n B_i=\Omega$.
     \end{enumerate}
 \end{Def}
-El siguiente resultado es bastante útil, pues establece un método para calcular las probabilidades.
+El siguiente resultado es bastante útil, pues establece un método para calcular las probabilidades. Mediante este método, dado un evento $A$ cuya probabilidad se busca, se trata de encontrar una partición de $A$ donde cada evento de esta partición será más simple de calcular.
 \begin{Prop}
-    Sea $(\Omega,\mathscr{F},P)$ un espacio de probabilidad, $\{A_k\}_{k=1}^n$ una partición de $\Omega$, se tiene que
+    Sea $(\Omega,\mathscr{F},P)$ un espacio de probabilidad, $\{A_k\}_{k=1}^n$ una partición finita de $\Omega$, se tiene que
     $$P(\bigcup_{k=1}^n A_k)=\sum_{k=1}^n P(A_k)$$ 
 \end{Prop}
-Mediante este método, dado un evento A cuya probabilidad se busca, se trata de encontrar una partición de A donde cada evento de esta partición será más simple de calcular. Entonces la probabilidad de A se obtiene como la suma de esas probabilidades.
 \begin{Cor}
-    Si $(\Omega,\mathscr{F},P)$ es un espacio de probabilidad, A y B eventos, entonces
+    Si $(\Omega,\mathscr{F},P)$ es un espacio de probabilidad, $A$ y $B$ eventos, entonces
     $$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$
 \end{Cor}
-El término “elección al azar” es que los posibles resultados de la elección tengan asignada la misma probabilidad (el cual serán llamados sucesos equiprobables).\\Los posibles resultados de un experimento aleatorio pueden resultar de este tipo. En ese caso resulta simple asignar una probabilidad a cualquier evento.\\\\
-Sea $\Omega=\{\omega_1,\ldots,\omega_N\}$ un espacio muestral y $A=\{\omega_1,\ldots,\omega_n\}$ un suceso, donde $n,\thinspace N\in\N$, $ n<N$.\\
-Si suponemos que cada conjunto  $\{\omega_k\}$, para $k=1,2,\ldots N$ son equiprobables, entonces $P(\{\omega_i\})=P(\{\omega_j\})$ para $i,j=1,2,\ldots,N$, $i\not=j$ y como consecuencia $$1=P(\bigcup_{k=1}^N \{\omega_k\})=\sum_{k=1}^N P(\{\omega_k\})=NP(\omega_k).$$
-$$P(\omega_k)=\frac{1}{N}\quad k=1,2,\ldots ,N.$$
-De donde $$P(A)=P(\bigcup_{k=1}^n \{\omega_k\})=\sum_{k=1}^n P(\{\omega_k\})=n P(\{\omega_k\})=\frac{n}{N}.$$
-Este método de encontrar probabilidades, basándose en la equiprobabilidad de los posibles resultados, es conocido como la definición clásica de probabilidad.\\Históricamente,esta forma de calcular probabilidades es una de las primeras en utilizarse; se aplicó con bastante éxito en problemas de juegos de azar y ayudó a sentar las bases para construir la teoría matemática.
+Dos o más eventos se llaman equiprobables si tienen la misma probabilidad.
+Dado $n,N\in\N$, tal que $n<N$, $\Omega=\{\omega_1,\ldots,\omega_N\}$ un espacio muestral y $A=\{\omega_1,\ldots,\omega_n\}$ un evento.
+Si suponemos que los conjuntos  $\{\omega_k\}_{k=1}^N$, son equiprobables, entonces $P(\{\omega_i\})=P(\{\omega_j\})$ para $i,j=1,2,\ldots,N$, $i\not=j$ y como consecuencia $$1=P(\bigcup_{k=1}^N \{\omega_k\})=\sum_{k=1}^N P(\{\omega_k\})=N P(\omega_k).$$
+\begin{eqnarray}
+    \label{probabilidad-de-n}
+    P(\omega_k)=\frac{1}{N}\quad k=1,2,\ldots ,N.
+\end{eqnarray}
+Además
+$$P(A)=P(\bigcup_{k=1}^n \{\omega_k\})=\sum_{k=1}^n P(\{\omega_k\})=n P(\{\omega_k\})$$
+Usando la expresión $(\ref{probabilidad-de-n})$
+$$P(A)=\frac{n}{N}.$$
+Este método de encontrar probabilidades, basándose en la equiprobabilidad de los posibles resultados, es conocido como la definición clásica de probabilidad.\\
+Históricamente,esta forma de calcular probabilidades es una de las primeras en utilizarse; se aplicó con bastante éxito en problemas de juegos de azar y ayudó a sentar las bases para construir la teoría matemática.
 \begin{Def}
-    Sea $A$ un subconjunto de un espacio muestral $\Omega$ de cardinalidad finita. se define la probabilidad clásica del evento $A$ como el cociente $$P(A)=\frac{\#A}{\#\Omega}$$ en donde el símbolo $\#A$ denota la cardinalidad del conjunto $A$.
-    \label{def-prob-probClásica}
+    %Sea $A$ un subconjunto de un espacio muestral $\Omega$ de cardinalidad finita. Si $\#A$ denota la cardinalidad del conjunto $A$. Se define la probabilidad clásica del evento $A$ como el cociente $$P(A)=\frac{\#A}{\#\Omega}$$
+    %\label{def-prob-probClásica}
 \end{Def}
 \begin{Ejm}
-    El ejemplo típico de equiprobabilidad se presenta al considerar el experimento consistente en lanzar un dado sobre una mesa y observar el número que muestra finalmente su cara superior. Considere el experimento aleatorio de lanzar un dado equilibrado.\\ El espacio muestral es el conjunto  $\Omega=\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}$. Si deseamos
-    calcular la probabilidad (clásica) del evento A, correspondiente a obtener
-    un número par, es decir, la probabilidad de $A=\{2,\thinspace 4,\thinspace 6\}$, entonces $$P(A)=\frac{\#\{2,\thinspace 4,\thinspace 6\}}{\#\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}}=\frac{3}{6}=0.5$$
+    El ejemplo típico de equiprobabilidad se presenta al considerar el experimento  en lanzar un dado no trucado sobre una mesa y observar el número que muestra finalmente su cara superior. Considere el experimento aleatorio de lanzar un dado equilibrado.\\ El espacio muestral es el conjunto  $\Omega=\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}$. Si deseamos calcular la probabilidad (clásica) del evento A, correspondiente a obtener un número par, es decir, la probabilidad de $A=\{2,\thinspace 4,\thinspace 6\}$, entonces $$P(A)=\frac{\#\{2,\thinspace 4,\thinspace 6\}}{\#\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}}=\frac{3}{6}=0.5$$
 \end{Ejm}
-En ocasiones un experimento aleatorio está compuesto por varios experimentos, también aleatorios, los cuales se realizan uno después del otro. Un ejemplo típico de esta situación se obtiene al considerar $n$ elecciones sucesivas, todas ellas al azar, de elementos de una determinada población. El resultado de esta elección puede ser independiente del pasado o depender de las partes anteriores.
+En ocasiones un experimento aleatorio depende de otros experimentos, también aleatorios, los cuales se realizan uno después del otro.\\
+Como la probabilidad está ligada a nuestra ignorancia sobre los resultados de la experiencia, el hecho de que ocurra un suceso, puede cambiar la probabilidad de los demás. El proceso de realizar la historia clínica, explorar y realizar pruebas complementarias ilustra este principio.
 \begin{Def}
-    Sea $(\Omega,\mathscr{F},P)$ un espacio de probabilidad, $A,B\subset\Omega$ tal que $P(B)>0$. La probabilidad condicional de algún evento $A$, dado el evento fijo $B$, es una función que se denota $P(\cdot\thinspace|\thinspace B):\Omega\rightarrow [0,1]$ y se define como $$P(A\thinspace|\thinspace B)=\frac{P(A\cap B)}{P(B)}$$
+    Sea $(\Omega,\mathscr{F},P)$ un espacio de probabilidad, $A,B\subset\Omega$ tal que $P(B)>0$. La probabilidad condicional de algún evento $A$, dado que el evento $B$ suceda previamente, es una función que se denota $P(\cdot\thinspace|\thinspace B):\Omega\rightarrow [0,1]$ y se define como $$P(A\thinspace|\thinspace B)=\frac{P(A\cap B)}{P(B)}$$
 \end{Def}
-    Aquí la probabilidad del evento presente $A$ si es influenciado por el evento $B$.\\
-    Siendo la probabilidad condicional una probabilidad calculada en un espacio muestral reducido $B$, es de esperarse que ésta tenga las mismas propiedades que cualquier medida de probabilidad.
+Cuando ocurre un suceso cambia el espacio muestral, por eso cambia la probabilidad. A veces es más fácil calcular la probabilidad condicionada teniendo en cuenta este cambio de espacio muestral. 
+    Siendo la probabilidad condicional una probabilidad calculada en un espacio muestral reducido (el cual sería $B$), es de esperarse que ésta tenga las mismas propiedades que cualquier medida de probabilidad.
 \begin{Ejm}
-    Al $25 \%$ de mis amigos le gusta la fresa y el chocolate, mientras que al $60\%$ le gusta el chocolate. Si queremos hallar la probabilidad de que a un amigo que le gusta el chocolate, le guste la fresa tendremos que usar las probabilidades condicionales.
-    Vamos a trabajar con 2 eventos: que a un amigo le guste la fresa, y que a un amigo le guste el chocolate.\\
-    Evento A: que a un amigo le gusten los fresa. $P(A) = ?$\\
-    Evento B: que a un amigo le guste el chocolate. $P(B) =0.6$ .\\
-    Evento A y B: que a un amigo le guste la fresa y el chocolate. $P(A\cap B) =0.25$\\
-    Ahora calculamos la probabilidad de que a un amigo le guste la fresa, dado que le gusta el chocolate.
+Se piensa tomar dos exámenes, uno de álgebra y otro de cálculo.
+   Si 6 de cada 10 alumnos aprueban el examen de álgebra, mientras que solo 1 de cada 4 alumnos  álgebra y cálculo a la vez. Si el examen de álgebra se toma primero. ¿Cuál es la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo?
+    Vamos a trabajar con 2 eventos: que el alumno apruebe cálculo, y que apruebe álgebra.\\
+    Evento A: Aprobar cálculo. $P(A) = ?$\\
+    Evento B: Aprobar álgebra. $P(B) =0.6$ .\\
+    Evento A y B: Aprobar álgebra y cálculo. $P(A\cap B) =0.25$\\
+    Ahora calculamos la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo
     $$P(A\thinspace|\thinspace B)=\frac{P(A\cap B)}{P(B)}=\frac{0.25}{0.6}=0.4167$$
-    La probabilidad de que a un amigo le guste la fresa dado que le gusta el chocolate es del $41,67\%$.
-\end{Ejm}
+   Como vemos, luego de tomar el examen de álgebra el espacio muestral ($100\%$ de la los alumnos) se reduce al evento $B$ ( los que aprueban álgebra, $60 \%$ de la totalidad de los alumnos).
+  \end{Ejm}
 \begin{Prop}
     $P(\cdot\thinspace|\thinspace B)$ es una medida de probabilidad en el espacio de medida $(\Omega,\mathscr{F})$
 \end{Prop}

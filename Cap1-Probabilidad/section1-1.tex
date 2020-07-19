@@ -1,7 +1,7 @@
 \section{Conceptos generales}
     En la naturaleza se pueden encuentran dos tipos de fenómenos o experimentos: deterministas y aleatorios. Un experimento determinista es aquel cuyo resultado es el mismo si se la repite bajo las mismas condiciones, como por ejemplo, medir el volumen de un gas cuando la presión y la temperatura son constantes en teoría produce siempre el mismo resultado.\\
     En contraste a esto, un experimento aleatorio es aquel que, aunque se repitan bajo las mismas condiciones, el resultado no será siempre el mismo.\\
-    Los conceptos y teoremas expuestos en esta sección fueron tomados de \cite{intro-probabilidad}, \cite{Feller}, \cite{Rincon1} \cite{Rincon2}
+    Los conceptos y teoremas expuestos en esta sección fueron tomados de \cite{Rincon1} \cite{Rincon2}
 \begin{Ejm}
     Algunos ejemplos de experimentos deterministas:
     \begin{enumerate}[a)]
@@ -42,7 +42,7 @@ De manera intuitiva, los subconjuntos de resultados con una característica com�
     Supongamos que queremos registrar el número final de las placas de los carros que circulan en una determinada calle de una ciudad, para poder aplicar la regla de pico y placa. Para este caso, el espacio muestral sería 
     $$\Omega=\{0,\thinspace 1,\thinspace 2,\ldots 9\}.$$
     Si $\omega$ es resultado del experimento.\\
-    Sea cual sea el valor de $\omega$, $\omega \in\Omega$, por tanto, $\Omega$ debe ser un evento; al cual llamaremos evento seguro. Esto es $\Omega\in\mathscr{F}.$\\ Definamos el evento $A=\{0,\thinspace 2,\ldots ,8\}.$ Esto se interpreta cuando la placa del auto termina en algún número par. Si tiene perfecto sentido pensar en que el resultado $\omega$ pueda ser un número par (es decir $\omega\in A$), también tiene perfecto sentido pensar que este podría ser un número impar (es decir que $\omega \in A^c$) es, por tanto, razonable exigir que $A^c$ sea un suceso si $A$ lo es. Esto es $A^c\in\mathscr{F}$ si $A\in\mathscr{F}.$\\Si definimos otro suceso $B=\{1\}$ que representa cuando una placa acaba en el número $1$. Si tiene sentido pensar en la ocurrencia de $A\subset\Omega $ y en la ocurrencia de $B\subset\Omega $ por ser A y B sucesos, también tiene sentido pensar en la ocurrencia de  A o B, exigiremos entonces que la unión finita de sucesos sea un suceso. Esto es si $A,\thinspace B\in\mathscr{F}$ entonces $A\cup B\in \mathscr{F}.$
+    Sea cual sea el valor de $\omega$, $\omega \in\Omega$, por tanto, $\Omega$ debe ser un evento; al cual llamaremos evento seguro. Esto es $\Omega\in\mathscr{F}.$\\ Definamos el evento $A=\{0,\thinspace 2,\ldots ,8\}.$ Esto se interpreta cuando la placa del auto termina en algún número par. Si tiene perfecto sentido pensar en que el resultado $\omega$ pueda ser un número par (es decir $\omega\in A$), también tiene perfecto sentido pensar que este podría ser un número impar (es decir que $\omega \in A^c$) es, por tanto, razonable exigir que $A^c$ sea un evento si $A$ lo es. Esto es $A^c\in\mathscr{F}$ si $A\in\mathscr{F}.$\\Si definimos el evento $B=\{1\}$ que representa cuando una placa acaba en el número $1$. Si tiene sentido pensar en que el resultado $\omega$ pueda ser par ($\omega\in A$) o que el resultado sea $1$ ($\omega\in B$) por ser ambos eventos, entonces puede ocurrir que $\omega\in A\cup B$, por lo tanto exigiremos que la unión finita de sucesos sea un suceso. Esto es si $A,\thinspace B\in\mathscr{F}$ entonces $A\cup B\in \mathscr{F}.$
 \end{Ejm}
 Menos intuitiva es la exigencia de estabilidad frente a uniones numerables; la respuesta más
 convincente es que, de ese modo, se obtiene una teoría matemática más rica.
@@ -51,21 +51,21 @@ convincente es que, de ese modo, se obtiene una teoría matemática más rica.
     Este conjunto es la menor $\sigma-$álgebra que contiene a $\mathscr{C}$.
 \end{Def}
 \begin{Ejm}
-    El conjunto $\mathscr{P}(\Omega)$ de todos los subconjuntos de $\Omega$ es trivialmente un $\sigma-álgebra$ en $\Omega$ que llamaremos discreta. No obstante, llamaremos espacio medible discreto un conjunto numerable provisto de esta $\sigma-$álgebra. En lo que sigue, cualquier conjunto numerable se supondrá provisto de la $\sigma-$álgebra discreta, a menos que se indique lo contrario.
+    El conjunto $\mathscr{P}(\Omega)$ de todos los subconjuntos de $\Omega$ es trivialmente un $\sigma$-álgebra en $\Omega$ a la cual llamaremos discreta. \\ Llamaremos espacio medible discreto a un conjunto numerable provisto de esta $\sigma-$álgebra. En lo que sigue, cualquier conjunto numerable se supondrá provisto de la $\sigma-$álgebra discreta, a menos que se indique lo contrario.
 \end{Ejm}
 \begin{Ejm}
-    EL conjunto $\{\Omega\}$ es la más pequeña $\sigma-$álgebra que podemos considerar en $\Omega$. Se llamará $\sigma-$álgebra trivial.
+    EL conjunto $\{\Omega, \emptyset\}$ es la más pequeña $\sigma-$álgebra que podemos considerar de $\Omega$. Se llamará $\sigma-$álgebra trivial.
 \end{Ejm}
 \begin{Def}
     \label{def-medidaProbabilidad}
     Sea $\mathscr{F}$ una $\sigma-$álgebra del espacio muestral $\Omega$.\\
-    Una función $P:\mathscr{F}\rightarrow [0,1]$ es una medida de probabilidad si $P(\Omega)=1$ y es $\sigma-aditiva$, es decir, si cumple que $$P\big(\bigcup_{k=1}^\infty A_k\big)=\sum_{k=1}^\infty P(A_k)$$
-    donde $A_i\cap A_j=\emptyset$ para valores de $i$ y $j$ distintos.
+    Una función $P:\mathscr{F}\rightarrow [0,1]$ es una medida de probabilidad si cumple que $P(\Omega)=1$ y P es $\sigma-aditiva$, es decir que $$P\big(\bigcup_{k=1}^\infty A_k\big)=\sum_{k=1}^\infty P(A_k)$$
+    donde $A_i\cap A_j=\emptyset$, $i\not= j$
 \end{Def}
-Si $A\in\mathscr{F}$, el número $P(A)$ es una forma de medir la posibilidad de que suceda el evento $A$ al efectuar una vez el experimento aleatorio.\\
-Los valores de probabilidad siempre se asignan en una escala de $0$ a $1$. Una probabilidad cercana a $0$ indica que es poco probable que ocurra un evento; una probabilidad cercana a $1$ indica que es casi seguro que éste ocurra. Otras probabilidades entre $0$ y $1$ representan diversos grados de posibilidad de que el evento ocurra.\\
+Si $A\in\mathscr{F}$, el número $P(A)$ es una forma de medir la posibilidad que suceda el evento $A$ al efectuar una vez el experimento aleatorio.\\
+Una probabilidad cercana a $0$ indica que es poco probable que ocurra un evento; una probabilidad cercana a $1$ indica que es casi seguro que éste ocurra.\\
 La probabilidad es importante en la toma de decisiones debido a que proporciona una manera de medir, expresar y analizar las incertidumbres asociadas con eventos futuros.
 \begin{Def}
-    Sea $\Omega$ un espacio muestral, $\mathscr{F}$ un $\sigma-$álgebra de $\Omega$, P una medida de probabilidad.\\
+    Sea $\Omega$ un espacio muestral, $\mathscr{F}$ un $\sigma-$álgebra de $\Omega$, $P$ una medida de probabilidad.\\
     A la terna $(\Omega,\thinspace\mathscr{F})$ se le llama espacio de medida o espacio medible y a la terna $(\Omega,\mathscr{F},P)$ se le conoce como espacio de probabilidad.
 \end{Def}
