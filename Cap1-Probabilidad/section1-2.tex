@@ -49,11 +49,11 @@ Históricamente,esta forma de calcular probabilidades es una de las primeras en 
     El ejemplo típico de equiprobabilidad se presenta al considerar el experimento  en lanzar un dado no trucado sobre una mesa y observar el número que muestra finalmente su cara superior. Considere el experimento aleatorio de lanzar un dado equilibrado.\\ El espacio muestral es el conjunto  $\Omega=\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}$. Si deseamos calcular la probabilidad (clásica) del evento A, correspondiente a obtener un número par, es decir, la probabilidad de $A=\{2,\thinspace 4,\thinspace 6\}$, entonces $$P(A)=\frac{\#\{2,\thinspace 4,\thinspace 6\}}{\#\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}}=\frac{3}{6}=0.5$$
 \end{Ejm}
 En ocasiones un experimento aleatorio depende de otros experimentos, también aleatorios, los cuales se realizan uno después del otro.\\
-Como la probabilidad está ligada a nuestra ignorancia sobre los resultados de la experiencia, el hecho de que ocurra un suceso, puede cambiar la probabilidad de los demás. El proceso de realizar la historia clínica, explorar y realizar pruebas complementarias ilustra este principio.
+Como la probabilidad está ligada a nuestra ignorancia sobre los resultados de la experiencia, el hecho de que ocurra un suceso, puede cambiar la probabilidad de los demás.
 \begin{Def}
     Sea $(\Omega,\mathscr{F},P)$ un espacio de probabilidad, $A,B\subset\Omega$ tal que $P(B)>0$. La probabilidad condicional de algún evento $A$, dado que el evento $B$ suceda previamente, es una función que se denota $P(\cdot\thinspace|\thinspace B):\Omega\rightarrow [0,1]$ y se define como $$P(A\thinspace|\thinspace B)=\frac{P(A\cap B)}{P(B)}$$
 \end{Def}
-Cuando ocurre un suceso cambia el espacio muestral, por eso cambia la probabilidad. A veces es más fácil calcular la probabilidad condicionada teniendo en cuenta este cambio de espacio muestral. 
+Cuando ocurre un suceso antes de realizar otro experimento, se reduce el espacio muestral, por eso cambia la probabilidad. A veces es más fácil calcular la probabilidad condicionada teniendo en cuenta este cambio de espacio muestral. 
     Siendo la probabilidad condicional una probabilidad calculada en un espacio muestral reducido (el cual sería $B$), es de esperarse que ésta tenga las mismas propiedades que cualquier medida de probabilidad.
 \begin{Ejm}
 Se piensa tomar dos exámenes, uno de álgebra y otro de cálculo.
@@ -69,14 +69,14 @@ Se piensa tomar dos exámenes, uno de álgebra y otro de cálculo.
 \begin{Prop}
     $P(\cdot\thinspace|\thinspace B)$ es una medida de probabilidad en el espacio de medida $(\Omega,\mathscr{F})$
 \end{Prop}
-Gracias a esta propiedad tenemos una útil herramienta para calcular probabilidades conocida como la regla del producto. La ley de la multiplicación se puede utilizar para determinar la probabilidad de la intersección de dos eventos. La ley de la multiplicación se deriva de la definición de probabilidad condicional.
+Gracias a esta propiedad tenemos una útil herramienta para calcular probabilidades conocida como la regla del producto, la cual se puede utilizar para determinar la probabilidad de la intersección de dos eventos. Esta ley se deriva de la definición de probabilidad condicional.
 $$P(A\cap B)=P(A\thinspace|\thinspace B)P(B)$$
-De la misma manera, en los casos en que la
-ocurrencia de un evento $A$ no altere la probabilidad de un evento $B$, se puede hablar de independencia de la probabilidad de ocurrencia de $B$ con respecto a la ocurrencia de $A$.
+De la misma manera, en los casos en que la ocurrencia de un evento $A$ no altere la probabilidad de otro evento $B$, se puede hablar de independencia de probabilidad.
 \begin{Def}
-    Se dice que los eventos $A, B$ son independientes si se cumple la igualdad $P(A\cap B)=P(A)P(B)$. Bajo la hipótesis adicional que $P(B)>0$ la condición de independencia puede escribirse como $P(A\thinspace|\thinspace B)=P(A)$ y esto significa que la ocurrencia del evento $B$ no afecta al evento $A$.
+    Se dice que los eventos $A, B$ son independientes si se cumple la igualdad $P(A\cap B)=P(A)P(B)$. Bajo la hipótesis adicional que $P(B)>0$ la condición de independencia puede escribirse como $P(A\thinspace|\thinspace B)=P(A)$.
 \end{Def}
-El siguiente resultado es bastante útil cuando se quiere determinar la probabilidad de algún conjunto grande, bastará con hallar las probabilidades de alguna partición.
+ Esto intuitivamente significa que la ocurrencia del evento $B$ no afecta al evento $A$.
+El siguiente resultado es bastante útil cuando se quiere determinar la probabilidad de algún conjunto grande, bastará con hallar las probabilidades de conjuntos más pequeños y probabilidades condicionales con respecto a esos conjuntos
 \begin{Teo}
     Sea $\{B_1,B_2,\ldots,B_n\}$ una partición de $\Omega$ tal que $P(B_i)\not=0$, para  $i=1,\ldots,n$, para cualquier evento $A$, $$P(A)=\sum_{i=1}^n P(A\thinspace|\thinspace B_i)P(B_i)$$
 \end{Teo}
