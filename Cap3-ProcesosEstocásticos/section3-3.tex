@@ -69,7 +69,7 @@ Para modelar la dinámica de una población no siempre se conoce el estado en el
 \end{eqnarray}
 Gracias a estos valores iniciales tenemos soluciones únicas de \ref{procNacimientoMuerte-edo-n} y \ref{procNacimientoMuerte-edo-0} y este sistema será el que represente nuestro problema.\\
 \begin{Ejm}
-Supóngase que una población consta de elementos que pueden dividirse en dos iguales o morir. Durante cualquier intervalo corto de tiempo de longitud $h$, la probabilidad de que el elemento viviente se divide en dos es $\lambda h+ o(h)$, mientras que la probabilidad correspondiente de morir es $\mu h + o(h)$. Aquí $\lambda$ y $\mu$ son dos constantes características de la población. Si no hay interacción entre los elementos, estaremos en el caso de un proceso de nacimiento y muerte con $\lambda_n=n \lambda$\lambda y $\mu_n =n \mu$
+Supóngase que una población consta de elementos que pueden dividirse en dos iguales o morir. Durante cualquier intervalo corto de tiempo de longitud $h$, la probabilidad de que el elemento viviente se divide en dos es $\lambda h+ o(h)$, mientras que la probabilidad correspondiente de morir es $\mu h + o(h)$. Aquí $\lambda$ y $\mu$ son dos constantes características de la población. Si no hay interacción entre los elementos, estaremos en el caso de un proceso de nacimiento y muerte con $\lambda_n=n$ y $\mu_n =n \mu$
 Las ecuaciones diferenciales básicas toman la forma:
 $$P'_0(t)=\mu P_1(t)$$
 $$P'_n(t)=-(\lambda+\mu)n P_n(t)+\lambda(n-1)P_{n-1}+\mu_{n+1}P_{n+1}(t)$$

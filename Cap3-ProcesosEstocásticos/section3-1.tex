@@ -28,7 +28,7 @@ El proceso de Poisson es un modelo relevante tanto en las aplicaciones como en l
    $$E(X_1)=\lambda$$
    
    \end{Cor}
-   Esto nos muestra que la variable $\lambda$ se interpreta con la cantidad media o esperanza de que en un intervalo intermedio haya algún cambio .\\
+   Esto nos muestra que la variable $\lambda$ se interpreta con la cantidad media o esperanza de que en un intervalo haya algún cambio .\\
    Una de las propiedades que caracterizan de manera única a la distribución exponencial dentro del conjunto de distribuciones absolutamente continuas es que satisface la propiedad de pérdida de memoria, esto es, si $T$ tiene distribución exponencial de parámetro $\lambda$, entonces para cualesquiera tiempos $s$, $t\geq$ se cumple la igualdad $$P(T>t+s|\thinspace T>s)=P(T>t).$$
     En otras palabras, condicionada al evento $(T>s)$, la variable $(T-s)$ sigue teniendo distribución exponencial con parámetro $\lambda$.
     Esto significa que, para un valor de $s\geq 0$ fijo, todos los tiempos de estancia a partir de $s$, incluyendo el primero, siguen teniendo distribución exponencial $\lambda$, y por lo tanto el proceso de conteo de eventos a partir del tiempo $s$ es un proceso de Poisson.
@@ -68,7 +68,7 @@ El proceso de Poisson es un modelo relevante tanto en las aplicaciones como en l
         \end{figure}
     \end{center}
     Si se divide el intervalo en $N=20$ subintervalos de longitud $h=0.05$, se aprecia que cada uno contiene un suceso o no contiene ninguno.\\
-    La probabilidad de que no suceda un cambio en todo el intervalo unitario gracias a la probabilidad clásica definida en (\ref{def-prob-probClásica}) será $P_0(1)=\frac{10}{20}=0.5$ entonces $\frac{1-P_0(h)}{h}=\frac{1-0.5}{0.05}=10$ que justamente coincide con el total de sucesos.\\
+    La probabilidad de que no suceda un cambio en todo el intervalo unitario gracias a la probabilidad clásica definida será $P_0(1)=\frac{10}{20}=0.5$ entonces $\frac{1-P_0(h)}{h}=\frac{1-0.5}{0.05}=10$ que justamente coincide con el total de sucesos.\\
     Intuitivamente, cuando los subintervalos se vuelven suficientemente pequeños $(h\rightarrow 0)$ de tal forma que cada uno contenga a lo mucho un suceso, este numero converge al número esperado de saltos dentro del intervalo unitario que es número finito $\lambda$, la cual se interpreta como la media, esperanza o número medio de ocurrencias en el intervalo de tiempo unitario.
     Esto es
     $$  \lim_{h\rightarrow 0}\frac{1-P_0(h)}{h}=\lambda
@@ -171,7 +171,7 @@ El proceso de Poisson es un modelo relevante tanto en las aplicaciones como en l
         \end{cases}$$
         Usando nuevamente el método de factor integrante se tiene que
         $$P_{n+1}(t)=\frac{(\lambda t)^{n+1}}{n+1!}e^{-\lambda t}$$
-        Lo cual prueba el Red Handed Denial resultado.
+        Lo cual prueba el resultado.
     \end{proof}
     Con esta notación, las probabilidades encontradas se les conocen como postulados de Poisson.\\
     Estas condiciones son débiles puesto que da entender que para cada suceso, la media o esperanza $\lambda$ del número de ocurrencia se mantiene constante durante todo el proceso sin importar en qué estado se encontraba previamente.\\

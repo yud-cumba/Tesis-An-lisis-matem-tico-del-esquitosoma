@@ -15,7 +15,6 @@ Por los postulados expuestos en la sección (\ref{datos-generales}), para $t\geq
     \end{array}
 \end{eqnarray}
 para $m,i\in\N$, $s\geq 0$.\\
-De forma intuitiva, si el sistema ($M_k$, $F_k$ o $S$) se encuentra en el estado $m$ en la época $s$ y no transcurre ningún salto de tiempo (es decir continúa en el estado $s$) el sistema seguirá permaneciendo en el estado $m$, ya que si no transcurre tiempo, tampoco ocurrirá cambio alguno.\\
 Por lo tanto si $n\not=0$, $$P\big(M_k(s)=n |\thinspace M_k(s)=m\big)=0\quad y\quad \Pi\big(M_k(s)=n |\thinspace M_k(s)=m\big)=0,$$
 mientras que si $n=m$, $$P\big(M_k(s)=m |\thinspace M_k(s)=m\big)=1\quad y \quad \Pi\big(M_k(s)=m |\thinspace M_k(s)=m\big)=0.$$\\
 Por ello es conveniente extender las definiciones de $P_{m,n}$ y $\Pi_{i,j}$ estableciendo $$P_{m,n}(s,s)=\delta_{m,n}\quad m,n=0,1\cdots, s\geq 1$$
@@ -28,6 +27,7 @@ $$\delta_{h,k}=
     0, & \mbox{ $h\not=k$},
     \end{cases}$$
 las cuales llegarían a ser las condiciones iniciales de nuestros sistemas de ecuaciones diferenciales.
+Esto quiere decir que si el sistema ($M_k$, $F_k$ o $S$) se encuentra en el estado $m$ en la época $s$ y no transcurre ningún salto de tiempo (es decir continúa en el estado $s$) el sistema seguirá permaneciendo en el estado $m$, ya que si no transcurre tiempo, tampoco ocurrirá cambio alguno.\\
 Por la independencia de las distribuciones de transición, a esta sistema de ecuaciones se le conoce como problema de valor inicial de Kolmogorov.\\ El teorema de Daniel-Kolgomorov nos muestra que efectivamente existen cadenas de Markov $M_k$, $F_k$, y $S$ que cumplen las propiedades de los postulados si y solo existe solución a las ecuaciones de Chapman-Kolmogorov.
 %add theorem
 %%%%%%

@@ -52,7 +52,9 @@ Por la proposición \ref{gmultiplica} y por \ref{gmk} $$G_{X(t)+Y(t)}(z)=G_{X(t)
 Entonces $X(t)+Y(t)$ y $  M_k(t)$ tienen la misma distribución. Esto es
 $$\mathbf{P}_{m,n}(s,t)=P(M_k(t)=n|M_k(s)=m)=P(X(t)+Y(t)=n|M_k(s)=m)=P(X(t)+Y(t)=n)f_{X(t)+Y(t)}(n)$$
 El cual es una convolución de las variables aleatorias $X(t)$ e $Y(t)$ definida en \ref{convolucion}. Entonces $$P_n(t)=(f_{X(t)}*f_{Y(t)})(n)=\sum_{j=0}^n f_{X(t)}(j)f_{Y(t)}(n-j)=\sum_{j=0}^m {m \choose j}p^j(1-p)^{m-j} e^{-\lambda}\frac{\lambda^{n-j}}{(n-j)!}$$
-Explícitamente, se tiene que $$P_n(t)=\exp\bigg(-\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\bigg)\sum_{j=0}^n{m \choose j}(e^{-\tilde{\mu_1}(t-t_0)})^j(1-e^{-\tilde{\mu_1}(t-t_0)})^{m-j}\frac{\big(\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\big)^{n-j}}{(n-j)!}$$
+Explícitamente, se tiene que 
+ 
+$$P_n(t)=\exp\bigg(-\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\bigg)\sum_{j=0}^n{m \choose j}(e^{-\tilde{\mu_1}(t-t_0)})^j(1-e^{-\tilde{\mu_1}(t-t_0)})^{m-j}\frac{\big(\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\big)^{n-j}}{(n-j)!}$$
 Además 
 \begin{Lem}
 $$E(X(t)|M_k(0)=j)=je^{-\tilde{\mu}_1 t}$$
@@ -71,16 +73,17 @@ $$E(X(t)|M_k(0)=j)=je^{-\tilde{\mu}_1 t}$$
     \begin{proof}
         $$f_{(Y(t)|M_k(0))}(y|j)=e^{-\gamma_0}\frac{\gamma_0^y}{y!}$$ 
         Donde $$\gamma_0=\frac{1}{2}\nu_1\beta(t)$$
-        $$E(Y(t)|M_k(0)=j)=\sum_{y=1}^\infty yf_{(Y(t)|M_k(0))}(y|j)=\sum_{y=1}^\infty ye^{-\gamma_0}\frac{\gamma_0^y}{y!}$$
+        $$E(Y(t)|M_k(0)=j)=\sum_{y=1}^\infty y f_{(Y(t)|M_k(0))}(y|j)=\sum_{y=1}^\infty y e^{-\gamma_0}\frac{\gamma_0^y}{y!}$$
         $$=\gamma_0 e^{-\gamma_0}\sum_{y=1}^\infty  \frac{\gamma_0^{y-1}}{(y-1)!}=\gamma_0 e^{-\gamma_0}e^{\gamma_0}=\gamma_0=\frac{1}{2}\nu_1\beta(t)$$
     \end{proof}
 \end{Lem}
-$$E(M_k(t))=\sum_{n=1}^\infty nP_n(t)$$
 \begin{eqnarray}
+E(M_k(t))=\sum_{n=1}^\infty n P_n(t)
     P_n(t)=\sum_{j=0}^\infty P_{j,n}(t)P_j(0)
     \label{particion_pn}
 \end{eqnarray}
-Entonces $$E(M_k(t))=\sum_{n=1}^\infty n \sum_{j=1}^\infty P_{j,n}(0,t)P_k(0)=\sum_{j=1}^\infty P_j(0)\sum_{n=1}^\infty n P_{j,n}(0,t)=\sum_{j=1}^\infty q^{(k)}_jE(M_k(t)|M_k(0)=j)$$ $$=\sum_{j=1}^\infty q^{(k)}_jE(X(t)+Y(t)|M_k(0)=j)=\sum_{j=1}^\infty q^{(k)}_j[E(X(t)|M_k(0)=j)+E(Y(t)|M_k(0)=j)]$$ $$=\sum_{j=1}^\infty q^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\beta(t)\big)$$Analogamente se tiene que $$E(F_k(t))=\sum_{j=1}^\infty p^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
+Entonces $$E(M_k(t))=\sum_{n=1}^\infty n \sum_{j=1}^\infty P_{j,n}(0,t)P_k(0)=\sum_{j=1}^\infty P_j(0)\sum_{n=1}^\infty n P_{j,n}(0,t)=\sum_{j=1}^\infty q^{(k)}_j E(M_k(t)|M_k(0)=j)$$ $$=\sum_{j=1}^\infty q^{(k)}_j E(X(t)+Y(t)|M_k(0)=j)=\sum_{j=1}^\infty q^{(k)}_j[E(X(t)|M_k(0)=j)+E(Y(t)|M_k(0)=j)]$$ $$=\sum_{j=1}^\infty q^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\beta(t)\big)$$
+Analogamente se tiene que $$E(F_k(t))=\sum_{j=1}^\infty p^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
 Entonces $$E(W_k(t))=E(M_k(t))+E(F_k(t))=\sum_{j=1}^\infty( p^{(k)}_j+q^{(k)}_j)\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
 Un interés particular es el caso cuando $M_k(0)$ y $F_k(0)$ tiene una distribución de Poisson con el mismo parámetro $\frac{1}{2}\omega_k$, de \ref{particion_pn}
 $$P(M_k(t)=n)=P(F_k(t)=n)=\sum_{m=0}^\infty P_{m,n}(t) \frac{(\frac{1}{2}\omega_k)^m e^{-\frac{1}{2}\omega_k}}{m!}$$

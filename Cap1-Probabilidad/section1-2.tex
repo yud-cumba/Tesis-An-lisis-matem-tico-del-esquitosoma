@@ -1,4 +1,5 @@
 \section{Algunas propiedades elementales}
+
 La importancia esencial de la aplicación de los métodos de cálculo de la probabilidad reside en su capacidad para estimar o predecir eventos. Cuanto mayor sea la cantidad de datos disponibles para calcular la probabilidad de un acontecimiento, más preciso será el resultado calculado. Dada la complejidad de los sistemas en los que suele aplicarse la teoría de la probabilidad, se requiere de ciertas propiedades que faciliten su cálculo.
 Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en \cite{intro-probabilidad}, \cite{Feller},\cite{Rincon1} \cite{Rincon2}
 \begin{Prop}
@@ -9,7 +10,7 @@ Las demostraciones de los resultados expuestos en este capítulo se pueden encon
         \item Si $A\subseteq B$ entonces $P(A)\leq P(B)$.
         \item Si $A\subseteq B$ entonces $P(B-A)=P(B)-P(A)$.
     \end{enumerate}
-    \end{Prop}
+\end{Prop}
 \begin{Def}
     Sea $\Omega$ el espacio muestral de un experimento aleatorio. Decimos que la colección de eventos $\{B_1,B_2,\ldots,B_n\}$ es una partición finita de $\Omega$ si se cumplen las siguientes condiciones:
     \begin{enumerate}[a)]
@@ -32,18 +33,18 @@ Dos o más eventos se llaman equiprobables si tienen la misma probabilidad.
 Dado $n,N\in\N$, tal que $n<N$, $\Omega=\{\omega_1,\ldots,\omega_N\}$ un espacio muestral y $A=\{\omega_1,\ldots,\omega_n\}$ un evento.
 Si suponemos que los conjuntos  $\{\omega_k\}_{k=1}^N$, son equiprobables, entonces $P(\{\omega_i\})=P(\{\omega_j\})$ para $i,j=1,2,\ldots,N$, $i\not=j$ y como consecuencia $$1=P(\bigcup_{k=1}^N \{\omega_k\})=\sum_{k=1}^N P(\{\omega_k\})=N P(\omega_k).$$
 \begin{eqnarray}
-    \label{probabilidad-de-n}
+    \label{probabilidadn}
     P(\omega_k)=\frac{1}{N}\quad k=1,2,\ldots ,N.
 \end{eqnarray}
 Además
 $$P(A)=P(\bigcup_{k=1}^n \{\omega_k\})=\sum_{k=1}^n P(\{\omega_k\})=n P(\{\omega_k\})$$
-Usando la expresión $(\ref{probabilidad-de-n})$
+Usando la expresión (\ref{probabilidadn})
 $$P(A)=\frac{n}{N}.$$
 Este método de encontrar probabilidades, basándose en la equiprobabilidad de los posibles resultados, es conocido como la definición clásica de probabilidad.\\
 Históricamente,esta forma de calcular probabilidades es una de las primeras en utilizarse; se aplicó con bastante éxito en problemas de juegos de azar y ayudó a sentar las bases para construir la teoría matemática.
 \begin{Def}
-    %Sea $A$ un subconjunto de un espacio muestral $\Omega$ de cardinalidad finita. Si $\#A$ denota la cardinalidad del conjunto $A$. Se define la probabilidad clásica del evento $A$ como el cociente $$P(A)=\frac{\#A}{\#\Omega}$$
-    %\label{def-prob-probClásica}
+    Sea $A$ un subconjunto de un espacio muestral $\Omega$ de cardinalidad finita. Si $\#A$ denota la cardinalidad del conjunto $A$. Se define la probabilidad clásica del evento $A$ como el cociente $$P(A)=\frac{\#A}{\#\Omega}$$
+    \label{defprobClásica}
 \end{Def}
 \begin{Ejm}
     El ejemplo típico de equiprobabilidad se presenta al considerar el experimento  en lanzar un dado no trucado sobre una mesa y observar el número que muestra finalmente su cara superior. Considere el experimento aleatorio de lanzar un dado equilibrado.\\ El espacio muestral es el conjunto  $\Omega=\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}$. Si deseamos calcular la probabilidad (clásica) del evento A, correspondiente a obtener un número par, es decir, la probabilidad de $A=\{2,\thinspace 4,\thinspace 6\}$, entonces $$P(A)=\frac{\#\{2,\thinspace 4,\thinspace 6\}}{\#\{1,\thinspace 2\thinspace 3,\thinspace 4,\thinspace 5,\thinspace 6\}}=\frac{3}{6}=0.5$$
@@ -57,14 +58,14 @@ Cuando ocurre un suceso antes de realizar otro experimento, se reduce el espacio
     Siendo la probabilidad condicional una probabilidad calculada en un espacio muestral reducido (el cual sería $B$), es de esperarse que ésta tenga las mismas propiedades que cualquier medida de probabilidad.
 \begin{Ejm}
 Se piensa tomar dos exámenes, uno de álgebra y otro de cálculo.
-   Si 6 de cada 10 alumnos aprueban el examen de álgebra, mientras que solo 1 de cada 4 alumnos  álgebra y cálculo a la vez. Si el examen de álgebra se toma primero. ¿Cuál es la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo?
+  Si 6 de cada 10 alumnos aprueban el examen de álgebra, mientras que solo 1 de cada 4 alumnos  álgebra y cálculo a la vez. Si el examen de álgebra se toma primero. ¿Cuál es la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo?
     Vamos a trabajar con 2 eventos: que el alumno apruebe cálculo, y que apruebe álgebra.\\
     Evento A: Aprobar cálculo. $P(A) = ?$\\
     Evento B: Aprobar álgebra. $P(B) =0.6$ .\\
     Evento A y B: Aprobar álgebra y cálculo. $P(A\cap B) =0.25$\\
     Ahora calculamos la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo
     $$P(A\thinspace|\thinspace B)=\frac{P(A\cap B)}{P(B)}=\frac{0.25}{0.6}=0.4167$$
-   Como vemos, luego de tomar el examen de álgebra el espacio muestral ($100\%$ de la los alumnos) se reduce al evento $B$ ( los que aprueban álgebra, $60 \%$ de la totalidad de los alumnos).
+  Como vemos, luego de tomar el examen de álgebra el espacio muestral ($100\%$ de la los alumnos) se reduce al evento $B$ ( los que aprueban álgebra, $60 \%$ de la totalidad de los alumnos).
   \end{Ejm}
 \begin{Prop}
     $P(\cdot\thinspace|\thinspace B)$ es una medida de probabilidad en el espacio de medida $(\Omega,\mathscr{F})$
