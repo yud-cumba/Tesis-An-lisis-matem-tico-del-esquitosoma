@@ -33,13 +33,13 @@ $\phi:\R^n\rightarrow\R^m$,  $g:\R^m\rightarrow\R^p$ son borelianos, entonces $g
 \begin{Def}
     Sean $(\Omega_1,\mathscr{F}_1)$, $(\Omega_2,\mathscr{F}_2)$ espacios medibles. Una variable aleatoria (llamado función medible en teoría de la medida) es una función $X:\Omega_1\rightarrow \Omega_2$ tal que para cualquier $F\in\mathscr{F}_2$ se cumple que $$X^{-1}(F)\in\mathscr{F}_1.$$
 \end{Def}
- Al conjunto $X(\Omega_1)$ se le conocerá como el conjunto de estados de X.
+ Al conjunto $X(\Omega_1)$ se le conocerá como el conjunto de estados de X.\\
 \begin{Obs}
     Si el conjunto de estados $X(\Omega_1)$ es numerable o finito, entonces $X$ será llamado una variable aleatoria discreta.
 \end{Obs}
 \begin{Ejm}
-  Se tiene un experimento aleatorio que consiste en lanzar 2 dados, cuyo  espacio muestral será $$\Omega_1=\{(1,1),\ldots,(1,6),\thinspace(2,1),\ldots\ldots,(2,6),\ldots,(6,6)\}$$y $\sigma-$álgebra asociado $\mathscr{P}(\Omega)$.\\ 
-   Si queremos obtener la diferencia entre el mayor y el menor de los números que se obtienen al lanzar los dos dados, se define a la variable aleatoria $X$ como $X:\Omega_1\rightarrow \{0,\thinspace 1,\ldots\}$ $X(a,b)=\max \{a,b\}-\min\{a,b\}$
+  Se tiene un experimento aleatorio que consiste en lanzar 2 dados, cuyo  espacio muestral será $$\Omega_1=\{(1,1),\ldots,(1,6),\thinspace(2,1),\ldots\ldots,(2,6),\ldots,(6,6)\}$$ con $\sigma-$álgebra asociado $\mathscr{P}(\Omega)$.\\ 
+   Si queremos obtener la diferencia entre el mayor y el menor de los números que se obtienen al lanzar los dos dados, se define a la variable aleatoria $X$ como $X:\Omega_1\rightarrow \{0,\thinspace 1,\ldots\}$, donde $X(a,b)=\max \{a,b\}-\min\{a,b\}$
 \end{Ejm}
 Si $(\Omega_1,\mathscr{F},P)$ es un espacio de probabilidad, gracias a a la variable aleatoria $X$ se puede definir una nueva medida de probabilidad $P_X$ sobre el espacio de medida $(\Omega_2,\mathscr{F}_2)$, definida como $P_X(F)=P(X^{-1}(F))$, ya que $X^{-1}(F)\in\mathscr{F}_1$. Además, $$P_X(\Omega_2)=P(X^{-1}(\Omega_2))=P(\Omega_1)=1$$ $$P_X\big(\bigcup_{k=1}^\infty F_k\big)=P(X^{-1}\big(\bigcup_{k=1}^\infty
 F_k\big))=P \big(\bigcup_{k=1}^\infty X^{-1}(F_k) \big)=\sum_{k=1}^\infty P(X^{-1}(F_k))=\sum_{k=1}^\infty P_X(F_k)$$
@@ -49,7 +49,7 @@ De aquí se concluye que $P_X:\mathscr{F_2}\rightarrow [0,1]$ resulta ser tambi�
     Para un uso más práctico , el conjunto\\ $X^{-1}(\{a\})=\{\omega\in\Omega: X(\omega)=a\}$será denotado $(X= a)$\\
 \end{Obs}
 Para hacer la escritura más corta, a menudo se omite el término de la variable aleatoria para $X$ suponiendo, en la mayoría de las veces que lo es, por ello escribiremos $P$ en lugar de $P_X$\\\\
-Las variables aleatorias establecen una relación funcional entre elementos del espacio muestral asociado al experimento y números reales, por ello, de manera práctica, la mayoría de variables aleatorias discretas no puedan ser expresadas matemáticamente, por lo cual suelen usarse expresiones que den entender el comportamiento de la variable aleatoria. \\Algunos ejemplos de estos casos serían: $X$=\textit{"Número de fallecidos en Enero el 2020"}, $X$=\textit{"Cantidad de bacterias en determinado cultivo"}, $X$=\textit{"Número de infectados por día de determinada enfermedad"}, etc.\\
+Las variables aleatorias establecen una relación funcional entre elementos del espacio muestral asociado al experimento y números reales, por ello, de manera práctica, la mayoría de variables aleatorias discretas no puedan ser expresadas matemáticamente, por lo cual suelen usarse expresiones que den entender el comportamiento de la variable aleatoria. \\Algunos ejemplos de estos casos serían: $X$='\textit{Número de fallecidos en Enero el 2020}', $X$='\textit{Cantidad de bacterias en determinado cultivo}', $X$=\textit{"Número de infectados por día de determinada enfermedad"}, etc.\\
 En ocasiones, los sucesos elementales de un experimento aleatorio son conjuntos de números reales, de los cuales, aparentemente no hay necesidad de usar ninguna variable aleatoria, sin embargo, en ocasiones, sí es necesario utilizarla por los múltiples usos que pueda tener.\\
 Además, de un mismo experimento aleatorio se puede definir diferentes variables aleatorias.
 \begin{Ejm}

@@ -29,8 +29,8 @@ El siguiente resultado es bastante útil, pues establece un método para calcula
     Si $(\Omega,\mathscr{F},P)$ es un espacio de probabilidad, $A$ y $B$ eventos, entonces
     $$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$
 \end{Cor}
-Dos o más eventos se llaman equiprobables si tienen la misma probabilidad.
-Dado $n,N\in\N$, tal que $n<N$, $\Omega=\{\omega_1,\ldots,\omega_N\}$ un espacio muestral y $A=\{\omega_1,\ldots,\omega_n\}$ un evento.
+En algunos casos, nos topamos con una colección de eventos que tienen cada uno la misma probabilidad de que sucedan. A estos eventos se llaman equiprobables.
+Dado $n,N\in\N$, tal que $n<N$, $\Omega=\{\omega_1,\ldots,\omega_N\}$ un espacio muestral y $A=\{\omega_1,\ldots,\omega_n\}$ un evento del espacio muestral $\Omega$.
 Si suponemos que los conjuntos  $\{\omega_k\}_{k=1}^N$, son equiprobables, entonces $P(\{\omega_i\})=P(\{\omega_j\})$ para $i,j=1,2,\ldots,N$, $i\not=j$ y como consecuencia $$1=P(\bigcup_{k=1}^N \{\omega_k\})=\sum_{k=1}^N P(\{\omega_k\})=N P(\omega_k).$$
 \begin{eqnarray}
     \label{probabilidadn}
@@ -54,11 +54,11 @@ Como la probabilidad está ligada a nuestra ignorancia sobre los resultados de l
 \begin{Def}
     Sea $(\Omega,\mathscr{F},P)$ un espacio de probabilidad, $A,B\subset\Omega$ tal que $P(B)>0$. La probabilidad condicional de algún evento $A$, dado que el evento $B$ suceda previamente, es una función que se denota $P(\cdot\thinspace|\thinspace B):\Omega\rightarrow [0,1]$ y se define como $$P(A\thinspace|\thinspace B)=\frac{P(A\cap B)}{P(B)}$$
 \end{Def}
-Cuando ocurre un suceso antes de realizar otro experimento, se reduce el espacio muestral, por eso cambia la probabilidad. A veces es más fácil calcular la probabilidad condicionada teniendo en cuenta este cambio de espacio muestral. 
-    Siendo la probabilidad condicional una probabilidad calculada en un espacio muestral reducido (el cual sería $B$), es de esperarse que ésta tenga las mismas propiedades que cualquier medida de probabilidad.
+Cuando ocurre un suceso antes de realizar otro experimento, se reduce el espacio muestral y es por eso que cambia la probabilidad. A veces es más fácil calcular la probabilidad condicionada teniendo en cuenta este cambio de espacio muestral. 
+Siendo la probabilidad condicional una probabilidad calculada en un espacio muestral reducido (el cual sería $B$), es de esperarse que ésta tenga las mismas propiedades que cualquier medida de probabilidad.
 \begin{Ejm}
 Se piensa tomar dos exámenes, uno de álgebra y otro de cálculo.
-  Si 6 de cada 10 alumnos aprueban el examen de álgebra, mientras que solo 1 de cada 4 alumnos  álgebra y cálculo a la vez. Si el examen de álgebra se toma primero. ¿Cuál es la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo?
+Si 6 de cada 10 alumnos aprueban el examen de álgebra, mientras que solo 1 de cada 4 alumnos  álgebra y cálculo a la vez. Si el examen de álgebra se toma primero. ¿Cuál es la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo?
     Vamos a trabajar con 2 eventos: que el alumno apruebe cálculo, y que apruebe álgebra.\\
     Evento A: Aprobar cálculo. $P(A) = ?$\\
     Evento B: Aprobar álgebra. $P(B) =0.6$ .\\

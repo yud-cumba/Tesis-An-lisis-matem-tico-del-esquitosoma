@@ -21,7 +21,7 @@ La función de probabilidad es aquella función que indica la probabilidad que t
 \begin{Def}
 %%%%%% DISTRIBUCIÓN DE POISSON %%%%%%%%%%%%%%%
 \label{def-distribuciónProb}
-    Al conjunto $\{f(x_i): x_i\in S\}$ o $\{P(X=x_i): x_i\in S\} $se le conoce como distribución de probabilidad.
+    Al conjunto $\{f(x): x\in S\}$ o $\{P(X=x): x\in S\} $se le conoce como distribución de probabilidad.
 \end{Def}
 Si queremos hallar la probabilidad de algún evento $B\subset\R$ y si la variable aleatoria asociada $X$ es discreta, entonces
 $$P(B)=P\big(X\in B)=P\big(\bigcup_{x\in B}(X=x)\big)=\sum_{x\in B}P(X=x)=\sum_{x\in B}f_X(x)$$
@@ -34,7 +34,7 @@ Recíprocamente, toda función cuyo conjunto de puntos de discontinuidad es nume
 Algunas distribuciones son muy recurrentes y tienen aplicaciones muy útiles.
 \begin{Ejm}
 \label{ejm-variableAleatoria-poison-bacteria}
-    Supongamos que deseamos  registrar el número de de bacterias por $cm^2$ de cultivo. Para modelar este tipo de situación podemos definir la variable aleatoria $X$ como el número de bacterias que aparecen en $1$ hora de observación en $1 cm^2$ de cultivo. $X$ puede tomar los valores $0,1,2,\ldots$ y en principio no ponemos una cota superior para este número.\\La probabilidad de que existan $n$ bacterias por $cm^2$ de cultivo sería denotada por $P(X=n)$, donde $P$ es la probabilidad inducida por $X$.
+    Supongamos que deseamos  registrar el número de de bacterias por $cm^2$ de cultivo. Para modelar este tipo de situación podemos definir la variable aleatoria $X$ como el número de bacterias que aparecen en $1$ hora de observación en $1 cm^2$ de cultivo. $X$ puede tomar los valores $0,1,2,\ldots$.\\La probabilidad de que existan $n$ bacterias por $cm^2$ de cultivo sería denotada por $P(X=n)$, donde $P$ es la probabilidad inducida por $X$.
 \end{Ejm}
 Situaciones como la expuesta en el ejemplo  (\ref{ejm-variableAleatoria-poison-bacteria}) son bastantes recurrentes y por ello es necesario definir una distribución que modele estas situaciones.
 \begin{Def}(Distribución de Poisson)
@@ -45,10 +45,11 @@ Situaciones como la expuesta en el ejemplo  (\ref{ejm-variableAleatoria-poison-b
     El parámetro $\lambda$ se interpreta como el número promedio de ocurrencias del evento por unidad de tiempo o espacio.
 \end{Def}
 \begin{Ejm}
-    Volviendo al caso del ejemplo (\ref{ejm-variableAleatoria-poison-bacteria}), la cual adicionalmente conocemos que la tasa media de bacterias por $cm^2$ es $10$. Si queremos calcular la probabilidad de que existan $8$ bacterias por $cm^2$ usamos la distribución de Poisson, 
-    $$f(8)=\frac{e^{-10} 10^{8}}{8!}=  0,112599032. $$ La representación gráfica para este caso,
+    Volviendo al caso del ejemplo (\ref{ejm-variableAleatoria-poison-bacteria}), la cual adicionalmente conocemos que la tasa media de bacterias por $cm^2$ es $10$. Si queremos calcular la probabilidad de que existan $8$ bacterias por $cm^2$ usamos la distribución de Poisson, el cual para $x=8$ y $\lambda = 10$ se tiene,
+    $$f(8)=\frac{e^{-10} 10^{8}}{8!}=  0,112599032. $$ 
     \begin{figure}
         \includegraphics[width=15cm]{Cap1-Probabilidad/img/poisson.png}
+        \caption{Gráfica de la probabilidad de que en determinado tiempo haya 'x' bacterias $cm^2$ de cultivo cuando la tasa media es $10$.}
     \end{figure}
 \end{Ejm}
 Esta distribución es una de las más importantes de una variable discreta. Sus principales aplicaciones hacen referencia a la modelización de situaciones en las que nos interesa determinar el número de hechos de cierto tipo que se pueden producir en un intervalo de tiempo o de espacio, bajo presupuestos de aleatoriedad y ciertas circunstancias restrictivas.\\
@@ -81,7 +82,7 @@ Notamos que $X$  puede tomar los valores $0,1,\ldots,n$  y esta variable aleator
     Aquí hemos colocado los $2$ éxitos en los primeros ensayos, cuando ello no ocurrirá necesariamente así. Las diferentes formas en que los $2$ éxitos pueden distribuirse de $3$ formas distintas $(F E E,\thinspace E F E,\thinspace E E F)$, al multiplicarlo con (\ref{eq-ejm-binomial-fertilizante}) obtenemos la probabilidad que deseamos. $$3(0.75)^2(0.25)$$
 \end{Ejm}
 
-En general, las diferentes formas en que los $x$ éxitos pueden distribuirse en los $n$ ensayos está dada por el coeficiente binomial $(n\choose x)$, al hacer la multiplicación de este coeficiente binomial con el término $p^x(1-p)^{n-x}$ se obtiene la expresión de la función de probabilidad para esta distribución.
+En general, las diferentes formas en que los $x$ éxitos pueden distribuirse en los $n$ ensayos está dada por el coeficiente binomial $n\choose x$, al hacer la multiplicación de este coeficiente binomial con el término $p^x(1-p)^{n-x}$ se obtiene la expresión de la función de probabilidad para esta distribución.
 \begin{Def}
     Una variable aleatoria $X$ tiene una distribución binomial con parámetros $n$ y $p$ y se denota por $X\sim bin(n,p)$ si tiene por función de probabilidad
     $$f(x)=
@@ -106,8 +107,7 @@ Gracias a estas características podemos identificar cuando un experimento model
     \end{cases}
     $$
 \end{Def}
-Se trata pues de una variable aleatoria continua con con-
-junto de valores el intervalo $[0,\infty)$. Esta distribución se usa para modelar tiempos de espera para la ocurrencia de un cierto evento.\\
+Se trata pues de una variable aleatoria continua con conjunto de valores el intervalo $[0,\infty)$. Esta distribución se usa para modelar tiempos de espera para la ocurrencia de un cierto evento.\\
 A pesar de la sencillez analítica de sus funciones de definición, la distribución exponencial tiene una gran utilidad práctica ya que podemos considerarla como un modelo adecuado para la distribución de probabilidad del tiempo de espera entre dos hechos que sigan un proceso de Poisson.\\
 Tiene una gran utilidad en los siguientes casos:
 \begin{itemize}

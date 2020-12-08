@@ -1,24 +1,18 @@
 \section{Esperanza y funciones generadoras}
-Para lograr una mayor simplicidad, suele ser mejor describir las probabilidades con algunos valores típicos. Entre aquellos valores, la media o esperanza es la más importante. Su definición va de acuerdo con el concepto común de promedio. \\Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en
+Para lograr una mayor simplicidad, suele ser mejor describir las probabilidades con algunos valores típicos. Entre aquellos valores, la media o esperanza es la más importante. Su definición va de acuerdo con el concepto común de promedio. \\Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en \cite{Rincon1}, \cite{Rincon2},  \cite{Feller}
 \\\\
-Si en una población determinada, $30$ familias tienen $1$ hijo, $10$ familias tienen $2$ hijos , $7$ tienen $3$ hijos y $3$ tienen $4$ hijos. El número total de familias es $50=30+10+7+3$ y el número total de hijos es $83=1(30)+2(10)+3(7)+4(3)$\\
+Si en una población determinada, $30$ familias tienen $1$ hijo por familia, $10$ familias tienen $2$ , $7$ tienen $3$ y $3$ familias tienen $4$ hijos. El número total de familias es $50=30+10+7+3$ y el número total de hijos es $83=1(30)+2(10)+3(7)+4(3)$\\
 El número promedio de hijos por familia es 
 \begin{eqnarray}
     \label{ejm-esperanza-inicio}
     \frac{83}{50}= 1\big(\frac{30}{50}\big)+2\big(\frac{10}{50}\big)+3\big(\frac{7}{50}\big)+4\big(\frac{3}{50}\big)
 \end{eqnarray}
-Si definimos nuestra variable aleatoria $X=$ \textit{"números de hijos por familia"} y $f$ la función de probabilidad asociada a $X$. Por la definición de probabilidad clásica se obtiene que $f(1)=\frac{30}{50}$, $f(2)=\frac{10}{50}$, $f(3)=\frac{7}{50}$, $f(4)=\frac{3}{50}$ que coincide con los valores expuestos en \ref{ejm-esperanza-inicio} los cuales al reemplazarlos obtenemos que el promedio de hijos por familia es $1f(1)+2f(2)+3f(3)+4f(4)$.\\Una generalización de esta situación induce a la siguiente definición.
+Si definimos nuestra variable aleatoria $X=$ '\textit{Números de hijos por familia}' y $f$ la función de probabilidad asociada a $X$. Por la definición de probabilidad clásica se obtiene que $f(1)=\frac{30}{50}$, $f(2)=\frac{10}{50}$, $f(3)=\frac{7}{50}$, $f(4)=\frac{3}{50}$ que coincide con los valores expuestos en \ref{ejm-esperanza-inicio} los cuales al reemplazarlos obtenemos que el promedio de hijos por familia es $1f(1)+2f(2)+3f(3)+4f(4)$.\\
+Una generalización de esta situación induce a la siguiente definición.
 \begin{Def}
     Sea $X$ una variable aleatoria discreta que toma los valores $x_1,x_2,x_3,\ldots$ con probabilidades $f(x_1), f(x_2),\ldots$, la esperanza se define por $$E(X)=\sum x_k f(x_k)$$. Con la condición de que la serie converja absolutamente. En este caso decimos que $X$ tiene esperanza finita.
 \end{Def}
-Intuitivamente, la esperanza de una variable aleatoria $X$ representa la cantidad promedio que se "espera" como resultado de un experimento aleatorio cuando la probabilidad de cada suceso se mantiene constante y el experimento se repite un elevado número de veces. Cabe decir que el valor que toma la esperanza matemática en algunos casos puede no ser "esperado" en el sentido más general de la palabra (el valor de la esperanza puede ser improbable o incluso imposible). 
-\begin{Ejm}
-    El cálculo del valor esperado de la variable aleatoria nuestro ejemplo estaría dado por
-    \begin{eqnarray}
-       E(X)= 0\frac{20}{30}+1\frac{6}{30}+2\frac{6}{30}+3\frac{3}{30}=\frac{1}{2}
-    \end{eqnarray}
-    La multiplicación de cada valor de $x$ por su probabilidad $f(x)$ proporciona los $xf(x)$ valores en la tercera columna. Siguiendo la definición de esperanza, sumamos esta columna,a $x f(x)$, para obtener la esperanza de $\frac{1}{2}$ automóviles vendidos por día. Cabe destacar que $0,5$ no es un valor posible.
-\end{Ejm}
+Intuitivamente, la esperanza de una variable aleatoria $X$ representa la cantidad promedio que se 'espera' como resultado de un experimento aleatorio cuando la probabilidad de cada suceso se mantiene constante y el experimento se repite un elevado número de veces. Cabe decir que el valor que toma la esperanza matemática en algunos casos puede no ser 'esperado' en el sentido más general de la palabra (el valor de la esperanza puede ser improbable o incluso imposible). 
 \begin{Def}
     \label{def-prob-funcionGeneraProb}
     Consideremos una variable aleatoria discreta $X$, que toma valores en el conjunto de estados $S=\{x_1,x_2,\ldots\}$ con distribución de probabilidad $\{p_k\}_{k\in\N}$, tal que $$p_k=P(X=x_k)$$ 
@@ -77,6 +71,6 @@ La nueva distribución de probabilidad \ref{def-convolucion} que parte de las do
 \begin{Obs}
     Si $f_X(k)=\{a_k\}$ y $f_Y(k)=\{b_k\}$ son funciones de probabilidad de las variables aleatorias $X$ e $Y$ respectivamente, denotaremos a la convolución $c_k=(f_X*f_Y)(k)$
 \end{Obs}
-\begin{Ejm}
-    Si $a_k=b_k=1$ para toda $k=0,1,2,\ldots$, entonces $c_k=\sum_{j=0}^k 1=k+1$.\\Si $a_k=k$ y $b_k=1$, entonces $c_k=\sum_{j=0}^k j =\frac{k+k+1}{2}$.\\Finalmente, si $a_0=a_1=\frac{1}{2}$ y $a_k=0$ para $k\geq 2$ entonces $c_k=\frac{b_k+b_k-1}{2} $ 
-\end{Ejm}
+% \begin{Ejm}
+%     Si $a_k=b_k=1$ para toda $k=0,1,2,\ldots$, entonces $c_k=\sum_{j=0}^k 1=k+1$.\\Si $a_k=k$ y $b_k=1$, entonces $c_k=\sum_{j=0}^k j =\frac{k+k+1}{2}$.\\Finalmente, si $a_0=a_1=\frac{1}{2}$ y $a_k=0$ para $k\geq 2$ entonces $c_k=\frac{b_k+b_k-1}{2} $ 
+% \end{Ejm}
