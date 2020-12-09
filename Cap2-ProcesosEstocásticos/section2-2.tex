@@ -1,6 +1,6 @@
 \section{Proceso puro de nacimiento}
 \label{proc_nac}
-La más simple generalización del Proceso de Poisson se obtiene al permitir que las probabilidades de transición dependan del estado actual del sistema, es decir, para cada estado $n$2 existirá una media $\lambda_n$ que cumpla con el proceso de Poisson descrito anteriormente.
+La más simple generalización del Proceso de Poisson se obtiene al permitir que las probabilidades de transición dependan del estado actual del sistema. Para cada estado $n$ existirá una media $\lambda_n$ que cumpla con el proceso de Poisson descrito anteriormente.
 \begin{Def}
 Un proceso estocástico $\{X_t\}_{t\geq}$ es llamado proceso puro de nacimiento si cumple los siguientes postulados.
     \begin{enumerate}
@@ -9,8 +9,8 @@ Un proceso estocástico $\{X_t\}_{t\geq}$ es llamado proceso puro de nacimiento 
         \item La probabilidad de que ocurra más de un suceso dentro de este intervalo es $o(h)$.
     \end{enumerate}
 \end{Def}
-Este proceso solo permite una transición al siguiente estado, más no a un estado anterior, lo que da origen a un "nacimiento" de una ocurrencia nueva.\\Nuevamente, $P_n(t)$ será la probabilidad de que en el tiempo $t$ ocurran $n$ ocurrencias nuevas.
-Los postulados y las ecuaciones diferenciales son deducidos de la misma forma que en el proceso de Poisson, reemplazando el valor fijo $\lambda$ por $\lambda_n$
+Este proceso solo permite una transición al siguiente estado, más no a un estado anterior es lo que da origen al "nacimiento" de una ocurrencia nueva.\\Nuevamente, $P_n(t)$ será la probabilidad de que en el tiempo $t$ ocurran $n$ ocurrencias nuevas.
+Los postulados y las ecuaciones diferenciales son deducidos de la misma forma que en el proceso de Poisson, pero esta vez reemplazando el valor fijo $\lambda$ por $\lambda_n$
 \begin{eqnarray}
     P'_0(t)=-\lambda_0 P_0(t)
     \label{procNacimiento-edo-0}
@@ -27,7 +27,7 @@ Ahora supongamos que el sistema inicia en un estado arbitrario $i$. Esto implica
 \end{eqnarray}
 Gracias a estas condiciones iniciales, nuestro sistema tiene solución única para cada $n\in\N$ y en particular $P_0(t)=P_1(t)=\ldots=P_{i-1}(t)=0$
 \begin{Ejm}
-    Se considera una población cuyos miembros pueden dar a luz(mediante desdoblamientos u otros procesos) nuevos miembros, pero que no pueden morir.Supóngase que durante cualquier intervalo de tiempo de longitud $h$, cada miembro tiene probabilidad $\lambda h + o(h)$ de crear un nuevo miembro. Siguiendo nuestra notación, esto sería $P_1(h)=\lambda h + o(h)$. La constante $\lambda$ determina la tasa de crecimiento de la población. Si no hay interacción entre los miembros y si se sabe que en la época $t$ el número de la población actual es $n$, entonces la probabilidad de que haya algún aumento en el intervalo $[t,t+h)$  es $$P_{n n+1}(h)=P(X_{t+h}=n+1|\thinspace X_t=n)$$
+    Se considera una población cuyos miembros pueden dar a luz(mediante desdoblamientos u otros procesos) nuevos miembros, pero que no pueden morir. Supóngase que durante cualquier intervalo de tiempo de longitud $h$, cada miembro tiene probabilidad $\lambda h + o(h)$ de procrear un nuevo miembro. Siguiendo nuestra notación, esto sería $P_1(h)=\lambda h + o(h)$. La constante $\lambda$ determina la tasa de crecimiento de la población. Si no hay interacción entre los miembros y si se sabe que en la época $t$ el número de la población actual es $n$, entonces la probabilidad de que haya algún aumento en el intervalo $[t,t+h)$  es $$P_{n n+1}(h)=P(X_{t+h}=n+1|\thinspace X_t=n)$$
     Si cada poblador de los $n$ que hay actualmente, tiene la misma probabilidad $P_1(h)$ de dar origen a un nuevo ser en el tiempo $h$, entonces
     $$P_{n n+1}(h)=\sum_{i=1}^n P_1(h)= n\lambda h + o(h)$$
     La probabilidad $P_n(t)$ de que la población ascienda exactamente hasta $n$ elementos satisface, por lo tanto, (\ref{procNacimiento-edo-n}) con $\lambda_n= n\lambda$, es decir $$ P'_n(t)=-n\lambda P_n(t)+(n-1)\lambda P_{n-1}(t),\quad n\geq 1\\P'(0)=0$$
@@ -36,4 +36,4 @@ Gracias a estas condiciones iniciales, nuestro sistema tiene solución única pa
     $$P_n(t)={ n-1 \choose n-i}e^{-i\lambda t}(1-e^{\lambda t})^{n-i}$$
     y, desde luego, $P_n(t)=0$ para $n<i$ y toda $t$.
 \end{Ejm}
-La suposición de que cada especie tiene la misma probabilidad de dar lugar a una nueva especie hace caso omiso de las diferencias en los tamaños de las especies. Puesto que también se desechó la posibilidad de extinción, solo puede esperarse una aproximación burda
+La suposición de que cada especie tiene la misma probabilidad de dar lugar a una nueva especie hace caso omiso de las diferencias en los tamaños de las especies. Puesto que también se desechó la posibilidad de extinción, solo puede esperarse una aproximación burda.

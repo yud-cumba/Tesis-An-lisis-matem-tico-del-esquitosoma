@@ -1,6 +1,6 @@
 \section{Proceso de nacimiento y muerte}
 \label{section_procesoNacMu}
-El proceso puro de nacimiento no sirve como modelo realista de los cambios en poblaciones (como la de las bacterias) cuyos miembros pueden morir o desaparecer. Para este caso se requiere un proceso estocástico más personalizado da una motivación para modelar situaciones que permitan transiciones desde un estado $n$ al estado mayor $n+1$ y también al menor $n-1$. En estos caso se utiliza el proceso de nacimiento y muerte.\\
+El proceso puro de nacimiento no sirve como modelo realista de los cambios en poblaciones (como la de las bacterias) cuyos miembros pueden morir o desaparecer. Para este caso se requiere un proceso estocástico más personalizado que permite modelar situaciones que permitan transiciones desde un estado $n$ al estado siguiente $n+1$ y también al  anterior $n-1$. En estos caso se utiliza el proceso de nacimiento y muerte.\\
 \begin{Def}
 Un proceso estocástico $\{X_t\}_{t\geq 0}$ es  llamado proceso de nacimiento y muerte si cumple los siguientes postulados. 
     \begin{enumerate}
@@ -63,7 +63,7 @@ Dado $n\in\N$, analicemos la probabilidad para un tiempo $t+h$, donde el sistema
     P'_0(t)=-\lambda_0 P_0(t)+\mu_{1}P_{1}(t)
 \label{procNacimientoMuerte-edo-0}
 \end{eqnarray}
-Para modelar la dinámica de una población no siempre se conoce el estado en el cual se encontrará el proceso en su tiempo inicial, sin embargo con un análisis estadístico simple se puede conocer las probabilidades de que al tiempo $0$ hayan ocurrido $n$ sucesos. Esto vendría ser la distribución inicial $\{p_n\}$ tal que $p_n\in [0,1]$ y $\sum_{n=0}^\infty p_n =1$
+Para modelar la dinámica de una población no siempre se conoce el estado en el cual se encontrará el proceso en su tiempo inicial, sin embargo se puede llegar a conocer las probabilidades de que al tiempo $0$ hayan ocurrido $n$ sucesos recolectando datos de la situación que se quiera modelar. Esto vendría ser la distribución inicial $\{p_n\}$ tal que $p_n\in [0,1]$ y $\sum_{n=0}^\infty p_n =1$
 \begin{eqnarray}
     P_n(0)=p_n
 \end{eqnarray}
@@ -74,4 +74,4 @@ Las ecuaciones diferenciales básicas toman la forma:
 $$P'_0(t)=\mu P_1(t)$$
 $$P'_n(t)=-(\lambda+\mu)n P_n(t)+\lambda(n-1)P_{n-1}+\mu_{n+1}P_{n+1}(t)$$
 \end{Ejm}
-En el proceso puro de nacimiento, el sistema de ecuaciones diferenciales era infinito pero tenía la forma de relaciones de recurrencia; $P_n(t)$ podía calcularse a partir de $P_{n-1}(t)$. Nuestro nuevo sistema no tiene esta forma, por ello las $P_n(t)$ deben calcularse todas simultáneamente. Para ello será necesario describir un método para encontrar la solución de este problema y uno de ellos es resolviendo un problema de valor inicial de una ecuación diferencial parcial semilineal de primer orden.
+En el proceso puro de nacimiento, el sistema de ecuaciones diferenciales era infinito pero tenía la forma de relaciones de recurrencia; $P_n(t)$ podía calcularse a partir de $P_{n-1}(t)$. Nuestro nuevo sistema no tiene esta forma y por lo tanto no se puede obtener una resolución usando inducción matemática y por ello las $P_n(t)$ deben calcularse todas simultáneamente. Para ello será necesario describir un método para encontrar la solución de este problema y uno de ellos es resolviendo un problema de valor inicial de una ecuación diferencial parcial semilineal de primer orden.

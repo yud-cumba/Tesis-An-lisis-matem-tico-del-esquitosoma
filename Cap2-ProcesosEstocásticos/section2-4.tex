@@ -1,9 +1,10 @@
 \section{Teorema de Daniell-Kolgomorov}
+    El teorema de extensión de Daniell-Kolmogorov es uno de los primeros teoremas profundos de la teoría de procesos estocásticos. Proporciona resultados de existencia para buenas medidas de probabilidad en espacios de función.
     Revisamos la construcción general de un proceso estocástico.
-    Para fines de modelización nos gustaría considerar las familias de variable aleatoria $\{X_t\}_{t\in I}$ indexada por un conjunto general $I$. Cuando $I$ es discreto y finito, la familia vendría a ser un vector aleatorio con valores en el espacio producto medible $(E,\mathscr{E}^I)$ donde  $(E, \mathscr{E})$  es el espacio de medida donde se define cada $X_t$ , es decir, $X_t:(\Omega, \mathscr{F}) \rightarrow (E, \mathscr{E})$ para todo $t\in I$.
+    Para fines de modelización nos gustaría considerar las familias de variable aleatoria $\{X_t\}_{t\in I}$ indexada por un conjunto general $I$. Cuando $I$ es discreto y finito, la familia vendría a ser un vector aleatorio con valores en el espacio producto medible $(E,\mathscr{E}^I)$ donde  $(E, \mathscr{E})$  es el espacio de medida donde se define cada variable aleatoria $X_t$ , es decir, $X_t:(\Omega, \mathscr{F}) \rightarrow (E, \mathscr{E})$ para todo $t\in I$.
      Tomando $\pi_t: (E^I,  \mathscr{E}^I) \rightarrow (E,  \mathscr{E})$ como la función proyección en el factor $t$, se puede definir simplemente $X:(\Omega, \mathscr{F})\rightarrow (E^I,  \mathscr{E}^I)$ con $\pi_t X = X_t$.
       De esta forma hemos reemplazado la familia de variables aleatorias  que  cada uno toma valores en $E$ con una sola variable aleatoria que $X$ toma valores en $(E^I, c )$ donde $\mathscr{E}^I$  es el  $\sigma$-álgebra producto.
-    $\mathscr{E}^I$ es el sigma álgebra generado por conjuntos de la forma $\Pi_{i\in I}{A_i}\subset E^I$, donde $A_i\in\mathscr{E}, \forall i\in I$
+    $\mathscr{E}^I$ es el sigma álgebra generado por conjuntos de la forma $\Pi_{i\in I}{A_i}\subset E^I$, donde $A_i\in\mathscr{E}, \forall i\in I$.\\
     Si $I$ no es finito o incluso no es contable este procedimiento tiene que ser aclarado.
     Buscamos una definición para $\mathscr{E}^I$ que mantenga que para todo $t\in I$, la función proyección $\pi_i: (E^I,\mathscr{E}^I)\rightarrow (E,\mathscr{E})$ permanezca medible.
     \\La familia de conjuntos de la forma $$\pi^{-1}_J(A), \quad J\subseteq I, \textit{J finito, }A\in\mathscr{E}^J,$$  donde $\pi_J :E^I\rightarrow E^J$	 es la proyección en las coordenadas en $J$, constituye un álgebra y son llamados conjuntos cilindros. 
