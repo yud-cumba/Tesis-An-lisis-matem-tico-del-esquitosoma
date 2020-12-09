@@ -1,20 +1,19 @@
-\section{Resoluciòn de las EDPs semilineales}
-Como nos enfocaremos en la resolución de las EDP semilineales, bastará tomar el campo vectorial en $\R^2$
-El campo vectorial en $\R^2$ asociado a la EDP \ref{ecuasemi} es dada por 
+\section{Resolución de las ecuaciones diferenciales parciales semilineales}
+Como nos enfocaremos en la resolución de las ecuación diferencial parcial semilineales, bastará tomar el campo vectorial en $\R^2$
+El campo vectorial en $\R^2$ asociado a la ecuación diferencial parcial \ref{ecuasemi} es dada por 
 $$V(x,y)=(a(x,y),b(x,y))$$
 por ello $a(x,y)u_x+b(x,y)u_y$ es la derivada direccional de u a lo largo de V.\\
 Sea  $\gamma:I\rightarrow\R^2$ , $I\subset\R$ una curva integral del campo V.
 Si se denota $v(s)=u(\gamma(s))=u(x(s),y(s))u_x+b(x(s),y(s))u_y=c(x(s),y(s),u(s))$
 Usando la regla de la cadena $$v'(s)=\ux(x(s),y(s))x'(s)+\uy(x(s),y(s))y'(s)$$ y reemplazando las expresiones \ref{derivadacurva} y \ref{ecuasemi} se tiene $$v'(s)=a(x(s),y(s))u_x+b(x(s),y(s))u_y=c(x(s),y(s),u(s))$$
-Es decir que la función $v(s)$ satisface una EDO a lo largo de la curva integral $\gamma(s)$.
-Ahora, si se quiere resolver la EDP \ref{ecuasemi} sobre todo el dominio $\Omega$ es necesario parametrizarlo por medio de un parámetro adicional $r\in\R$, donde $\{\gamma_r\}_r$ efectivamente es una partición del dominio $\Omega$. \\
-Cada curva integral cumple lo anterior expuesto, por ello si $\gamma_r=(x_r(s),y_r(s)$ y $v_r(s)=u(\gamma_r(s))$
+Es decir que la función $v(s)$ satisface una ecuación diferencial ordinaria a lo largo de la curva integral $\gamma(s)$.
+Ahora, si se quiere resolver la ecuación diferencial parcial \ref{ecuasemi} sobre todo el dominio $\Omega$ es necesario parametrizarlo por medio de un parámetro adicional $r\in\R$, donde $\{\gamma_r\}_r$ efectivamente es una partición del dominio $\Omega$. \\
+Cada curva integral cumple lo anterior expuesto, por ello si $\gamma_r=(x_r(s),y_r(s))$ y $v_r(s)=u(\gamma_r(s))$
 \begin{eqnarray*}
 x_r'(s)=a(x(s),y(s)), y_r'(s)=b(x(s),y(s))\label{derivadacurvar}\\
 v_r'(s)=c(x_r(s),y_r(s),v_r(s))
-\end{eqnarray*}.
-Ahora si a la EDP \ref{ecuasemi} se le añade la condición inicial sobre una curva inicial $\Gamma$ (a la cual parametrizamos por $\Gamma(r)=(\Gamma_1(r),\Gamma_2(r)))$)
-llamada 
+\end{eqnarray*}
+Ahora si a la ecuación diferencial parcial \ref{ecuasemi} se le añade la condición inicial sobre una curva inicial $\Gamma$ ,la cual parametrizamos por $\Gamma(r)=(\Gamma_1(r),\Gamma_2(r))$ dada por
 \begin{eqnarray}
 u(\Gamma(r))=\phi(r) \label{condinicial}
 \end{eqnarray}
@@ -25,33 +24,31 @@ y por lo tanto,
 $$v_r(0)=u(\gamma_r(0))=\phi(r)$$
 De esta forma tenemos dos grupos de Ecuaciones Diferenciales Ordinarias
 \begin{itemize}
-    \item Un sistema de EDOs para las curvas integrales
+    \item Un sistema de ecuaciones diferenciales ordinarias para las curvas integrales.
     \begin{eqnarray}
         \begin{cases}
-            \label{sistemaedocurvaint}
+            \label{sistemaecuación diferencial ordinariacurvaint}
              x_r'(s)=a(x_r(s),y_r(s)), \quad x_r(0)=\Gamma_1(r)\\
              y_r'(s)=b(x_r(s),y_r(s)), \quad y_r(0)=\Gamma_2(r)
         \end{cases}
     \end{eqnarray}
-    \item Una EDO para $v_r$\label{edovr}
+    \item Una ecuación diferencial ordinaria para $v_r$\label{ecuación diferencial ordinariavr}
     \begin{eqnarray}
         v_r'(s)=c(x_r(s),y_r(s),v_r(s)),\quad v_r(0)=\phi(r)
     \end{eqnarray}
-    Para resolver nuestra EDP \ref{ecuasemi} con condición  inicial \ref{condinicial}, primero resolvemos el sistema \ref{sistemaedocurvaint} , y luego la EDO \ref{edovr}. Así obtendremos una función $V_r(s)$ que dependerá de las variables r y s.
-    Finalmente, aplicando los argumentos de la sección anterior, haciendo uso del teorema de la función inversa se debe obtener funciones R y S tal que $r=R(x,y)$ y  $s=S(x,y)$.
+    Para resolver nuestra ecuación diferencial parcial \ref{ecuasemi} con condición  inicial \ref{condinicial}, primero resolvemos el sistema \ref{sistemaecuación diferencial ordinariacurvaint} , y luego la ecuación diferencial ordinaria \ref{ecuación diferencial ordinariavr}. Así obtendremos una función $V_r(s)$ que dependerá de las variables r y s.
+    Finalmente, aplicando los argumentos de la sección anterior, haciendo uso del teorema de la función inversa se debe obtener funciones reales $R$ y $S$ tal que $r=R(x,y)$ y  $s=S(x,y)$.
     Finalmente obtendríamos la solución u tal que $$u(x,y)=V_{R(x,y)}(S(x,y))$$
  \end{itemize}
 \begin{Ejm}
-    Resolver $$au_x+bu_y=O$$, donde $a,b\in R$, $a\not=0$ y $u(0,y)=e^y$\\
+    Resolver $$au_x+bu_y=0$$, donde $a,b\in R$, $a\not=0$ y $u(0,y)=e^y$\\
     En este caso, la curva inicial será $\Gamma(r)=(0,r)$ (el eje y) y la condición inicial será $\phi(r)=e^r$
-    Nuestro sistema de EDOs es 
+    Nuestro sistema de ecuación diferencial ordinarias es 
     $$\begin{cases}
         x_r'(s)=a, \quad x_r(0)=\Gamma_1(r)\\
         y_r'(s)=b, \quad y_r(0)=\Gamma_2(r)
     \end{cases}$$
     cuya solución está dada por $x_r(s)=as$ , $y_r(s)=r+bs$
-    y nuestra EDO para $V_r(s)$ es
-    $$ v_r'(s)=0,\quad v_r(0)=e^r$$
-    cuya solución está dada por $v_r(s)=e^rs$
-    Despejando se obtiene $s=x/a$ y $r=y-b\frac{x}{a}$.\\Por tanto nuestra solución sería $u(x,y)=e^ye^{-\frac{b}{a}x}$
+    y nuestra ecuación diferencial ordinaria para $V_r(s)$ es
+    $$ v_r'(s)=0,\quad v_r(0)=e^r.$$ cuya solución está dada por $v_r(s)=e^rs.$Usando el teorema de la función inversa se obtiene que se obtiene $s=x/a$ y $r=y-b\frac{x}{a}$.\\Por tanto nuestra solución sería $u(x,y)=e^ye^{-\frac{b}{a}x}$
 \end{Ejm}

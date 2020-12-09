@@ -1,13 +1,13 @@
 \section{Soluciones generales y condiciones auxiliares}
-Dada una EDP $F(x,u,D^{\alpha}_u)=0$ diremos que u es solución general de la EDP si contiene como casos particulares a cualquier otra solución de la EDP.
+Dada una ecuación diferencial parcial $F(x,u,D^{\alpha}_u)=0$ diremos que $u$ es solución general de la ecuación diferencial parcial si contiene como casos particulares a cualquier otra solución de la ecuación diferencial parcial.
 \begin{Ejm}
-    Consideremos la EDP en dos variables.
+    Consideremos la ecuación diferencial parcial en dos variables.
     $$\ux(x,y)=0$$
     Entonces la solución general es $u(x,y)=f(y)$ para alguna función $f\in C^1(\R)$\\
     Si adicionamos condiciones adicionales a la ecuación tendremos una solución más precisa. Estas condiciones adicionales pueden provenir de las propiedades físicas, químicas, etc. del modelo que da origena la ecuación o a la naturaleza del dominio sobre el que queremos estudiar el problema.
 \end{Ejm}
-Las EDP dependen de una variable temporal que son llamadas ECUACIONES DE EVOLUCIÓN. Por ejemplo, la ecuación del calor  $$\ut-\uxx=f$$ y las ondas $$\utt-\uxx=f$$ son ejemplos de ecuaciones de evolución.\\Cuando imponemos una condición sobre la solución de una EDP para un valor dela variable temporal, esta condición se denomina CONDICIÓN INICIAL de la EDP.
-Si la condición auxiliar para la EDP se impone sobre el borde del dominio (acotado), esta condición de frontera. Por ejemplo:
+Las ecuaciones diferenciales parciales que dependen de una variable temporal que son llamadas ECUACIONES DE EVOLUCIÓN. Por ejemplo, la ecuación del calor  $$\ut-\uxx=f$$ y las ondas $$\utt-\uxx=f$$ son ejemplos de ecuaciones de evolución.\\Cuando imponemos una condición sobre la solución de una ecuación diferencial parcial para un valor dela variable temporal, esta condición se denomina CONDICIÓN INICIAL de la ecuación diferencial parcial.
+Si la condición auxiliar para la ecuación diferencial parcial se impone sobre el borde del dominio (acotado), esta condición de frontera. Por ejemplo:
 $$
 \begin{cases}
     u_t-u_{xx}=f,
@@ -15,7 +15,7 @@ $$
     u(t,x)=0, & \mbox{$x\in\partial\Omega$}
 \end{cases}
 $$
-Significa que la temperatura es cero en el borde del dominio. Si una EDP posee condiciones iniciales y de frontera, diremos que posee condiciones mixtas. Por ejemplo:$$
+Significa que la temperatura es cero en el borde del dominio. Si una ecuación diferencial parcial posee condiciones iniciales y de frontera, diremos que posee condiciones mixtas. Por ejemplo:$$
 \begin{cases}
     u_t-u_{xx}=f,
     & \mbox{$(t,x)\in (0,T)\times\Omega$}\\
@@ -23,4 +23,4 @@ Significa que la temperatura es cero en el borde del dominio. Si una EDP posee c
     u(0,x)=\psi(x)
 \end{cases}
 $$
-es un problema mixto o P.V.I.F.
+es un problema mixto.

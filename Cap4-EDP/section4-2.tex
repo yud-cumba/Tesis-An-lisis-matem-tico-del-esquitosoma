@@ -1,13 +1,13 @@
 \section{Curvas integrales de campos vectoriales}
 \begin{Def}
-    Se denomina dominio a un subconjunto $\Omega$ de $\R^n$ abierto y conexo. Denotaremos por $\partial\Omega$ a la frontera de $\Omega$.
+    Se denominará dominio a un subconjunto $\Omega$ de $\R^n$ que sea abierto y conexo. Denotaremos por $\partial\Omega$ a la frontera de $\Omega$.
 \end{Def}
 Una relación es llamada ecuación diferencial cuasilineal si tiene la forma
 \begin{eqnarray}
     \label{ecuacuasi}
     a(x,y,u)\ux+b(x,y,u)\uy=c(x,y,u)
 \end{eqnarray}
-donde se asume que a,b,c son funciones reales de clase $C^1(\Omega)$
+donde se asume que $\Omega\subset\R^3$, $a,b,c$ funciones reales de clase $C^1(\Omega)$.
 Una ecuación semilineal será un caso particular de \ref{ecuacuasi} si tomamos $a(x,y,u)=a(x,y)$ y $b(x,y,u)=b(x,y)$
 \begin{eqnarray}
 \label{ecuasemi} 
@@ -21,7 +21,7 @@ Se asumirá que
 \end{enumerate}
 \begin{Def}
     Una a curva $\gamma\subset\Omega$ es una curva integral del campo V si tiene como vector tangente a $V=V(x,y,z)$ en cada uno de sus puntos. Si $\gamma$ es parametrizado por algún $s\in I$
-    $\gamma(s))=(x((s),y(s),z(s))$ que tiene como vector tangente $V=V(x(s),y(s),z(s))$ para cada $s\in I$.
+    $\gamma(s))=(x((s),y(s),z(s))$ que tiene como vector tangente $V=V(x(s),y(s),z(s))$ para cada $s\in I$.\\
     Explícitamente se cumple la relación 
     \begin{eqnarray}
         x'(s)=a(x(s),y(s),z(s)) , y'(s)=b(x(s),y(s),z(s)) , z'(s)=b(x(s),y(s),z(s))\label{derivadacurva}
