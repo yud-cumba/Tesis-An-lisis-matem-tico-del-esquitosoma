@@ -28,7 +28,7 @@ Para este análisis se utilizará la definición infinitesimal del proceso parti
 % \begin{itemize}
 %\item
  \textbf{Miracidios en el huésped definitivo.}\\
-Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será necesario conocer sus respectivas distribuciones iniciales $$q_j^{(k)}=P(M_k(0)=j)$$ $$p_j^{(k)}=P(F_k(0)=j)$$ para que el proceso pueda iniciar.\\
+Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será necesario conocer sus respectivas distribuciones iniciales $$q_j^{(k)}=P(M_k(0)=j)$$ $$p_j^{(k)}=P(F_k(0)=j)$$ para que el proceso pueda inicializar.\\
     Además para simplificar notación y cálculos, los procesos $M_k$ y $F_k$ tendrán la misma probabilidad de transición, es decir que será indiferente el que  cada parásito sea hembra o macho.
     Denotemos a la probabilidad de transición del estado $i$ al estado $j$ de un tiempo $s$ a un tiempo $t$ de $\{M_k(t)\}_{t\geq 0}$ y $\{F_k(t)\}_{t\geq 0}$ como $P_{i,j}(s,t)$, entonces, 
     $$P_{m,n}(s,t)=P\big(M_k(t)=n\thinspace|\thinspace M_k(s)=m\big)=P\big(F_k(t)=n\thinspace|\thinspace F_k(s)=m\big)$$
@@ -36,6 +36,8 @@ Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será ne
     Por ello, aunque en los siguientes postulados se trata el caso de las cercarias macho, también aplica para las cercarias hembra.\\
     Al establecer las hipótesis sobre la iniciación (nacimiento) y la terminación (muerte)  estableceremos el símbolo $o(h)$ para indicar cualquier cantidad que se desvanezca más rápidamente que el $h$ cuando $h\rightarrow 0$ i.e. $\lim_{h\rightarrow 0}\frac{o(h)}{h}=0$\\
     A continuación pasamos a adaptar los postulados de un proceso de nacimiento y muerte para el análisis matemático de la cantidad de miracidios en un ser humano.
+    Supongamos por un momento que las probabilidades $P_{m,n}(t)$ son conocidos para todo $n \in \N$ 
+    y tratemos de determinar $P_{m,n}(t+h)$ la probabilidad de que un ser humano albergue $n$ parásitos al tiempo $t+h$. Habrá $n$ parásitos en el tiempo $t+h$ si y solo si una de las siguientes condiciones son satisfechas:
     \begin{enumerate}
         \begin{figure}
           \label{cuerpo1}
@@ -43,10 +45,11 @@ Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será ne
              \includegraphics[scale=0.075]{Cap5-AnálisisEsquitosoma/img/cuerpo-1.png}
             \caption{En un cuerpo se encuentran $m$ miracidios y muere uno.}
         \end{figure}
-        \item Si $\mu_1>0$ es la razón de muerte instantánea de un esquistosoma.\\
+        \item 
+        \textbf{Al tiempo $t$ , hay $n+1$ parásitos y muere uno nuevo en el intervalo $[t,t+h)$.} Si $\mu_1>0$ es la razón de muerte instantánea de un esquistosoma.\\
         Para analizar la probabilidad de muerte de un estado arbitrario $m\in \N$ (que vendría a ser la cantidad de parásitos en un ser humano) al tiempo $t$, donde cada uno tiene la misma media de probabilidad $\mu_1$ de morir y por lo tanto cada uno también tiene la misma probabilidad de muerte $P_{1,0}(t, t+h)=\mu_1 h + o(h)$, entonces, 
         $$P_{m ,m-1}(t,t+h)=mP_{1,0}(t,t+h)=\mu_1 mh+o(h)$$
-         \item  Sea $\nu_{11}$ la tasa de liberación instantánea de cercarias por caracol infectado (factor biológico) y $\nu_{12}$ la probabilidad de que una cercaria liberada infecte a un ser humano (factor ambiental).\\
+         \item \textbf{Al tiempo $t$ , hay $n-1$ parásitos y aparece uno nuevo en el intervalo $[t,t+h)$.} Sea $\nu_{11}$ la tasa de liberación instantánea de cercarias por caracol infectado (factor biológico) y $\nu_{12}$ la probabilidad de que una cercaria liberada infecte a un ser humano (factor ambiental).\\
          \begin{figure}
          \label{cuerpo2}
             \centering
@@ -55,9 +58,11 @@ Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será ne
         \end{figure}
         Denotemos $\nu_1=\nu_{11}\cdot\nu_{12}$, que vendría a ser la razón de parásitos que infectan a un ser humano y por ende, cada parásito tiene la misma probabilidad de infectar a un ser humano de $P_{0,1}(t, t+h)=\nu_1 h + o(h).$ Por lo tanto, para $m\in\N$ , $h\rightarrow 0$, la probabilidad de que un nuevo parásito infecte a un ser humano (ya sea macho o hembra) estaría dado por  $2P_{m,m+1}(t,t+h)=S(t)P_{0,1}(t, t+h)=\nu_1S(t)h+o(h)$.\\Si reemplazamos el valor de $S(t)$ por el de su esperanza $E[S(t)]$, se tiene,
         $$P_{m,m+1}(t,t+h)=\frac{1}{2}\nu_1E[S(t)]h+o(h)$$
-        \item Aunque es posible para un huésped ser infectado por más de un miracidio al mismo tiempo o que al mismo tiempo mueran más de dos de estos parásitos, estos no generan cambios plausibles, por lo cual la probabilidad de más de un salto será $o(h)$. Es por eso que las transiciones de un estado $j$ solo son posibles a los estados $j+1$ o $j-1$ en un intervalo corto de tiempo (casi instantáneo), es decir, en un intervalo $[t,t+h)$, donde $h\rightarrow 0$.
+        \item \textbf{Dos o más cambios suceden en el intervalo} \\Aunque es posible para un huésped ser infectado por más de un miracidio al mismo tiempo o que al mismo tiempo mueran más de dos de estos parásitos, estos no generan cambios plausibles, por lo cual la probabilidad de más de un salto será $o(h)$. Es por eso que las transiciones de un estado $j$ solo son posibles a los estados $j+1$ o $j-1$ en un intervalo corto de tiempo (casi instantáneo), es decir, en un intervalo $[t,t+h)$, donde $h\rightarrow 0$.
         $$P_{m,m+n}(t,t+h)=o(h), n>1$$
-        \item Al tiempo $t$, hay $n$ parásitos y no ocurre ningún cambio en el intervalo $[t,t+h)$.
+        \item
+        \textbf{Al tiempo $t$ , hay $n$ parásitos y no ocurre ningún cambio en el intervalo $[t,t+h)$.}\\
+        Al tiempo $t$, hay $n$ parásitos y no ocurre ningún cambio en el intervalo $[t,t+h)$.
          $$P_{m,n}(t,t+h)= 1-\frac{1}{2}\nu_1E[S(t)]hP_n(t)-\mu_1 P_{n}(t)h+o(h)$$
     \end{enumerate}
 \begin{comment}

@@ -1,5 +1,5 @@
-\section{Resolución de nuestra EDP}
-Nuestro objetivo es resolver la siguiente EDP. Dado $s>0,$
+\section{Resolución de nuestra ecuación diferencial parcial}
+Nuestro objetivo es resolver la siguiente ecuación diferencial parcial. Dado $s>0$, (s es un valor fijo del cual provendría )
 $$\begin{cases}
     G_t+\tilde{\mu}_1(z-1)G_z=\frac{1}{2}\nu_1Y(t)(z-1)G\\G(s,z)=z^m
 \end{cases}$$
@@ -7,16 +7,16 @@ En este caso nuestra curva inicial parametrizada por $r$ está dada por $\gamma(
 Nuestro sistema de ecuaciones diferenciales para las curvas integrales $\{t_r:t_r(u)\}_{r\in\R}$, $\{z_r:z_r(u)\}_{r\in\R}$ y $\{v_r:v_r(u)\}_{r\in\R}$ toma la forma
 \begin{eqnarray}
     \begin{cases}
-    \label{edp-curvas-caracteristicas}
+    \label{ecuación diferencial parcial-curvas-caracteristicas}
         t_r'=1, & t_r(0)=s\\
         z_r'=\mu_1(z_r-1), & z_r(0)=r\\
         v'_r(u)=\frac{1}{2}\nu_1Y(t_r)(z_r-1)v, & v_r(0)=r^m,
     \end{cases}
 \end{eqnarray}
 Resolviendo este sistema para cada $r\in\R$ se obtiene que explícitamente las curvas integrales $\{t_r:t_r(u)\}_{r\in\R}$ y $\{z_r:z_r(u)\}_{r\in\R}$ están dadas por $t_r(u)=u+s$ y $z_r(u)=(r-1)e^{\mu_1 u}+1$.\\
-Reemplazamos estas curvas en la ecuación \ref{edp-curvas-caracteristicas}
+Reemplazamos estas curvas en la ecuación \ref{ecuación diferencial parcial-curvas-caracteristicas}
 $$v'_r-\frac{1}{2}\nu_1Y(u+s)(r-1)e^{\mu_1 u}v= 0, \quad v_r(0)=r^m$$
-Resolvamos esta EDO lineal por el método del factor integrante, el cual en  este caso sería
+Resolvamos esta ecuación diferencial ordinaria lineal por el método del factor integrante, el cual en  este caso sería
 $$\exp\bigg(-\int_0^u \frac{1}{2}\nu_1Y(x+s)(r-1)e^{\mu_1 u}\bigg).$$
 Si denotamos
 $$U(u)=-\frac{1}{2}\nu_1(r-1)\int_0^u Y(x+s)e^{\mu_1x} dx $$
@@ -31,31 +31,33 @@ $$U(u)=-\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(u+s)-\beta(s)]$$
 Gracias al método del factor integrante la solución general de $$v_r(u)=Ce^{U(u)}$$
 donde $$v_r(0)=r^m$$
 entonces
-$$C \exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(0+s)-\beta(s)]\bigg)=C=r^m$$
+$$C \exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(0+s)-\beta(s)]\bigg)$$
+$$C=r^m$$
 Por lo tanto,
 $$v_r(u)=r^m\exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(u+s)-\beta(s)]\bigg)$$
 La función inversas de las curvas $t_r$ y $s_r$ vendrían a ser
 $$u=t-s\quad,r=(z-1)e^{-\mu_1(t-s)}+1$$
-Reemplazando estas curvas en la curva $v_r(u)$ se tiene que
+Reemplazando estas curvas en la curva $v_r(u)$ se tiene
 $$G(t,z)=[e^{-\mu_1(t-s)}(z-1)+1]^m\exp\bigg(\frac{1}{2}\nu_1((z-1)e^{-\mu_1(t-s)})[e^{\mu_1(t-s)}\beta(t)-\beta(s)]\bigg)$$
-La expresión 
 \begin{eqnarray}
     G(t,z)=[e^{-\mu_1(t-s)}(z-1)+1]^m \exp\bigg(\frac{1}{2}\nu_1(z-1)\big(\beta(t)-e^{-\mu_1(t-s)}\beta(s)\big)\bigg)\label{gmk}
 \end{eqnarray}
-Recordemos que esta función generadora $G_t$ está relacionada a la variable aleatoria $M_k(t)$ y con la probabilidad de transición $P_{m,n}$.
-Por ello, por un momento usemos la notación que indica la variable aleatoria de la cual fue generada la función $G_t$, es decir, $G_{M_k(t)}(z)=\sum_{n=1}^\infty z^n P_{m,n}(s,t)$.\\ $X\sim Bin\big(m,e^{-\tilde{\mu_1}(t-s)}\big)$ , $Y\sim Pois\big(\frac{1}{2}\nu_1(\beta(t)-\beta(s)e^{-\tilde{\mu_1}(t-s)})\big)$.
+Recordemos que esta función generadora $G_t$ está relacionada a la variable aleatoria $M_k(t)$ y con la probabilidad de transición $P_{m,n}$, por ello por un momento usemos la notación que indica la variable aleatoria de la cual fue generada la función $G_t$, es decir, $G_{M_k(t)}(z)=\sum_{n=1}^\infty z^n P_{m,n}(s,t)$.\\ \\
+Ahora, tomemos dos variables aleatorias $X$, $Y$ con distribuciones binomial y de Poisson con parámetro $\lambda=\frac{1}{2}\nu_1(\beta(t)-\beta(s)e^{-\tilde{\mu_1}(t-t_0)})$, respectivamente. $X\sim Bin\big(m,e^{-\tilde{\mu_1}(t-s)}\big)$ , $Y\sim Pois\big(\frac{1}{2}\nu_1(\beta(t)-\beta(s)e^{-\tilde{\mu_1}(t-s)})\big)$.
 Es decir $$f_X(x)={m \choose x}p^x(1-p)^{m-x}$$
-$$f_Y(y)=e^{-\lambda}\frac{\lambda^y}{y!}$$ donde $\lambda=\frac{1}{2}\nu_1(\beta(t)-\beta(s)e^{-\tilde{\mu_1}(t-t_0)})$ , $p=e^{-\tilde{\mu_1}(t-s)}$.\\Para estas variables aleatorias tenemos que
+$$f_Y(y)=e^{-\lambda}\frac{\lambda^y}{y!}$$
+Donde $p=e^{-\tilde{\mu_1}(t-s)}$\\\\
+Para estas variables aleatorias tenemos que
 $$G_{X(t)}(z)=[e^{-u(t-s)}(z-1)+1]^m$$
 $$G_{Y(t)}(z)=exp[\frac{1}{2}\nu_1(z-1)(\beta(t)-e^{-u(t-s)}\beta(z))]$$
-Por la proposición \ref{gmultiplica} y por \ref{gmk} $$G_{X(t)+Y(t)}(z)=G_{X(t)}G_{Y(t)}(z)=G_{M_K(t)}(z;s,m)$$
-Entonces $X(t)+Y(t)$ y $  M_k(t)$ tienen la misma distribución. Esto es
+La proposición \ref{prop-funcionGenSuma-productoFuncionGen} nos dice que la función generadora de la suma de variables aleatorias es el producto de las funciones generadores de cada uno y además por (\ref{gmk}) se obtiene $$G_{X(t)+Y(t)}(z)=G_{X(t)}G_{Y(t)}(z)=G_{M_K(t)}(z;s,m)$$
+Entonces $X(t)+Y(t)$ y $  M_k(t)$ tienen la misma distribución
 $$\mathbf{P}_{m,n}(s,t)=P(M_k(t)=n|M_k(s)=m)=P(X(t)+Y(t)=n|M_k(s)=m)=P(X(t)+Y(t)=n)f_{X(t)+Y(t)}(n)$$
-El cual es una convolución de las variables aleatorias $X(t)$ e $Y(t)$ definida en \ref{convolucion}. Entonces $$P_n(t)=(f_{X(t)}*f_{Y(t)})(n)=\sum_{j=0}^n f_{X(t)}(j)f_{Y(t)}(n-j)=\sum_{j=0}^m {m \choose j}p^j(1-p)^{m-j} e^{-\lambda}\frac{\lambda^{n-j}}{(n-j)!}$$
+El cual es una convolución de las variables aleatorias $X(t)$ e $Y(t)$. Entonces $$P_n(t)=(f_{X(t)}*f_{Y(t)})(n)=\sum_{j=0}^n f_{X(t)}(j)f_{Y(t)}(n-j)=\sum_{j=0}^m {m \choose j}p^j(1-p)^{m-j} e^{-\lambda}\frac{\lambda^{n-j}}{(n-j)!}$$
 Explícitamente, se tiene que 
  
 $$P_n(t)=\exp\bigg(-\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\bigg)\sum_{j=0}^n{m \choose j}(e^{-\tilde{\mu_1}(t-t_0)})^j(1-e^{-\tilde{\mu_1}(t-t_0)})^{m-j}\frac{\big(\frac{1}{2}\nu_1(\beta(t)-\beta(t_0)e^{-\tilde{\mu_1}(t-t_0)})\big)^{n-j}}{(n-j)!}$$
-Además 
+Para continuar, previamente demostraremos dos lemas que nos ayudarán a pasar de la probabilidad a una esperanza, la cual es más práctica en sentido estadístico.
 \begin{Lem}
 $$E(X(t)|M_k(0)=j)=je^{-\tilde{\mu}_1 t}$$
     \begin{proof}
@@ -95,8 +97,13 @@ $$=e^{\frac{-1}{2}(\nu_1\beta(t)+\omega_k)}\sum_{m=0}^\infty\sum_{j=0}^m{m \choo
 $$=\frac{1}{n!}e^{1/2(\beta(t)+\omega_k)} \sum_{j=0}{n\choose j}(\frac{1}{2}\omega_k e^{-\tilde{\mu}_1})^j(\frac{1}{2}\beta(t))^{n-j}\sum_{v=0}^\infty\frac{[\frac{1}{2}\omega_k e^{-\tilde{\mu}_1t}]^v}{v!}  $$
 $$\frac{1}{n!}[\frac{1}{2}(\beta(t)+\omega_k e^{-\tilde{\mu}_1t})]^n exp(-(\beta(t)+\omega_k e^{-\tilde{\mu}_1}t) ) $$
 Por convolución $$P(W_k(t)=n)=P(M_k(t)+F_k(t))$$
-Esto quiere decir que $$W_k(t)=n\sim Poisson(\beta+\omega e^{\tilde{\mu}_1 t})$$
-Ahora se estudiará las siguientes distribuciones de probabilidad.
+Esto quiere decir que 
+\begin{eqnarray}
+\label{resultW}
+    W_k(t)=n\sim Poisson(\beta+\omega e^{\tilde{\mu}_1 t})
+\end{eqnarray}
+Hasta aquí ya obtenemos que la probabilidad e infección de la esquisitomiasis tiene una distribución de Poisson que cumple la relación (\ref{resultW}) para el caso más peligroso: Cuando una infección se da y esta se puede esparcir rápidamente pues se calcula las probabilidad de parásitos emparejados.
+Ahora se estudiará las siguientes distribuciones de probabilidad para el caso de parásitos sin pareja, que si bien es un caso de no vital importancia, puede ser de utilidad a la hora de detectar y querer evitar propagaciones y contagio.
 Se define: $$\hat{M}_k(t)=M_k(t)-\gamma_k(t)$$
 $$\hat{F}_k(t)=F_k(t)-\gamma_k(t)$$
 $M_k(t)$, $F_k(t)$ pueden ser interpretados como el número de parásitos machos y hembras, respectivamente, sin pareja en el huésped k.
@@ -132,10 +139,11 @@ Además $$\gamma_k(t)=\frac{1}{2}(W_k(t)-\hat{M}_k(t)-\hat{F}_k(t) )$$
     \begin{proof}
         Usando el Lema \ref{LEMAIMPORTANTE} y la independencia de $F_k(t)$ y $M_k(t)$ se sigue que:
         $$P(\hat{M}_k(t)=n)=\sum_{j=0}^\infty P(F_k(t)=j)P(M_k(t)=j+n)$$
-        $$=\sum_{j=0}^\infty \big(\sum_{\iota=0}^\infty p_{\iota}^{(k)} P_{\iota ,j}(0,t) \big)\big(\sum_{m=0}^\infty q_m^{(k)}P_{m,j+n}(0,t)\big)$$
+        $$l=\sum_{j=0}^\infty \big(\sum_{\iota=0}^\infty p_{\iota}^{(k)} P_{\iota ,j}(0,t) \big)\big(\sum_{m=0}^\infty q_m^{(k)}P_{m,j+n}(0,t)\big)$$
         Donde:
         $$P_{\iota ,j}(0,t)=\exp\big(-\frac{1}{2}\nu_1(\beta(t)\big)\sum_{i=0}^n{\iota \choose i}(e^{-\tilde{\mu_1}t})^i(1-e^{-\tilde{\mu_1}t})^{\iota-i}\frac{\big(\frac{1}{2}\nu_1(\beta(t)\big)^{\iota-i}}{(\iota-i)!}$$
         $$P_{m ,j+n}(0,t)=\exp\big(-\frac{1}{2}\nu_1(\beta(t)\big)\sum_{i=0}^n{m \choose i}(e^{-\tilde{\mu_1}t})^i(1-e^{-\tilde{\mu_1}t})^{m-i}\frac{\big(\frac{1}{2}\nu_1(\beta(t)\big)^{j+n-i}}{(j+n-i)!}$$
         La formula del lema sigue reemplazando estos valores en \ref{etiqueta1} y si se intercambian los role de $p_j^{(k)}$ y $q_j^{(k)}$ .Se obtiene \ref{etiqueta2} intercambiando los roles de $p_j^{k}$ y $q_m^{k}$
     \end{proof}
+    Este último lema muestra como resultado la probabilidad de que una persona sea infectada pero esta infección no sea de gravedad puesto que se evalúa simplemente a los parásitos sin pareja (y por lo tanto sin poder reproducirse) tanto macho y hembra.
 \end{Lem}

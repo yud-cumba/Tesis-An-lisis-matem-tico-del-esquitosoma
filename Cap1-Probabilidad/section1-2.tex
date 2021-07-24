@@ -1,9 +1,9 @@
 \section{Algunas propiedades elementales}
 
 La importancia esencial de la aplicación de los métodos de cálculo de la probabilidad reside en su capacidad para estimar o predecir eventos. Cuanto mayor sea la cantidad de datos disponibles para calcular la probabilidad de un acontecimiento, más preciso será el resultado calculado. Dada la complejidad de los sistemas en los que suele aplicarse la teoría de la probabilidad, se requiere de ciertas propiedades que faciliten su cálculo.
-Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en \cite{intro-probabilidad}, \cite{Feller},\cite{Rincon1} \cite{Rincon2}
+Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en \cite{intro-probabilidad}, \cite{Feller},\cite{Rincon1}, \cite{Rincon2}.
 \begin{Prop}
-    Sea $(\Omega,\thinspace\mathscr{F},P)$ un espacio de probabilidad; $A,B\subset\Omega$ se cumple que:
+    Sea $(\Omega,\thinspace\mathscr{F},P)$ un espacio de probabilidad, $A,B$ conjuntos tal que, $A,B\subset\Omega$, se cumple que:
     \begin{enumerate}
         \item $P(A^c)=1-P(A)$.
         \item $P(\emptyset)=0$.
@@ -20,7 +20,7 @@ Las demostraciones de los resultados expuestos en este capítulo se pueden encon
         \item $\bigcup_{i=1}^n B_i=\Omega$.
     \end{enumerate}
 \end{Def}
-El siguiente resultado es bastante útil, pues establece un método para calcular las probabilidades. Mediante este método, dado un evento $A$ cuya probabilidad se busca, se trata de encontrar una partición de $A$ donde cada evento de esta partición será más simple de calcular.
+El siguiente resultado es bastante útil, pues establece un método para calcular las probabilidades. Mediante este método, dado un evento $A$, cuya probabilidad se busca, se trata de encontrar una partición de $A$ donde cada evento de esta partición será más simple de calcular.
 \begin{Prop}
     Sea $(\Omega,\mathscr{F},P)$ un espacio de probabilidad, $\{A_k\}_{k=1}^n$ una partición finita de $\Omega$, se tiene que
     $$P(\bigcup_{k=1}^n A_k)=\sum_{k=1}^n P(A_k)$$ 
@@ -29,9 +29,9 @@ El siguiente resultado es bastante útil, pues establece un método para calcula
     Si $(\Omega,\mathscr{F},P)$ es un espacio de probabilidad, $A$ y $B$ eventos, entonces
     $$P(A\cup B)=P(A)+P(B)-P(A\cap B)$$
 \end{Cor}
-En algunos casos, nos topamos con una colección de eventos que tienen cada uno la misma probabilidad de que sucedan. A estos eventos se llaman equiprobables.
+En algunos casos, nos topamos con una colección de eventos que tienen cada uno la misma probabilidad de que sucedan. A estos eventos se le conocen como equiprobables.
 Dado $n,N\in\N$, tal que $n<N$, $\Omega=\{\omega_1,\ldots,\omega_N\}$ un espacio muestral y $A=\{\omega_1,\ldots,\omega_n\}$ un evento del espacio muestral $\Omega$.
-Si suponemos que los conjuntos  $\{\omega_k\}_{k=1}^N$, son equiprobables, entonces $P(\{\omega_i\})=P(\{\omega_j\})$ para $i,j=1,2,\ldots,N$, $i\not=j$ y como consecuencia $$1=P(\bigcup_{k=1}^N \{\omega_k\})=\sum_{k=1}^N P(\{\omega_k\})=N P(\omega_k).$$
+Si suponemos que los conjuntos  $\{\omega_k\}_{k=1}^N$, son equiprobables, entonces $P(\{\omega_i\})=P(\{\omega_j\})$ para $i,j=1,2,\ldots,N$, y como consecuencia $$1=P(\bigcup_{k=1}^N \{\omega_k\})=\sum_{k=1}^N P(\{\omega_k\})=N P(\omega_k).$$
 \begin{eqnarray}
     \label{probabilidadn}
     P(\omega_k)=\frac{1}{N}\quad k=1,2,\ldots ,N.
@@ -41,7 +41,7 @@ $$P(A)=P(\bigcup_{k=1}^n \{\omega_k\})=\sum_{k=1}^n P(\{\omega_k\})=n P(\{\omega
 Usando la expresión (\ref{probabilidadn})
 $$P(A)=\frac{n}{N}.$$
 Este método de encontrar probabilidades, basándose en la equiprobabilidad de los posibles resultados, es conocido como la definición clásica de probabilidad.\\
-Históricamente,esta forma de calcular probabilidades es una de las primeras en utilizarse; se aplicó con bastante éxito en problemas de juegos de azar y ayudó a sentar las bases para construir la teoría matemática.
+Históricamente, esta forma de calcular probabilidades es una de las primeras en utilizarse; se aplicó con bastante éxito en problemas de juegos de azar y ayudó a sentar las bases para construir la teoría matemática.
 \begin{Def}
     Sea $A$ un subconjunto de un espacio muestral $\Omega$ de cardinalidad finita. Si $\#A$ denota la cardinalidad del conjunto $A$. Se define la probabilidad clásica del evento $A$ como el cociente $$P(A)=\frac{\#A}{\#\Omega}$$
     \label{defprobClásica}
@@ -57,17 +57,6 @@ Como la probabilidad está ligada a nuestra ignorancia sobre los resultados de l
 Cuando ocurre un suceso antes de realizar otro experimento, se reduce el espacio muestral y es por eso que cambia la probabilidad. A veces es más fácil calcular la probabilidad condicionada teniendo en cuenta este cambio de espacio muestral.
 No tiene por qué haber una relación causal o temporal entre $A$ y $B$. A puede preceder en el tiempo a $B$, sucederlo o pueden ocurrir simultáneamente. $A$ puede causar $B$, viceversa o pueden no tener relación causal. Las relaciones causales o temporales son nociones que no pertenecen al ámbito de la probabilidad. Pueden desempeñar un papel o no, dependiendo de la interpretación que se le dé a los eventos.
 Siendo la probabilidad condicional una probabilidad calculada en un espacio muestral reducido (el cual sería $B$), es de esperarse que ésta tenga las mismas propiedades que cualquier medida de probabilidad.
-\begin{Ejm}
-Se piensa tomar dos exámenes, uno de álgebra y otro de cálculo.
-Si 6 de cada 10 alumnos aprueban el examen de álgebra, mientras que solo 1 de cada 4 alumnos  álgebra y cálculo a la vez. Si el examen de álgebra se toma primero. ¿Cuál es la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo?
-    Vamos a trabajar con 2 eventos: que el alumno apruebe cálculo, y que apruebe álgebra.\\
-    Evento A: Aprobar cálculo. $P(A) = ?$\\
-    Evento B: Aprobar álgebra. $P(B) =0.6$ .\\
-    Evento A y B: Aprobar álgebra y cálculo. $P(A\cap B) =0.25$\\
-    Ahora calculamos la probabilidad que un alumno luego de aprobar álgebra también apruebe cálculo
-    $$P(A\thinspace|\thinspace B)=\frac{P(A\cap B)}{P(B)}=\frac{0.25}{0.6}=0.4167$$
-  Como vemos, luego de tomar el examen de álgebra el espacio muestral ($100\%$ de la los alumnos) se reduce al evento $B$ ( los que aprueban álgebra, $60 \%$ de la totalidad de los alumnos).
-  \end{Ejm}
 \begin{Prop}
     $P(\cdot\thinspace|\thinspace B)$ es una medida de probabilidad en el espacio de medida $(\Omega,\mathscr{F})$
 \end{Prop}
@@ -75,9 +64,9 @@ Gracias a esta propiedad tenemos una útil herramienta para calcular probabilida
 $$P(A\cap B)=P(A\thinspace|\thinspace B)P(B)$$
 De la misma manera, en los casos en que la ocurrencia de un evento $A$ no altere la probabilidad de otro evento $B$, se puede hablar de independencia de probabilidad.
 \begin{Def}
-    Se dice que los eventos $A, B$ son independientes si se cumple la igualdad $P(A\cap B)=P(A)P(B)$. Bajo la hipótesis adicional que $P(B)>0$ la condición de independencia puede escribirse como $P(A\thinspace|\thinspace B)=P(A)$.
+    Se dice que los eventos $A, B$ son independientes si se cumple la igualdad $P(A\cap B)=P(A)P(B)$. Bajo la hipótesis adicional de $P(B)>0$. La condición de independencia puede escribirse como $P(A\thinspace|\thinspace B)=P(A)$.
 \end{Def}
- Esto intuitivamente significa que la ocurrencia del evento $B$ no afecta al evento $A$.
+ Esto intuitivamente significa que la ocurrencia del evento $B$ no afecta al evento $A$.\\
 El siguiente resultado es bastante útil cuando se quiere determinar la probabilidad de algún conjunto grande, bastará con hallar las probabilidades de conjuntos más pequeños y probabilidades condicionales con respecto a esos conjuntos
 \begin{Teo}
     Sea $\{B_1,B_2,\ldots,B_n\}$ una partición de $\Omega$ tal que $P(B_i)\not=0$, para  $i=1,\ldots,n$, para cualquier evento $A$, $$P(A)=\sum_{i=1}^n P(A\thinspace|\thinspace B_i)P(B_i)$$
