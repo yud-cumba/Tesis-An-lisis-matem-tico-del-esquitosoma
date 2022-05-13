@@ -1,25 +1,25 @@
 \section{Conceptos generales}
-    En la naturaleza se pueden encuentran dos tipos de fenómenos o experimentos: deterministas y aleatorios. Un experimento determinista es aquel cuyo resultado es el mismo si se la repite bajo las mismas condiciones, como por ejemplo, el medir el volumen de un gas en teoría produce siempre el mismo resultado, cuando la presión y la temperatura son constantes.\\
-    En contraste a esto, un experimento aleatorio es aquel que aunque se repitan bajo las mismas condiciones, el resultado no será siempre el mismo.\\
-    Los conceptos y teoremas expuestos en esta sección fueron tomados de \cite{Rincon1} \cite{Rincon2}.
+    En la naturaleza encontramos dos tipos de fenómenos o experimentos: deterministas y aleatorios. El primero se define como aquel cuyo resultado puede ser predecido si se imponen las mismas condiciones iniciales previo al experimento. \\
+    En contraste a esto, un experimento aleatorio es aquel cuyo resultado no resultará ser el mismo a pesar de que se repitan las mismas condiciones iniciales.\\
+    Las definiciones y teoremas presentados en esta sección fueron tomados de \cite{Rincon1} \cite{Rincon2}.
 \begin{Ejm}
     Algunos ejemplos de experimentos deterministas:
     \begin{enumerate}[a)]
-        \item Medir el volumen de un gas cuando la presión y la temperatura son constantes.
-        \item Calcular la distancia que recorre un carro en $1$ hora a una velocidad constante.
+        \item Calcular la distancia que recorre un automóvil en $1$ hora a una velocidad constante.
+        \item Registrar el tiempo que demora en caer un objeto en caída libre antes de llegar al piso.
     \end{enumerate}
 \end{Ejm}
 \begin{Ejm}
 \label{Prob-Ejm-Aleatorio}
 Algunos ejemplos de experimentos aleatorios:
     \begin{enumerate}[a)]
-        \item Registrar el número de accidentes que ocurren en una determinada calle de una ciudad.
-        \item Registrar si una mujer con  determinada enfermedad la trasmite a alguno de sus 3 hijos.
+        \item Registrar el número de accidentes de tránsito que ocurren en el distrito de Ate en cada fin de semana.
+        \item Registrar si una mujer con  determinada enfermedad se la trasmite a alguno de sus 3 hijos.
     \end{enumerate}
 \end{Ejm}
-Cuando se tratan de experimentos aleatorios, en principio no sabremos cuál será el resultado obtenido. El experimento asociado a nuestro fenómeno, da lugar a un solo resultado (que denotaremos $\omega$) de entre un conjunto de posibles resultados.
+Cuando se tratan de experimentos aleatorios cuyos resultados no se conocen a priori, es decir, aleatorios, dará lugar a un resultado (que denotaremos $\omega$) de un conjunto de posibilidades.
 \begin{Def}
-Un espacio muestral es un conjunto arbitrario $\Omega$ que tiene como objetivo agrupar todos los posibles resultados del experimento aleatorio en cuestión.
+Un espacio muestral es un conjunto arbitrario $\Omega$ que agrupa todos los posibles resultados del experimento aleatorio en estudio u observación.
 \end{Def}
 \begin{Ejm}
 Los espacios muestrales respecto a los experimentos aleatorios descritos en el ejemplo (\ref{Prob-Ejm-Aleatorio}) serían:
@@ -28,44 +28,43 @@ Los espacios muestrales respecto a los experimentos aleatorios descritos en el e
     \item $\Omega=\{\textit{true, false}\}$
 \end{enumerate}
 \end{Ejm}
-De manera intuitiva, los subconjuntos de resultados (es decir del conjunto $\Omega$) que comparten alguna característica en común reciben el nombre de sucesos aleatorios.
+De manera intuitiva, los subconjuntos de todos los posibles resultados que comparten alguna característica en común reciben el nombre de sucesos aleatorios.
 Estos subconjuntos recibirán los nombres de sucesos si cumplen determinadas condiciones. Cuando el resultado de un experimento realizado pertenece a un suceso específico $A$, decimos que "$A$ ha ocurrido o se ha realizado".
 \begin{Def}
-    Una clase o colección $\mathscr{F}$ de subconjuntos de $\Omega$ es un $\sigma- \textit{álgebra}$ si cumple que:
+    Una colección de subconjuntos $\mathscr{F}$  de un conjunto arbitrario $\Omega$ es un $\sigma- \textit{álgebra}$ si cumple las siguientes condiciones:
     \begin{enumerate}
         \item $\Omega\in\mathscr{F}$
         \item Si $A\in\mathscr{F}$ entonces $A^c\in\mathscr{F}$
         \item Si $\{A_n\}_{n\in\N}\in\mathscr{F}$, entonces  $\bigcup_{k=1}^\infty A_k\in\mathscr{F}$
     \end{enumerate}
 \end{Def}
- Formalmente, a los elementos de un $\sigma-$álgebra $\mathscr{F}$ se los llama eventos, sucesos aleatorios o conjuntos medibles.
+ Formalmente, los elementos de un $\sigma-$álgebra $\mathscr{F}$ se denominan eventos o conjuntos medibles.
  Veamos un ejemplo que nos ayuda a ver intuitivamente el concepto de $\sigma-$álgebra.
 \begin{Ejm}
-    Supongamos que queremos registrar el número final de las placas de los carros que circulan en una determinada calle de una ciudad, para poder aplicar la regla de pico y placa. Para este caso, el espacio muestral de todos los posibles números finales de una placa arbitraria serían 
+    Supongamos que queremos registrar el número final de las placas de los autos que circulan por alguna avenida de nuestra ciudad, para poder aplicar la regla de "pico y placa". Para este caso, el espacio muestral de todos los posibles números finales de una placa arbitraria serían 
     $$\Omega=\{0,\thinspace 1,\thinspace 2,\ldots 9\}.$$
-    Sea $\omega$ es resultado del experimento, sea cual su valor, $\omega \in\Omega$, por tanto, $\Omega$ debe ser un evento; al cual llamaremos evento seguro. Esto es $\Omega\in\mathscr{F}.$\\ Definamos el evento $A=\{0,\thinspace 2,\ldots ,8\}.$ Esto se interpreta al suceso de que la placa del auto arbitrario termine en número par. Si tiene perfecto sentido pensar en que el resultado $\omega$ pueda ser un número par (es decir $\omega\in A$), también tiene perfecto sentido pensar que este podría ser un número impar (es decir que $\omega \in A^c$) es, por tanto, razonable exigir que $A^c$ sea un evento si $A$ lo es. Esto es $A^c\in\mathscr{F}$ si $A\in\mathscr{F}.$\\Si definimos el evento $B=\{1\}$ que ocurre cuando la placa acabe en el número $1$, tiene sentido pensar que escogiendo un auto arbitrario, el resultado $\omega$ podría ser un par ($\omega\in A$) o quizá el resultado podría ser $1$ ($\omega\in B$). Por ser ambos eventos, puede ocurrir que $\omega\in A\cup B$, por lo tanto exigiremos que la unión finita de sucesos sea un suceso. Esto es si $A,\thinspace B\in\mathscr{F}$ entonces $A\cup B\in \mathscr{F}.$
+    Sea $\omega$ es resultado del experimento, sea cual su valor, $\omega \in\Omega$, por tanto, $\Omega$ debe ser un evento; al cual llamaremos evento seguro. Esto es $\Omega\in\mathscr{F}.$\\ Definamos el evento $A=\{0,\thinspace 2,\ldots ,8\}.$ Esto se interpreta al suceso de que la placa del auto arbitrario termine en número par. Si tiene perfecto sentido pensar en que el resultado $\omega$ pueda ser un número par (es decir $\omega\in A$), también tiene perfecto sentido pensar que este podría ser un número impar (es decir que $\omega \in A^c$) por tanto, no es difícil pensar que $A^c$ sea un evento si $A$ lo es. Esto es $A^c\in\mathscr{F}$ si $A\in\mathscr{F}.$\\Si definimos el evento $B=\{1\}$ que ocurre cuando la placa acabe en el número $1$, tiene sentido pensar que escogiendo un auto arbitrario, el resultado $\omega$ podría ser un par ($\omega\in A$) o quizá el resultado podría ser $1$ ($\omega\in B$). Por ser ambos eventos, puede ocurrir que $\omega\in A\cup B$, por lo tanto exigiremos que  unión finita de sucesos deba ser un suceso. Esto es si $A,\thinspace B\in\mathscr{F}$ entonces $A\cup B\in \mathscr{F}.$
 \end{Ejm}
-Menos intuitiva es la exigencia de estabilidad frente a uniones numerables, la respuesta más
-convincente es que, de ese modo, se obtiene una teoría matemática más rica.
+Sin embargo exigir estabilidad frente a uniones contables resulta ser menos intuitiva, esto dará lugar a que tengamos en su formalización una teoría matemática más rica.
 \begin{Def}
-    Si $\mathscr{C}$ es una colección no vacía de subconjuntos de $\Omega$.\\La $\sigma-\textit{álgebra}$ generada por $\mathscr{C}$ denotada por $\sigma(\mathscr{C})$ es $$\sigma(\mathscr{C})=\bigcap\{\mathscr{F}|\thinspace\mathscr{F} \textit{ es un }\sigma-\textit{álgebra y }  \mathscr{C}\subset\mathscr{F}\}$$
+    Sea $\mathscr{C}$ una clase no vacía de subconjuntos de un conjunto arbitrario $\Omega$.\\La $\sigma-\textit{álgebra}$ generada por $\mathscr{C}$, y denotada por $\sigma(\mathscr{C})$ es $$\sigma(\mathscr{C})=\bigcap\{\mathscr{F}|\thinspace\mathscr{F} \textit{ es un }\sigma-\textit{álgebra y }  \mathscr{C}\subset\mathscr{F}\}$$
     Este conjunto es la menor $\sigma-$álgebra que contiene a $\mathscr{C}$.
 \end{Def}
 \begin{Ejm}
-    El conjunto $\mathscr{P}(\Omega)$ de todos los subconjuntos de $\Omega$ es trivialmente un $\sigma$-álgebra en $\Omega$ a la cual llamaremos discreta. \\ Llamaremos espacio medible discreto a un conjunto numerable provisto de esta $\sigma-$álgebra. En lo que sigue, cualquier conjunto numerable se supondrá provisto de la $\sigma-$álgebra discreta, a menos que se indique lo contrario.
+    El conjunto de todos los subconjuntos de $\Omega$, que denominamos $\mathscr{P}(\Omega)$, es una $\sigma$-álgebra trivial en $\Omega$ a la cual llamaremos $\sigma$-álgebra discreta. \\ Un conjunto numerable provisto de esta $\sigma-$álgebra denominaremos espacio medible discreto.\\
+    En lo que sigue de este documentos, un conjunto numerable cualquiera será provisto de esta $\sigma-$álgebra discreta, a menos que se suponga lo contrario.
 \end{Ejm}
 \begin{Ejm}
-    El conjunto $\{\Omega, \emptyset\}$ es la más pequeña $\sigma-$álgebra que podemos considerar de $\Omega$. Se llamará $\sigma-$álgebra trivial.
+    Se llamará $\sigma-$álgebra trivial al conjunto $\{\Omega, \emptyset\}$ siendo esta la más pequeña $\sigma-$álgebra que podemos considerar de $\Omega$. 
 \end{Ejm}
 \begin{Def}
     \label{def-medidaProbabilidad}
     Sea $\mathscr{F}$ una $\sigma-$álgebra del espacio muestral $\Omega$, $k\in\N$ $A_k$, sucesos asociados a $\mathscr{F}$.
     Una función $P:\mathscr{F}\rightarrow [0,1]$ es una medida de probabilidad si cumple que $P(\Omega)=1$ y P es $\sigma-aditiva$, es decir que se cumple que $$P\big(\bigcup_{k=1}^\infty A_k\big)=\sum_{k=1}^\infty P(A_k)$$
-    donde $A_i\cap A_j=\emptyset$, para $i\not= j$
+    donde $A_i\cap A_j=\emptyset$,  $i\not= j$
 \end{Def}
-El número $P(A)$ es una forma de medir la posibilidad que suceda el evento $A$ al efectuar una vez el experimento aleatorio.\\
-Una probabilidad cercana a $0$ indica que es poco probable que ocurra un evento, mientras que una probabilidad cercana a $1$ indica que es casi seguro que éste ocurra.\\
-La probabilidad es importante en la toma de decisiones debido a que proporciona una manera de medir, expresar y analizar las incertidumbres asociadas con eventos futuros.
+Que una probabilidad de la ocurrencia de un evento sea próxima a $0$ indica que este es poco factible de ocurrir, mientras que una probabilidad cercana a $1$ indica que es casi seguro que el resultado del experimento ocurra.\\
+Tomar el control de las posibilidades que un evento ocurra, es vital en la toma de decisiones, gracias a que nos otorga una manera de medir y analizar los sucesos futuros con sus respectivas incertidumbres.
 \begin{Def}
     Sea $\Omega$ un espacio muestral, $\mathscr{F}$ un $\sigma-$álgebra de $\Omega$, $P$ una medida de probabilidad.\\
     A la terna $(\Omega,\thinspace\mathscr{F})$ se le llama espacio de medida o espacio medible y a la terna $(\Omega,\mathscr{F},P)$ se le conoce como espacio de probabilidad.

@@ -1,8 +1,8 @@
 \section{Resolución de las ecuaciones diferenciales parciales semilineales}
-Como nos enfocaremos en la resolución de las ecuación diferencial parcial semilineales, bastará tomar el campo vectorial en $\R^2$
+Como nos enfocaremos en la resolución de las ecuaciones diferenciales parciales semilineales, bastará tomar el campo vectorial en $\R^2$
 El campo vectorial en $\R^2$ asociado a la ecuación diferencial parcial \ref{ecuasemi} es dada por 
 $$V(x,y)=(a(x,y),b(x,y))$$
-por ello $a(x,y)u_x+b(x,y)u_y$ es la derivada direccional de u a lo largo de V.\\
+por ello $a(x,y)u_x+b(x,y)u_y$ es la derivada direccional de $u$ a lo largo de $V$.\\
 Sea  $\gamma:I\rightarrow\R^2$ , $I\subset\R$ una curva integral del campo V.
 Si se denota $v(s)=u(\gamma(s))=u(x(s),y(s))u_x+b(x(s),y(s))u_y=c(x(s),y(s),u(s))$
 Usando la regla de la cadena $$v'(s)=\ux(x(s),y(s))x'(s)+\uy(x(s),y(s))y'(s)$$ y reemplazando las expresiones \ref{derivadacurva} y \ref{ecuasemi} se tiene $$v'(s)=a(x(s),y(s))u_x+b(x(s),y(s))u_y=c(x(s),y(s),u(s))$$
@@ -50,5 +50,5 @@ De esta forma tenemos dos grupos de Ecuaciones Diferenciales Ordinarias
     \end{cases}$$
     cuya solución está dada por $x_r(s)=as$ , $y_r(s)=r+bs$
     y nuestra ecuación diferencial ordinaria para $V_r(s)$ es
-    $$ v_r'(s)=0,\quad v_r(0)=e^r.$$ cuya solución está dada por $v_r(s)=e^rs.$Usando el teorema de la función inversa se obtiene que se obtiene $s=x/a$ y $r=y-b\frac{x}{a}$.\\Por tanto nuestra solución sería $u(x,y)=e^ye^{-\frac{b}{a}x}$
+    $$ v_r'(s)=0,\quad v_r(0)=e^r$$ cuya solución está dada por $v_r(s)=e^rs.$ Del teorema de la función inversa se obtiene que se obtiene $s=x/a$ y $r=y-b\frac{x}{a}$.\\Por tanto nuestra solución sería $u(x,y)=e^ye^{-\frac{b}{a}x}$
 \end{Ejm}

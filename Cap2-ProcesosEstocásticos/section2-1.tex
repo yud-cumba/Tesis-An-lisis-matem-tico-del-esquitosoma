@@ -1,9 +1,10 @@
 \section{Proceso de Poisson}
 \label{procPoisson-chapter}
-En este capítulo estudiaremos uno de los procesos más importantes para nuestro modelo matemático: el proceso de Poisson. Definiremos este proceso de varias formas equivalentes y estudiaremos algunas de sus propiedades, generalizaciones y algunas de sus aplicaciones.
+Este capítulo describe uno de los procesos más importantes para nuestro modelo matemático: el proceso de Poisson. 
+"Definiremos este proceso de varias formas equivalentes y estudiaremos algunas de sus propiedades, generalizaciones y algunas de sus aplicaciones."
 \subsection{Definición constructiva}
-    Suponga que un mismo evento ocurre repetidas veces de manera aleatoria a lo largo del tiempo.\\
-    Tal evento puede ser la recepción de una llamada, la llegada de un cliente a una ventanilla para solicitar algún servicio o los momentos en que una cierta maquinaria requiere reparación, etc.\\
+    Supongamos que el mismo evento que ocurre al azar se repite con el tiempo. \\ 
+    Tal evento puede ser cuando entra una llamada telefónica a determinada hora, cuando un cliente llega al mostrador para solicitar algún servicio o cuando alguna máquina necesita reparación, entre otros.
     \begin{Def}(\textit{Primera definición})
         Sea $T_1$, $T_2, \ldots T_n$ una sucesión de variables aleatorias independientes cada una con distribución distribución exponencial de parámetro $\lambda>0$. Un proceso estocástico a tiempo continuo $\{X_t\}_{t\geq 0}$ definido como
         \begin{eqnarray}
@@ -11,13 +12,13 @@ En este capítulo estudiaremos uno de los procesos más importantes para nuestro
             \label{def-formula-constructiva-poisson}
         \end{eqnarray}
         es llamado proceso de Poisson de parámetro $\lambda$ homogéneo.
-        Se postula además que el proceso debe iniciar en cero ( $t=0$) y para ello se define $\max \phi=0$.\\
+        Además se tiene en cuenta que el proceso debe contar con un tiempo inicial cero ( $t=0$) y para ello se define $\max \phi=0$.\\
         De forma intuitiva, la variable $X_t$ expuesto en \ref{def-formula-constructiva-poisson}  equivale a contar el número de eventos ocurridos durante el tiempo $t$. Es decir.
         $$X_t = \textit{ `Número de ocurrencias al tiempo $t$'}$$
         \label{def-procesoPoison-constructiva}
     \end{Def}
     A los tiempos $T_1 ,\thinspace T_2,\thinspace\ldots$ se los llama tiempos de estancia y corresponden a los tiempos que transcurren entre un salto del proceso y el siguiente salto.\\
-    Una de las características sobresalientes de este proceso es que puede encontrarse explícitamente la distribución de la probabilidad de la variable $X_t$ para cualquier valor de $t\geq 0$, la cual coincide con la distribución de Poisson, y de allí es de donde el proceso adquiere su nombre.
+    Una de las características sobresalientes de este proceso es que puede encontrarse explícitamente la distribución de la probabilidad de la variable $X_t$ para cualquier valor de $t\geq 0$, la cual coincide con la distribución de Poisson, y justamente es ahí donde el proceso adquiere su nombre.
     \begin{Prop}
         Dado $t\geq 0$, la variable aleatoria $X_t$ tiene distribución Poisson con parámetro $\lambda t$.
     \end{Prop}
@@ -26,32 +27,31 @@ En este capítulo estudiaremos uno de los procesos más importantes para nuestro
    $$E(X_1)=\lambda$$
    
    \end{Cor}
-   Esto nos muestra que la variable $\lambda$ se interpreta con la cantidad media o esperanza de que en un intervalo haya algún cambio .\\
-   Una de las propiedades que caracterizan de manera única a la distribución exponencial dentro del conjunto de distribuciones absolutamente continuas es que satisface la propiedad de pérdida de memoria, esto es, si $T$ tiene distribución exponencial de parámetro $\lambda$, entonces para cualesquiera tiempos $s$, $t\geq$ se cumple la igualdad $$P(T>t+s|\thinspace T>s)=P(T>t).$$
+   Esto nos muestra que la variable $\lambda$ se interpreta con la cantidad media o esperanza de que en un intervalo exista algún cambio .\\
+  Una de las características únicas de la distribución exponencial en un conjunto de distribuciones continuas absolutas es que satisface la característica de pérdida de memoria, esto es matemáticamente que, si $T$ tiene distribución exponencial de parámetro $\lambda$, entonces para cualesquiera tiempos $s$, $t\geq s$ se cumple la igualdad $$P(T>t+s|\thinspace T>s)=P(T>t).$$
     En otras palabras, condicionada al evento $(T>s)$, la variable $(T-s)$ sigue teniendo distribución exponencial con parámetro $\lambda$.
-    Esto significa que, para un valor de $s\geq 0$ fijo, todos los tiempos de estancia a partir de $s$, incluyendo el primero, siguen teniendo distribución exponencial $\lambda$, y por lo tanto el proceso de conteo de eventos a partir del tiempo $s$ es un proceso de Poisson.
+    Es decir, para un valor fijo de $ s \geq0$, todos los tiempos de permanencia desde $s $, incluido el primer tiempo de permanencia, seguirán teniendo una distribución exponencial $ \lambda $, por lo que $s$ es un proceso de Poisson en este proceso.
     \begin{Prop} 
         El proceso de Poisson $\{X_t\}_{t\geq 0}$ satisface las siguientes
         propiedades.
         \label{prop_procPoisson_constructiva}
         \begin{enumerate}[a)]
-            \item  Es un proceso de Markov.
-            \item Tiene incrementos independientes.
-            \item Tiene incrementos estacionarios.
-            \item Para cualesquiera $s,t \geq 0$ y los enteros $0\leq i\leq j$ las probabilidades de transición son, $$P(X_{t+s}=j\thinspace|\thinspace X_s=i)= e^{-\lambda t}\frac{(\lambda t)^{j-i}}{(j-i)!}$$
+            \item Es un proceso de Markov.
+            \item Cuenta con incrementos independientes.
+            \item Posee incrementos estacionarios.
+            \item Dados $s,t \geq 0$ y $0\leq i\leq j$ enteros, las probabilidades de transición son, $$P(X_{t+s}=j\thinspace|\thinspace X_s=i)= e^{-\lambda t}\frac{(\lambda t)^{j-i}}{(j-i)!}$$
             \item Para cualesquiera tiempos $0\leq s\leq t$, y para $n=0,1,\ldots$
             $$P(X_t-X_s=n)=P(X_{t-s})$$
         \end{enumerate}
     \end{Prop}
-    La definición de proceso de Poisson es constructiva pues a partir de los
-    tiempos de estancia se construye el proceso de conteo correspondiente.\\
-    Existen otras formas equivalentes y un tanto axiomáticas de definir a este
-    proceso.\\
-    Una de las ventajas de contar con estas definiciones alternativas es que para demostrar que un cierto proceso es de Poisson se puede tomar cualquiera de las definiciones a conveniencia.\\
+    La definición de proceso de Poisson se considera de una forma constructiva.\\
+    Se crea el tiempo de retención para el proceso de conteo correspondiente. \\
+    Hay otras formas equivalentes y ligeramente axiomáticas para determinar esto.
+    Uno de los beneficios de tener estas definiciones alternativas es que puede usar cualquiera de estas definiciones para probar que un proceso en particular es Poisson. \\ \
 \subsection{Definición infinitesimal}
     Sea $S=\{0,\thinspace 1,\thinspace 2,\ldots\}$ un conjunto de estados.\\Se denota $P_n(t)$ como la probabilidad de que en el tiempo $t$ sucedan $n$ ocurrencias nuevas.\\
     \begin{Obs}
-    Haremos uso del término 'época' para denotar puntos en el eje de tiempo y la palabra 'tiempo' se referirá a duraciones ( o longitudes de los intervalos entre las épocas).
+    Haremos uso del término "época" para denotar puntos en el eje de tiempo y la palabra "tiempo" se referirá a duraciones ( o longitudes de los intervalos entre las épocas).
     \end{Obs}
     Para deducir esto, primero se divide un intervalo de tiempo de longitud unitaria en $N$ subintervalos de longitud $h=N^{-1}$.
     La probabilidad de que en algún subintervalo de longitud de tiempo $h$ no tenga lugar alguna ocurrencia es denotada por $P_0(h)$. 
@@ -74,7 +74,7 @@ En este capítulo estudiaremos uno de los procesos más importantes para nuestro
         \vspace*{0.05in}
         \end{figure}
     \end{center}
-    La probabilidad de que no suceda un cambio en todo el intervalo unitario gracias a la probabilidad clásica definida será $P_0(1)=\frac{10}{20}=0.5$ entonces $\frac{1-P_0(h)}{h}=\frac{1-0.5}{0.05}=10$ que justamente coincide con el total de sucesos.\\
+    La probabilidad de que no suceda un cambio en todo el intervalo unitario gracias a la probabilidad clásica definida será $P_0(1)=\frac{10}{20}=0.5$ entonces $\frac{1-P_0(h)}{h}=\frac{1-0.5}{0.05}=10$ que justo coincide con el total de sucesos.\\
     Intuitivamente, cuando los subintervalos se vuelven suficientemente pequeños $(h\rightarrow 0)$ de tal forma que cada uno contenga a lo mucho un suceso, este numero converge al número esperado de saltos dentro del intervalo unitario que es número finito $\lambda$, la cual se interpreta como la media, esperanza o número medio de ocurrencias en el intervalo de tiempo unitario.
     Esto es
     $$  \lim_{h\rightarrow 0}\frac{1-P_0(h)}{h}=\lambda
@@ -106,8 +106,8 @@ En este capítulo estudiaremos uno de los procesos más importantes para nuestro
          El proceso estocástico $\{X_t\}_{t\geq 0}$
         descrito con las características (\ref{procesoPoison-cond1}), (\ref{procesoPoison-cond2}), (\ref{procesoPoison-cond3}), con incrementos independientes y estacionarios, y $X_0=0$ es llamado un proceso de Poisson.
     \end{Def}
-    Esta definición hace uso de las probabilidades infinitesimales del proceso y ello tiene algunas ventajas desde el punto de vista de la interpretación de
-    lo que sucede en un intervalo infinitesimal de tiempo $[t,t+h)$.
+    "Esta definición hace uso de las probabilidades infinitesimales del proceso y ello tiene algunas ventajas desde el punto de vista de la interpretación de
+    lo que sucede en un intervalo infinitesimal de tiempo $[t,t+h)$."
     \begin{Prop}
         El proceso de Poisson $\{X_t\}_{t\geq 0}$ descrito con la definición infinitesimal tiene distribución de Poisson con parámetro $\lambda t.$ Esto es,
         $$P_n(t)=\frac{(\lambda t)^n}{n!}e^{-\lambda t}, \quad n\in\N$$
@@ -119,7 +119,7 @@ En este capítulo estudiaremos uno de los procesos más importantes para nuestro
             Por la condición (\ref{procesoPoison-cond1})
             tenemos que:
             $$P(A)=P_n(t)(1-\lambda h)+o(h)$$
-            \item SITUACIÓN B: En la época $t$ el sistema se encontraba en el estado $n-1$ y ocurre tan solo un cambio. Se tiene que $B=(X_{t+h}=n, X_t=n-1)$ ,entonces la  probabilidad que suceda eso estará dada por
+            \item SITUACIÓN B: En la época $t$ el sistema se encontraba en el estado $n-1$ y ocurre tan solo un cambio. Se tiene que $B=(X_{t+h}=n, X_t=n-1)$, entonces la  probabilidad que suceda eso estará dada por
             $$P(B)=P(X_{t+h}=n, X_t=n-1)=P(X_t=n-1)P(X_{t+h}=n|X_t=n-1)P_{n-1}(t)P_1(h)$$
              Por la condición (\ref{procesoPoison-cond3})
             tenemos que:

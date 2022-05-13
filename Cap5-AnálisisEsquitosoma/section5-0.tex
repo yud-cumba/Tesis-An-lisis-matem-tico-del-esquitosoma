@@ -1,18 +1,18 @@
 \section{Datos generales}
     \label{datos-generales} 
-    Se considerará el caso idealizado de que infección ocurra con las en una comunidad aislada donde cada huésped definitivo (en este caso, un ser humano) tiene igual exposición de riesgo de infectarse y no está sujeto a procesos de nacimiento, muerte, inmigración o emigración.\\
+    Se considerará el caso idealizado de que infección ocurra  en una comunidad aislada donde cada huésped definitivo (en este caso, un ser humano) tiene igual exposición de riesgo de infectarse y no está sujeto a procesos de nacimiento, muerte, inmigración o emigración.\\
     \begin{figure}
         \centering
          \includegraphics[scale=0.25]{Cap5-AnálisisEsquitosoma/img/ciclo_vital.png}
-        \caption{Ciclo vital de un esquitosoma que infecta a un ser humano.}
+        \caption{Ciclo vital de un esquistosoma que infecta a un ser humano.}
     \end{figure}
     Cada huésped intermedio (en este caso, caracoles pulmonados acuáticos pertenecientes al género Lymnaea) tampoco está sujeto a procesos de inmigración o emigración pero sí al de nacimiento o muerte, pero bajo una simplificada hipótesis de que en cada instante en el que un caracol muera, un caracol no infectado nazca.\\
     Denotaremos como $N_1$ al número total de huéspedes definitivos (ser humano) en la población a analizar y $N_2$ al número total de huéspedes intermedios (caracoles) en la población a analizar.\\
     Si a cada ser humano de la población los etiquetamos del $1$ al $N_1$, se analizará un experimento por cada huésped definitivo $k$, donde $k=1,2,\ldots,N_1$, el cual será el mismo para cada poblador.
     Para cada $t\in[0,+\infty)$, introducimos las funciones,
-    $$M_k(t)= \textit{Número de esquitosomas machos en el tiempo t, en el huésped k.}$$
-    $$F_k(t)=\textit{Número de esquitosomas hembras en el tiempo t, en el huésped k.}$$
-    Nociones de epidemiología nos dice que para que un huésped definitivo sea infectado depende de una pareja heterosexual de larvas de los esquistosomas (llamadas miracidios), por lo cual nuestro objetivo será registrar el número de parejas esquitosomas en un determinado huésped, en un tiempo $t$.\\Si asumimos que el encuentro entre cada miracidio hembra y macho es inevitable y cada larva es monógama, entonces de esto se puede deducir que el número de parejas de miracidios será nada más que el mínimo entre el número de miracidios machos y hembras.
+    $$M_k(t)= \textit{Número de esquistosomas machos en el tiempo t, en el huésped k.}$$
+    $$F_k(t)=\textit{Número de esquistosomas hembras en el tiempo t, en el huésped k.}$$
+    Nociones de epidemiología nos dice que para que un huésped definitivo sea infectado depende de una pareja heterosexual de larvas de los esquistosomas (llamadas miracidios), por lo cual nuestro objetivo será registrar el número de parejas esquistosomas en un determinado huésped, en un tiempo $t$.\\Si asumimos que el encuentro entre cada miracidio hembra y macho es inevitable y cada larva es monógama, entonces de esto se puede deducir que el número de parejas de miracidios será nada más que el mínimo entre el número de miracidios machos y hembras.
     $$\gamma_k(t)=\min\{M_k(t),F(t)\}$$
     También es plausible postular que $M_k(t)$ y $F_k(t)$ para cada $t$ son variables aleatorias.\\
     Aunque es posible que un huésped intermedio sea penetrado por más de un miracidio, se cree que las infecciones múltiples no son importantes.
@@ -74,7 +74,7 @@ Para cada persona $k=1,2,\ldots,N_1, j=0,\thinspace 1,\thinspace\ldots$ será ne
         \item  Se consideran que $j$ solo es posible al estado $j+1$ o $j-1$ en un intervalo corto de tiempo entre $t$ y $t+h$, mientras que la probabilidad de que suceda más de una infección en el intervalo instantáneo de tiempo $[t,t+h)$ es $o(h)\rightarrow 0$.
         \item Sea $\mu_2>0$ la razón de muerte instantánea de un caracol infectado, entonces la probabilidad que un caracol infectado muera está dado por, $\Pi_{10}(t,t+h)=\mu_2 h+ o(h)$. La probabilidad de cambio de $i$ a $i+1$ caracoles está dado por, $$\Pi_{i,i-1}(t,t+h)=i\Pi_{10}(t,t+h)=\mu_2 i h+o(h)\quad i\geq1,h\rightarrow 0$$
         \item Sea $\nu_{21}$ la tasa de colocación instantánea de una esquistosoma hembra apareada (factor biológico), $\nu_{22}$ es la probabilidad de que un huevo fertilizado de origen a un miracidio que infecte a un caracol no infectado (factor ambiental que depende principalmente de las condiciones sanitarias e higiénicas).\\
-        Si $\nu_2=\nu_{21}\cdot\nu_{22}$ es el valor esperado instantáneo de caracoles infectados. La cantidad de parejas de esquitosomas en el tiempo $t$ por cada habitante $k=1,2,\ldots N_1$ es $\gamma_k(t)$, por lo tanto la cantidad total de esquitosomas en toda la población al tiempo $t$ sería $\sum_{k=1}^{N_1}\gamma_k(t)$ y por eso se obtiene que $\Pi_{01}(t,t+h)=\nu_2 \big(\sum_{k=1}^{N_1}\gamma_k(t)\big)h+o(h)$.\\
+        Si $\nu_2=\nu_{21}\cdot\nu_{22}$ es el valor esperado instantáneo de caracoles infectados. La cantidad de parejas de esquistosomas en el tiempo $t$ por cada habitante $k=1,2,\ldots N_1$ es $\gamma_k(t)$, por lo tanto la cantidad total de esquistosomas en toda la población al tiempo $t$ sería $\sum_{k=1}^{N_1}\gamma_k(t)$ y por eso se obtiene que $\Pi_{01}(t,t+h)=\nu_2 \big(\sum_{k=1}^{N_1}\gamma_k(t)\big)h+o(h)$.\\
         Si reemplazamos el valor de $\sum_{k=1}^{N_1}\gamma_k(t)$ por su esperanza que $E\big[\sum_{k=1}^{N_1}\gamma_k(t)\big]$ se obtiene que
         $$\Pi_{i,i+1}(t,t+h)=(N_2-i)P_{0,1}(t,t+h)= \nu_2(N_2-i)E\bigg[\sum_{k=1}^{N_1}\gamma_k(t)\bigg]h+o(h)\quad ,i\leq N_2-1, h\rightarrow 0$$
         \item La probabilidad de que no haya ningún cambio entre el tiempo $t$ y $t+h$ se reduciría a  $\Pi_{i,i}(t+h)=1-\Pi_{i,i-1}(t,t+h)-\Pi_{i,i+1}(t,t+h)$, esto es $$\Pi_{i,i}(t,t+h)=1-\mu_2 i h-\nu_2(N_2-i)E\bigg[\sum_{k=1}^{N_1}\gamma_k(t)\bigg]h+o(h)$$

@@ -11,14 +11,17 @@
 \clearpage
 \thispagestyle{empty}
 
+\include{01-Introduccion/list}
+\include{01-Introduccion/gratitude}
+ 
 \tableofcontents
 
 \mainmatter
 
 \chapter*{Introducción}
-Entre los problemas de salud pública de los trópicos y subtrópicos, uno de los más graves es el control de la esquistosomiasis humana, una infección parasitaria que es se estima que afecta a más de doscientos millones de personas en todo el mundo. 
-La dinámica de transmisión de esta infección depende de dos procesos estocásticos relacionados, que dependerán de un huésped temporal y otro definitivo. Las intensidades de estos, están determinados por una serie de factores biológicos identificables y parámetros ambientales. Como sucede tan a menudo en matemática, esta dependencia funcional puede ser descrita por ecuaciones diferenciales.\\ 
-Este trabajo presenta una explicación introductoria de los pasos necesarios para modelar y obtener distribuciones de probabilidad de la cantidades de parásitos que puede llegar a albergar un huésped en determinado espacio de tiempo.\\ \\
+Entre los problemas de salud pública de los trópicos y subtrópicos, uno de los más graves es el control de la esquistosomiasis humana, una infección parasitaria que se estima afecta a más de doscientos millones de personas en todo el mundo. 
+La dinámica de transmisión de esta infección depende de dos procesos estocásticos relacionados, que dependen de un huésped temporal y otro definitivo. Las intensidades de estos están determinados por una serie de factores biológicos identificables y parámetros ambientales. Como sucede tan a menudo en matemática, esta dependencia funcional puede ser descrita por ecuaciones diferenciales.\\ 
+Este trabajo presenta una explicación introductoria de los pasos necesarios para modelar y obtener distribuciones de probabilidad de la cantidad de parásitos que puede llegar a albergar un huésped en determinado espacio de tiempo.\\ \\
 Está dividida en cinco secciones donde las cuatro primeras desarrollan conceptos fundamentales, teoremas y proposiciones básicas para poder realizar el modelo matemático y su respectiva solución.\\
 Una introducción a la teoría de la probabilidad es expuesta en la primera sección. Se trata de un tópico atrayente que nos muestra algunas definiciones y teoremas importantes con ejemplos que facilitan su comprensión.\\
 La segunda sección se centra en mostrar ideas preliminares de una idea más generalizada de variables aleatorias expuestas en la primera sección conocida como ecuaciones estocásticas. Además muestran los teoremas básicos que permitan el modelo de una ecuación de Kolgomorov, pieza clave para la sección 5.\\
@@ -26,13 +29,12 @@ La tercera es una sección intermedia que deja atrás por un momento los teorema
 Los métodos para la resolución de una ecuación diferencial parcial semilineal son estudiadas en la sección 4.\\
 En sección final empezará modelando un sistema de ecuaciones diferenciales ordinarias de Kolgomorov, la cual, utilizando la función generadora de probabilidad, se reducirá a resolver una ecuación diferencial parcial de primer orden conocida como ecuación de transporte cuya resolución nos dará como resultado una distribución de probabilidad.\\ \\
 Aunque el modelo que desarrollamos se refiere específicamente a la enfermedad esquistosomiasis, el método y los resultados tienen implicaciones generales para una amplia clase de infecciones parasitarias en el ser humano y en animales que podrían ser útiles en el Perú.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introducción a la teoría de la probabilidad}
     Hacer predicciones es extremadamente importante y útil pues ayuda a tener una visión más amplia del comportamiento de sucesos cotidianos como enfermedades, el medio ambiente, seguridad vial, seguridad aérea, entre otros.
-    Usamos aviones para trasladarnos porque se sabe que sólo hay una pequeña posibilidad de acabar muerto en un accidente aéreo, mientras que muchas personas en el mundo se mantuvieron en confinamiento a principios del año 2020 porque la posibilidad de contraer el COVID-19 era muy alta.
-    
-    La teoría de la probabilidad ha resultado muy útil para modelar
-    matemáticamente fenómenos de diversas disciplinas en donde es necesario incorporar el azar como elemento esencial del modelo. Así, la probabilidad puede definirse como
-    aquella rama de las matemáticas que se encarga del estudio de aquellos fenómenos aleatorios.
+    Usamos aviones para trasladarnos porque se sabe que sólo hay una pequeña posibilidad de fatalidad en un accidente aéreo, mientras que muchas personas en el mundo se mantuvieron en confinamiento a principios del año 2020 porque la posibilidad de contraer el COVID-19 era muy alta.\\
+    A través de la historia el cálculo y teoría de la probabilidad ha llegado a se de vital importancia para construir modelos matemáticos en diversas disciplinas científicas donde el factor principal ha sido la presencia de la incertidumbre.\\
+    Muchos fenómenos en donde el azar está presente han sido modelados gracias a la probabilidad. He ahí su vital importancia.
     
     \include{Cap1-Probabilidad/section1-1}
     \include{Cap1-Probabilidad/section1-2}
@@ -41,13 +43,10 @@ Aunque el modelo que desarrollamos se refiere específicamente a la enfermedad e
     \include{Cap1-Probabilidad/section1-5}
 
 \chapter{Procesos estocásticos que dependen del tiempo}
-    En el estudio de las variables aleatorias realizado hasta ahora se han explorado las características aleatorias del fenómeno pero se ha mantenido una premisa por defecto, que esas
-    características aleatorias permanecen constantes a través del tiempo. Al incluir en el estudio la presencia del tiempo se está considerando que de alguna forma la variable aleatoria depende del tiempo.
-    La ciencia estadística y su teoría de la probabilidad es la que alberga este tipo de procesos aplicables a innumerables campos. Un proceso estocástico es un concepto matemático que se utiliza para manejar magnitudes aleatorias que varían con el tiempo o para caracterizar una sucesión de variables aleatorias llamada estocásticas, que evolucionan en función de otra variable. Un proceso estocástico está formado por variables dadas aleatoriamente que dependen de argumentos o parámetros
-
-    Los procesos estocásticos intentan predecir fenómenos de la forma más segura. pero sin llegar nunca al 100\%.
-    
-    En este sección estudiaremos procesos estocásticos en los que solo interviene una cantidad numerable de estados pero que dependen de un parámetro continuo del tiempo. Se mostrará resultados interesantes así como la construcción de los procesos de nacimiento, muerte y de ambos juntos, que es esencial a la hora de hacer nuestro modelo matemático.
+En los estudios realizados hasta la fecha sobre variables aleatorias se ha investigado el carácter aleatorio del fenómeno, pero se mantiene la suposición de que
+    las características aleatorias siguen siendo las mismas a lo largo del tiempo.\\
+    En presencia del tiempo que hasta el momento hemos tratado en el estudio del presente artículo, la variable aleatoria se considera dependiente del tiempo. La estadística y su teoría de la probabilidad contienen procesos de este tipo que son aplicables a multitud de campos. Un proceso estocástico es un concepto matemático que se utiliza para tratar con variables aleatorias que varían en el tiempo o para describir una secuencia de variables aleatorias que serán denominadas estocásticas que crecen en función de otra variable. El proceso estocástico consta de variables proporcionadas aleatoriamente según los argumentos o parámetros.
+    En esta sección estudiaremos procesos estocásticos en los que sólo intervienen algunos estados contables, pero que dependen de un parámetro de tiempo continuo. Se mostrarán resultados interesantes, así como la construcción de los procesos de nacimiento y muerte, que son fundamentales en la construcción de nuestro modelo matemático.
     \include{Cap2-ProcesosEstocásticos/section2-0}
     \include{Cap2-ProcesosEstocásticos/section2-1}
     \include{Cap2-ProcesosEstocásticos/section2-2}
@@ -56,15 +55,13 @@ Aunque el modelo que desarrollamos se refiere específicamente a la enfermedad e
 \chapter{Cocientes demográficos}
     %https://apuntesdedemografia.com/curso-de-demografia/cocientes-demograficos-tasas-probabilidades-razones-y-proporciones/%
     %https://thales.cica.es/rd/Recursos/rd98/Medicina/01/p_stock.html%
-    El puro dato normalmente es poco útil. La información de que 5000 nuevos nacimientos han ocurrido nos dicen nada si no sabemos en qué población se han producido. Y, aún peor, las series larguísimas de datos tampoco son casi nunca útiles, porque resultan casi imposibles de entender o interpretar. Por eso en demografía se trabaja con “indicadores” en los que se relacionan o resumen otros datos.
+ En muchos casos, los datos por sí solos son de poca utilidad. La información sobre los nacimientos de 5000 personas no le dirá nada a menos que sepa en qué población ocurrieron. Para empeorar las cosas, las cadenas de datos muy largas son de poca utilidad porque son prácticamente imposibles de entender o interpretar. Esta es la razón por la que los datos demográficos usan "métricas" donde se vinculan o resumen otros datos.
     \include{Cap3-CocientesDemográficos/section3-0}
     \include{Cap3-CocientesDemográficos/section3-1}
 
 \chapter{Introducción a las ecuaciones diferenciales parciales semilineales}
 
-Para describir el movimiento de un planeta o de una estrella o de una partícula cualquiera debe determinarse la dependencia de sus coordenadas con respecto al tiempo, etc. De ahí es que surge la importancia de resolver problemas en los que la incógnita es a su vez una función, es decir, una ley que expresa la dependencia de ciertas variables respecto de otras.
-
-La enorme importancia de las ecuaciones diferenciales en las matemáticas, y especialmente en sus aplicaciones, se debe principalmente al hecho de que la investigación de muchos problemas de ciencia y tecnología puede reducirse a la solución de tales ecuaciones que surgen luego de un análisis y modelamiento. El cálculo de trayectorias de proyectiles, la investigación de la estabilidad de aeronaves en vuelo, la rapidez de transmisión de un virus, etc. Todo ello depende de la solución de ecuaciones diferenciales.
+"Para explicar el movimiento de un planeta, estrella u otra partícula, necesitamos determinar su dependencia coordinada con el tiempo, etc.\\ De ahí la importancia de resolver el problema de que las incógnitas son funciones, es decir, la ley que expresa la dependencia de una variable con respecto a otra. La gran importancia de las ecuaciones diferenciales en matemáticas, especialmente en sus aplicaciones, se debe principalmente a la investigación de muchos problemas científicos y técnicos que pueden reducirse a las soluciones de las ecuaciones que surgen después del análisis y modelado. Calcula la trayectoria del proyectil e investiga la estabilidad de la aeronave en vuelo, la tasa de transmisión del virus, etc. Todo esto depende de la solución de la ecuación diferencial".
 
     \include{Cap4-EDP/section4-0}
     \include{Cap4-EDP/section4-1}
@@ -72,9 +69,9 @@ La enorme importancia de las ecuaciones diferenciales en las matemáticas, y esp
     \include{Cap4-EDP/section4-3}
  \chapter{Análisis y modelamiento matemático de la enfermedad esquitosomiasis.}   
 La esquistosomiasis humana es una infección parasitaria que se estima que afecta a m\'as de doscientos millones de personas en todo el mundo, uno de los mayores problemas de salud pública de los trópicos y subtrópicos.\\
-¡La dinámica de transmisión de esta infección depende de las matemáticas!, para ser más precisos, de dos procesos estocásticos interrelacionados, uno que dependerá de la cantidad de parásitos que hay en un humano contagiado y de la cantidad de cercarias de caracol a humano.\\
-El problema a resolver es el siguiente:
-Dado un entero no negativo $n$, encuentre la probabilidad de que exactamente $n$ parásitos estén en un ser humano en el momento $t>0$, asumiendo que las probabilidades iniciales $p_n$ son conocidas.
+Es curioso notar que la dinámica de transmisión de esta infección depende de las matemáticas, para ser más precisos, de dos procesos estocásticos interrelacionados, uno que dependerá de la cantidad de parásitos que hay en un humano contagiado y el otro de la cantidad de cercarias de caracol a humano.\\\\
+Si queremos plantear el problema a resolver sería el siguiente:\\
+Dado un entero no negativo $n$, asumiendo que las probabilidades iniciales (al tiempo 0) $p_n$ son conocidas, encuentre la probabilidad de que exactamente $n$ parásitos estén en un ser humano en el momento $t>0$,
 \begin{center}
 \includegraphics[scale=0.3]{Cap5-AnálisisEsquitosoma/img/schisto-africa.jpg}
 \end{center}

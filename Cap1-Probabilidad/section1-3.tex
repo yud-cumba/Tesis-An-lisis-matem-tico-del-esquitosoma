@@ -1,6 +1,6 @@
 \section{Variables aleatorias}
-En ocasiones, dado un experimento aleatorio, estamos interesados en alguna característica numérica del resultado que se obtiene. Por ejemplo, al considerar el lanzamiento de un par de dados, pudiéramos estar interesados no en el resultado específico que se obtiene con cada dado, sino en la suma de ellos.\\
-Nuestra primera dificultad es que no todos los espacios muestrales $\Omega$ son subconjuntos de $\R$, por ello, es necesario introducir la definición de una función que traslade los elementos de $\Omega$ a números reales con los cuales podamos trabajar matemáticamente.\\
+"En ocasiones, si contamos con experimento aleatorio y estamos interesados en alguna característica numérica del resultado que se obtiene. Por ejemplo, al considerar el lanzamiento de un par de dados, pudiéramos estar interesados no en el resultado específico que se obtiene con cada dado, sino en la suma de ellos."\\
+Nuestra primera dificultad es que no todos los espacios muestrales $\Omega$ son subconjuntos de $\R$, por ello, es necesario introducir la definición de una función que traslade los elementos de $\Omega$ a números reales con los cuales podamos "trabajar matemáticamente".\\
 Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en \cite{intro-probabilidad}, \cite{Feller},\cite{Rincon1} \cite{Rincon2}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{comment}
@@ -18,7 +18,7 @@ $$\mathscr{B}(\R)=\sigma(\{(a,\thinspace b)\subset\R:a\leq b\})$$
 \begin{Def}
 Una función $\phi:\R^n\rightarrow\R^m$ es llamada boreliana si $\phi^{-1}(B)$ es un conjunto boreliano de $R^{-1}$ para todo boreliano B de $\R$.
 \end{Def}
-Recuérdese que si $\phi:\R^n\rightarrow\R^m$ es cualquier función, se cumple que $\phi^{-1}(B^c)=[\phi^{-1}(B)]^c$
+Recuérde que si $\phi:\R^n\rightarrow\R^m$ es cualquier función, se cumple que $\phi^{-1}(B^c)=[\phi^{-1}(B)]^c$
  $\phi^{-1}(\bigcup_{\lambda}B_{\lambda})=\bigcup_{\lambda}\phi^{-1}(B_\lambda)$. Esto
 implica que $\{B\subset \R^m: \phi^{-1}(B)\in B(\R^n)\}$ es un $\sigma$-álgebra de subconjuntos de $R^m$ , de manera que, para demostrar que una
 cierta función f es boreliana, basta con probar que $\phi^{-1}(B)$ es un conjunto boreliano de $\R^n$ para cualquier elemento B abierto (o cualquier elemento B de una familia de generadores de los borelianos de $\R^m$).
@@ -38,13 +38,13 @@ $\phi:\R^n\rightarrow\R^m$,  $g:\R^m\rightarrow\R^p$ son borelianos, entonces $g
     Si el conjunto de estados $X(\Omega_1)$ es numerable o finito, entonces $X$ será llamado una variable aleatoria discreta.
 \end{Obs}
 \begin{Ejm}
-  Se tiene un experimento aleatorio que consiste en lanzar 2 dados, cuyo  espacio muestral es $$\Omega_1=\{(1,1),\ldots,(1,6),\thinspace(2,1),\ldots\ldots,(2,6),\ldots,(6,6)\}$$ con el $\sigma-$álgebra asociado $\mathscr{P}(\Omega)$.\\ 
+  Consideremos un experimento aleatorio que consiste en tener que lanzar 2 dados, cuyo  espacio muestral es $$\Omega_1=\{(1,1),\ldots,(1,6),\thinspace(2,1),\ldots\ldots,(2,6),\ldots,(6,6)\}$$ con el $\sigma-$álgebra asociado $\mathscr{P}(\Omega)$.\\ 
    Si queremos obtener la diferencia entre el mayor y el menor de los números que se obtienen al lanzar los dos dados, se define a la variable aleatoria $X$ como $$X:\Omega_1\rightarrow \{0,\thinspace 1,\ldots\},$$ donde $X(a,b)=\max \{a,b\}-\min\{a,b\}$
 \end{Ejm}
 Si $(\Omega_1,\mathscr{F},P)$ es un espacio de probabilidad, gracias a a la variable aleatoria $X$ se puede definir una nueva medida de probabilidad $P_X$ sobre el espacio de medida $(\Omega_2,\mathscr{F}_2)$, definida como $P_X(F)=P(X^{-1}(F))$, ya que $X^{-1}(F)\in\mathscr{F}_1$. Además, $$P_X(\Omega_2)=P(X^{-1}(\Omega_2))=P(\Omega_1)=1$$ $$P_X\big(\bigcup_{k=1}^\infty F_k\big)=P(X^{-1}\big(\bigcup_{k=1}^\infty
 F_k\big))=P \big(\bigcup_{k=1}^\infty X^{-1}(F_k) \big)=\sum_{k=1}^\infty P(X^{-1}(F_k))=\sum_{k=1}^\infty P_X(F_k)$$
 de donde se concluye que $P_X(\Omega_2)= 1$ y $P_X$ es $\sigma-$aditiva.\\\\
-De aquí se concluye que $P_X:\mathscr{F_2}\rightarrow [0,1]$ resulta ser también una medida de probabilidad, y es llamada medida de probabilidad inducida por la variable aleatoria $X$.\\\\
+De aquí se concluye que $P_X:\mathscr{F_2}\rightarrow [0,1]$ resulta ser una medida de probabilidad, y es llamada medida de probabilidad inducida por la variable aleatoria $X$.\\\\
 \begin{Obs}
     Para un uso más práctico , el conjunto\\ $X^{-1}(\{a\})=\{\omega\in\Omega: X(\omega)=a\}$será denotado $(X= a)$\\
 \end{Obs}
@@ -53,7 +53,7 @@ Las variables aleatorias establecen una relación funcional entre elementos del 
 
 De un mismo experimento aleatorio se puede definir diferentes variables aleatorias.
 \begin{Ejm}
-    Al lanzar $3$ monedas al aire podemos asignar a cada suceso la variable aleatoria $X$=\textit{"Número de caras."}, pero también se puede definir otra variable aleatoria $Y$=\textit{"Número de sellos."}, cuyo espacio muestral es:
+    Al lanzar $3$ monedas al aire podemos asignar a cada suceso la variable aleatoria $X$=\textit{"Número de caras"}, pero también se puede definir otra variable aleatoria $Y$=\textit{"Número de sellos"}, cuyo espacio muestral es:
     $$\Omega = \{(C,C,C),(C,X,C), (X,C,C), (C,C,X), (X,X,C), (X,C,X), (X,X,C), (X,X,X)\}$$
 Consideremos a $P$ como la probabilidad clásica sobre $\Omega$ y $P_X$, $P_Y$ la probabilidad inducida por las variables aleatorias $X$, $Y$, respectivamente.
 Se desea saber cuál es la probabilidad de obtener $2$ caras al lanzar las $3$ monedas consecutivamente.
@@ -64,7 +64,7 @@ $$P_{Y}(Y=1)= P\big(Y^{-1}(1)\big)= P\big(\big\{(C,X,C), (X,C,C), (C,C,X)\big\}\
 Esto sucede como consecuencia a que el conjunto $(Y=1)$ tiene los mismos elementos que $(X=2)$.
 \end{Ejm}
 \begin{Prop}
-    Si $X$ es una variable aleatoria y $c$ es una constante, entonces $c X$ también es una variable aleatoria.
+    Sea $k$ una constante y $X$ una variable aleatoria, entonces $k X$ es una variable aleatoria.
     \label{prop-variableAl-cXesVA}
 \end{Prop}
 \begin{Prop}
@@ -73,18 +73,18 @@ Esto sucede como consecuencia a que el conjunto $(Y=1)$ tiene los mismos element
 \end{Prop}
 \begin{comment}
 \begin{Def}
-    Sea los espacios de probabilidad $(\Omega_1,\thinspace\mathscr{F}_1,\thinspace P_1)$, $(\Omega_2,\thinspace\mathscr{F}_2,\thinspace P_2)$.
+    Sean los espacios de probabilidad $(\Omega_1,\thinspace\mathscr{F}_1,\thinspace P_1)$, $(\Omega_2,\thinspace\mathscr{F}_2,\thinspace P_2)$.
     Un vector aleatorio es una función $X:\Omega_1\rightarrow\Omega_2$ tal que para cualquier conjunto B en $\mathscr{F}_2$, se cumple que la imagen inversa $X^{-1}(B)$ es un elemento de $\mathscr{F}_1$.
 \end{Def}
-Dado entonces que un vector aleatorio es una función de $\Omega$ en $\R^n$, éste
+Dado entonces que un vector aleatorio es una función de $\Omega$ en $\R^n$, este
 puede representar de la forma $X=(X_1,\ldots, X_n)$ en donde cada coordenada es una función de $\Omega$ en $\R$.
 \begin{Prop}
-    Una función $(X_1 , . . . , X_n):\Omega\rightarrow R^n$ es un vector aleatorio si, y sólo si, cada coordenada es una variable aleatoria.
+    Una función $(X_1 , . . . , X_n):\Omega\rightarrow R^n$ es un vector aleatorio si y solo si, cada coordenada es una variable aleatoria.
 \end{Prop}
 El resultado es análogo al caso unidimensional y puede extenderse al caso de $n$ dimensiones.
-En la mayoría de los casos, las definiciones y resultados son fácilmente extendidos a dimensiones mayores.\\
+En la mayoría de los casos, las definiciones y resultados son de fácil extensi\'on a dimensiones mayores.\\
 \begin{Obs}
-    El vector aleatorio $(A,\thinspace B)$ se interpreta cuan probable es que suceda A y B a la vez. Es decir $P(A,\thinspace B)=P(A\cap B)$.
+    El vector aleatorio $(A,\thinspace B)$ se interpreta cuan probable es que suceda $A$ y $B$ a la vez. Es decir $P(A,\thinspace B)=P(A\cap B)$.
 \end{Obs}
 \end{comment}
 \begin{Obs}
@@ -107,7 +107,7 @@ $\mathscr{L}=\sigma(\{B: B\in B(\R) \textit{ o } B \textit{ B tiene medida cero}
 Todo conjunto Lebesgue medible se puede expresar como la unión de un conjunto boreliano y un conjunto de medida cero.
 \end{Prop}
 \begin{Def}
-La medida de Lebesgue m en el intervalo, es la única medida de probabilidad definida sobre los subconjuntos Lebesgue medibles tal que $m(I)$ es igual a la longitud de I para cualquier intervalo
+La medida de Lebesgue $m$ en el intervalo, es la única medida de probabilidad definida sobre los subconjuntos Lebesgue medibles tal que $m(I)$ es igual a la longitud de $I$ para cualquier intervalo
 $I\subset\R$
 \end{Def}
 La unicidad se demuestra usado la definición de $\pi-$sistema y puede ser encontrado en cualquier libro de teoría de medida o en \cite{curso_medida_rotger}. Además la existencia de esta medida fue demostrada por Henri Léon Lebesgue en el año 1902.\\

@@ -1,5 +1,5 @@
 \section{Resolución de nuestra ecuación diferencial parcial}
-Nuestro objetivo es resolver la siguiente ecuación diferencial parcial. Dado $s>0$, (s es un valor fijo del cual provendría )
+Nuestro objetivo es resolver la siguiente ecuación diferencial parcial. Dado $s>0$, ($s$ es un valor fijo del cual provendría )
 $$\begin{cases}
     G_t+\tilde{\mu}_1(z-1)G_z=\frac{1}{2}\nu_1Y(t)(z-1)G\\G(s,z)=z^m
 \end{cases}$$
@@ -31,7 +31,7 @@ $$U(u)=-\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(u+s)-\beta(s)]$$
 Gracias al método del factor integrante la solución general de $$v_r(u)=Ce^{U(u)}$$
 donde $$v_r(0)=r^m$$
 entonces
-$$C \exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(0+s)-\beta(s)]\bigg)$$
+$$C \exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(0+s)-\beta(s)]\bigg)=r^m$$
 $$C=r^m$$
 Por lo tanto,
 $$v_r(u)=r^m\exp\bigg(\frac{1}{2}\nu_1(r-1)[e^{\tilde{\mu_1}u}\beta(u+s)-\beta(s)]\bigg)$$
@@ -85,7 +85,7 @@ E(M_k(t))=\sum_{n=1}^\infty n P_n(t)
     \label{particion_pn}
 \end{eqnarray}
 Entonces $$E(M_k(t))=\sum_{n=1}^\infty n \sum_{j=1}^\infty P_{j,n}(0,t)P_k(0)=\sum_{j=1}^\infty P_j(0)\sum_{n=1}^\infty n P_{j,n}(0,t)=\sum_{j=1}^\infty q^{(k)}_j E(M_k(t)|M_k(0)=j)$$ $$=\sum_{j=1}^\infty q^{(k)}_j E(X(t)+Y(t)|M_k(0)=j)=\sum_{j=1}^\infty q^{(k)}_j[E(X(t)|M_k(0)=j)+E(Y(t)|M_k(0)=j)]$$ $$=\sum_{j=1}^\infty q^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\beta(t)\big)$$
-Analogamente se tiene que $$E(F_k(t))=\sum_{j=1}^\infty p^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
+An\'alogamente se tiene que $$E(F_k(t))=\sum_{j=1}^\infty p^{(k)}_j\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
 Entonces $$E(W_k(t))=E(M_k(t))+E(F_k(t))=\sum_{j=1}^\infty( p^{(k)}_j+q^{(k)}_j)\big(je^{-\tilde{\mu}_1t}+\frac{1}{2}\nu_1\beta(t)\big)$$
 Un interés particular es el caso cuando $M_k(0)$ y $F_k(0)$ tiene una distribución de Poisson con el mismo parámetro $\frac{1}{2}\omega_k$, de \ref{particion_pn}
 $$P(M_k(t)=n)=P(F_k(t)=n)=\sum_{m=0}^\infty P_{m,n}(t) \frac{(\frac{1}{2}\omega_k)^m e^{-\frac{1}{2}\omega_k}}{m!}$$
@@ -102,7 +102,7 @@ Esto quiere decir que
 \label{resultW}
     W_k(t)=n\sim Poisson(\beta+\omega e^{\tilde{\mu}_1 t})
 \end{eqnarray}
-Hasta aquí ya obtenemos que la probabilidad e infección de la esquisitomiasis tiene una distribución de Poisson que cumple la relación (\ref{resultW}) para el caso más peligroso: Cuando una infección se da y esta se puede esparcir rápidamente pues se calcula las probabilidad de parásitos emparejados.
+Hasta aquí ya obtenemos que la probabilidad de infección de la esquisitomiasis tiene una distribución de Poisson que cumple la relación (\ref{resultW}) para el caso más peligroso: Cuando una infección se da y esta se puede esparcir rápidamente pues se calcula las probabilidad de parásitos emparejados.
 Ahora se estudiará las siguientes distribuciones de probabilidad para el caso de parásitos sin pareja, que si bien es un caso de no vital importancia, puede ser de utilidad a la hora de detectar y querer evitar propagaciones y contagio.
 Se define: $$\hat{M}_k(t)=M_k(t)-\gamma_k(t)$$
 $$\hat{F}_k(t)=F_k(t)-\gamma_k(t)$$
@@ -143,7 +143,8 @@ Además $$\gamma_k(t)=\frac{1}{2}(W_k(t)-\hat{M}_k(t)-\hat{F}_k(t) )$$
         Donde:
         $$P_{\iota ,j}(0,t)=\exp\big(-\frac{1}{2}\nu_1(\beta(t)\big)\sum_{i=0}^n{\iota \choose i}(e^{-\tilde{\mu_1}t})^i(1-e^{-\tilde{\mu_1}t})^{\iota-i}\frac{\big(\frac{1}{2}\nu_1(\beta(t)\big)^{\iota-i}}{(\iota-i)!}$$
         $$P_{m ,j+n}(0,t)=\exp\big(-\frac{1}{2}\nu_1(\beta(t)\big)\sum_{i=0}^n{m \choose i}(e^{-\tilde{\mu_1}t})^i(1-e^{-\tilde{\mu_1}t})^{m-i}\frac{\big(\frac{1}{2}\nu_1(\beta(t)\big)^{j+n-i}}{(j+n-i)!}$$
-        La formula del lema sigue reemplazando estos valores en \ref{etiqueta1} y si se intercambian los role de $p_j^{(k)}$ y $q_j^{(k)}$ .Se obtiene \ref{etiqueta2} intercambiando los roles de $p_j^{k}$ y $q_m^{k}$
+        La f\'ormula del lema sigue reemplazando estos valores en \ref{etiqueta1} y si se intercambian los roles de $p_j^{(k)}$ y $q_j^{(k)}$. Se obtiene \ref{etiqueta2} intercambiando los roles de $p_j^{k}$ y $q_m^{k}$
     \end{proof}
     Este último lema muestra como resultado la probabilidad de que una persona sea infectada pero esta infección no sea de gravedad puesto que se evalúa simplemente a los parásitos sin pareja (y por lo tanto sin poder reproducirse) tanto macho y hembra.
 \end{Lem}
+Si bien estos resultados nos muestran diversas ecuaciones para determinar las probabilidades de infección en diversas situaciones, lo resultados va a depender en gran parte de los datos iniciales al tiempo inicial de la infección y de las variables sanitarias y ambientales de la época donde se recoge la muestra. Note que además que se hicieron muchas suposiciones y se utilizó la esperanza de la variable aleatoria en vez de ella para evitar complejidad en los cálculos, lo cual es bastante común en este tipo de desarrollo y no afecta en gran forma el resultado.\\ Espero que la lectura haya sido de su agrado y pueda ser de utilidad para futuras investigaciones.

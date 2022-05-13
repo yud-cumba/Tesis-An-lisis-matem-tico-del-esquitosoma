@@ -1,7 +1,7 @@
 \section{Esperanza y funciones generadoras}
 Para lograr una mayor simplicidad, suele ser mejor describir las probabilidades con algunos valores típicos. Entre aquellos valores, la media o esperanza es la más importante. Su definición va de acuerdo con el concepto común de promedio. \\Las demostraciones de los resultados expuestos en este capítulo se pueden encontrar en \cite{Rincon1}, \cite{Rincon2},  \cite{Feller}.
 \\\\
-Si en una población determinada de 50 familias, $30$ tienen $1$ hijo por familia, $10$ familias tienen $2$ , $7$ tienen $3$ y $3$ familias tienen $4$ hijos. El número total de hijos es $83=1(30)+2(10)+3(7)+4(3)$\\
+Si en una población determinada de 50 familias, $30$ de ellas tienen $1$ hijo por familia, $10$ familias tienen $2$ , $7$ tienen $3$ y $3$ familias tienen $4$ hijos. El número total de hijos es $83=1(30)+2(10)+3(7)+4(3)$\\
 El número promedio de hijos por familia es 
 \begin{eqnarray}
     \label{ejm-esperanza-inicio}
@@ -10,9 +10,9 @@ El número promedio de hijos por familia es
 Sea la variable aleatoria $X=$ "\textit{Números de hijos por familia"} y $f$ la función de probabilidad asociada a $X$. Usando la probabilidad clásica se obtiene que $f(1)=\frac{30}{50}$, $f(2)=\frac{10}{50}$, $f(3)=\frac{7}{50}$, $f(4)=\frac{3}{50}$ que coincide con los valores expuestos en \ref{ejm-esperanza-inicio} los cuales al reemplazarlos obtenemos que el promedio de hijos por familia es $1f(1)+2f(2)+3f(3)+4f(4)$.\\
 Una generalización de esta situación induce a la siguiente definición.
 \begin{Def}
-    Sea $X$ una variable aleatoria discreta que toma valores reales $\{x_i\}_{i\in\N}$ suyas funciones de probabilidad son $\{f(x_i)\}_{i\in\N}$, la esperanza se define por $$E(X)=\sum_{k\in\N} x_k f(x_k)$$ Si la serie converje absolutamente decimos que $X$ tiene esperanza finita.
+    Sea $X$ una variable aleatoria discreta que toma valores reales $\{x_i\}_{i\in\N}$ cuyas funciones de probabilidad son $\{f(x_i)\}_{i\in\N}$, la esperanza se define por $$E(X)=\sum_{k\in\N} x_k f(x_k)$$ Si la serie converge absolutamente decimos que $X$ tiene esperanza finita.
 \end{Def}
-Intuitivamente, la esperanza de una variable aleatoria $X$ representa la cantidad promedio que se $espera$ como resultado de un experimento aleatorio cuando la probabilidad de cada suceso se mantiene constante y el experimento se repite un elevado número de veces. Cabe decir que el valor de la esperanza puede ser improbable o incluso imposible. 
+Intuitivamente, la esperanza de una variable aleatoria X es el valor promedio esperado como resultado de un ensayo aleatorio cuando la probabilidad de cada evento es constante y el experimento se repite muchas veces. Para ser justos, el valor de la esperanza puede ser muy poco probable, incluso imposible.  
 \begin{Def}
     \label{def-prob-funcionGeneraProb}
     Consideremos una variable aleatoria discreta $X$, que toma valores en el conjunto de estados $S=\{x_1,x_2,\ldots\}$ con distribución de probabilidad $\{p_k\}_{k\in\N}$, tal que $$p_k=P(X=x_k)$$ 
@@ -26,34 +26,34 @@ Como $\{f(x_k)\thinspace|\thinspace x_k\in S\}$ es una distribución de probabil
 Como su nombre lo menciona, la $f.g.p.$ genera la probabilidad asociada a su distribución.\\
 Notamos que al derivar la $f.g.p$ y considerar $s=0$ se obtiene que
 $$G(0)=p_0$$ $$G'(0)=p_1$$ $$G'(0)=2!P_2$$ $$\vdots$$Desde que la serie (\ref{def-funcionGeneradoraProb}) converge absolutamente cuando $|s|\leq 1$, entonces es infinitamente diferenciable en el intervalo de convergencia. En general, por inducción se demuestra que la $k-$ésima derivada de la $f.g.p.$ de $X$ es $$G^{(k)}(0)=k!p_k$$
-De esta forma obtenemos que $$p_k=\frac{G^{(k)}(0)}{k!}$$ recuperando lo que inicialmente era nuestra distribución de probabilidad.\\\\
+De esta forma obtenemos que $$p_k=\frac{G^{(k)}(0)}{k!}$$ recuperando lo que inicialmente era nuestra distribución de probabilidad.\\
 \begin{Ejm}
-    Supongamos que un experimento consiste en lanzar una moneda. Los posibles resultados son cara $C$ o sello $S$. Si $X$ es una variable aleatoria tal que $X(C)=1$, $X(S)=0$ con $P(X=0)=\frac{3}{4}$ y $P(X=1)=\frac{1}{4}$
+    Sea un experimento que consiste en el lanzamiento de una moneda. Los resultados posibles son cara $C$ o sello $S$. Si $X$ es una variable aleatoria tal que $X(C)=1$, $X(S)=0$ con $P(X=0)=\frac{3}{4}$ y $P(X=1)=\frac{1}{4}$
     Por lo tanto la función generadora de probabilidad es
     $$G(s)=\frac{3}{4}+\frac{s}{4}.$$
     Ahora supongamos que no sabemos la distribución de probabilidad al lanzar esta moneda , pero sí se sabe que la función generadora de probabilidad asociada que es $G(s)=\frac{3}{4}+\frac{s}{4}.$\\
-    Se verifica la reconstrucción de la función de probabilidad
+    Se recupera la función de probabilidad 
     $$P(X=0)=G(0)=\frac{3}{4}.$$    $$P(X=1)=G'(0)=\frac{1}{4}.$$
 \end{Ejm}
-La función generadora de probabilidad determina de manera única a la distribución en el siguiente sentido. Si $X$ y $Y$ tienen la misma distribución de probabilidad, entonces naturalmente $E(X)=E(Y)$ lo cual implica también que $G_X=G_Y$, para valores donde esta esperanza exista.\\
-Inversamente, sean $X$ y $Y$ tales que $G_X$ y
-$G_Y$ existen y coinciden en algún intervalo no trivial alrededor del cero,
-entonces $X$ y $Y$ tienen la misma distribución.
+El generador de probabilidad determina de forma única la distribución en las siguientes direcciones: Si las distribuciones de probabilidad de X e Y son las mismas, entonces, por supuesto, $E(X) = E(Y)$ significa $G_X = G_Y$ para el valor para el cual existe este valor esperado. \\ \
+De lo contrario, $ X $ e $ Y $ tal que $ G_X $
+$ G_Y $ existen y coincide en un pequeño espacio cercano a cero.
+En ese caso, la distribución de $ X $ y $ Y $ tendrán la misma distribución.
 \begin{Prop}
-    Sean $X$ e $Y$ variables aleatorias con valores enteros no negativos tales que $G_X(s)$ y $G_Y(s)$ coinciden en algún intervalo alrededor de $s=0$. Entonces $X$ y $Y$ tienen la misma distribución de probabilidad. \label{prop-funcionGenIgual-distribucuionIgual}
+    Sean $X$ y $Y$ dos variables aleatorias con valores enteros no negativos tales que $G_X(s)$ y $G_Y(s)$ coinciden en algún intervalo alrededor de $s=0$. Entonces $X$ y $Y$ tienen la misma distribución de probabilidad. \label{prop-funcionGenIgual-distribucuionIgual}
 \end{Prop}
 \begin{Prop}
     Sean $X$ e $Y$ independientes con f.g.p. $G_X$ y $G_Y$ respectivamente, entonces $G_{X+Y}(s)=G_X(s)G_Y(s)$
     \label{prop-funcionGenSuma-productoFuncionGen}
 \end{Prop}
 \begin{Def} 
-    La función de probabilidad de dos valores aleatorios $X, Y$ con valores reales discretos en $\N$ es la función $f_{X,Y} :\R^2 \rightarrow [0, 1]$ dada por
+    La función de probabilidad de dos valores aleatorios $X y Y$ con valores reales discretos en $\N$ es la función $f_{X,Y} :\R^2 \rightarrow [0, 1]$ dada por
     $$f(x,y)=
     \begin{cases}
         P(X=x,\thinspace Y=y), & \mbox{$x,y=1,2,\ldots$}\\
         0,& \mbox{en otro caso}
     \end{cases}$$
-    A esta función se le llama función de probabilidad conjunta de las variables $X$ e $Y$.
+    Esta función se llama la función de probabilidad de las variables $X$ e $Y$.
 \end{Def}
 Si $X$ e $Y$ son variables aleatorias independientes, con valores enteros no negativos y con distribuciones de probabilidad $\{a_j\}_{j\in\N}$ y $\{b_k\}_{k\in\N}$ respectivamente, donde $a_j=P(X=j)$ y  $b_k=P(Y=k)$ $j,k\in\N$ , entonces $P(X=j,Y=k)=a_j b_k$.\\ La suma $X+Y$ es una nueva variable aleatoria por la proposición (\ref{prop-variableAl-X+YesVA}), y se cumple que $$(X+Y=m)=\bigcup_{j=0}^{m}(X=j,Y=m-j)$$ \\ Por lo tanto la distribución de la variable aleatoria $X+Y$, $\{c_m\}_{m\in\N}$, donde $c_m=P(X+Y=m)$, viene dada por
 \begin{eqnarray}
@@ -68,7 +68,7 @@ La nueva distribución de probabilidad \ref{def-convolucion} que parte de las do
     \end{eqnarray}
 \end{Def}
 \begin{Obs}
-    Si $f_X(k)\}$ y $f_Y(k)$ son funciones de probabilidad de las variables aleatorias $X$ e $Y$ respectivamente, denotaremos a la convolución $c_k=(f_X*f_Y)(k)$
+    Si $f_X(k)$ y $f_Y(k)$ son funciones de probabilidad de las variables aleatorias $X$ e $Y$ respectivamente, denotaremos a la convolución $c_k=(f_X*f_Y)(k)$
 \end{Obs}
 % \begin{Ejm}
 %     Si $a_k=b_k=1$ para toda $k=0,1,2,\ldots$, entonces $c_k=\sum_{j=0}^k 1=k+1$.\\Si $a_k=k$ y $b_k=1$, entonces $c_k=\sum_{j=0}^k j =\frac{k+k+1}{2}$.\\Finalmente, si $a_0=a_1=\frac{1}{2}$ y $a_k=0$ para $k\geq 2$ entonces $c_k=\frac{b_k+b_k-1}{2} $ 

@@ -12,7 +12,7 @@ Dado $m\in\N$, $s\geq 0$, consideramos para cada $k=1,2,\ldots,N_1$ la variable 
 \begin{equation}
     G(t,z)=\sum_{n=0}^\infty z^n p_n=\sum_{n=0}^\infty z^n P_{m,n}(s,t)\label{tesis-funcGeneradoraDeM}
 \end{equation}
-Derivando parcialmente se tiene que,
+Derivando parcialmente respecto a z se tiene 
 \begin{eqnarray}
   \label{derivadat}
     \frac{\partial G(t,z)}{\partial z}=\sum_{n=1}^\infty n z^{n-1}p_n(t)=\sum_{n=0}^\infty (n+1)z^{n}p_n(t)
@@ -42,6 +42,6 @@ Si denotamos $Y(t)=E[S(t)]$ y sustituimos los valores de $p'_n(t)$ de (\ref{tesi
 \end{eqnarray*}
 Finalmente, obtenemos la siguiente ecuación diferencial parcial
 $$ \Gt+\mu(z-1)\Gz=\frac{1}{2}\nu_1Y(t)(z-1)G$$
-con condición inicial
-Por otro lado, conociendo las probabilidades iniciales $p_n(s)$ nos permite conocer la condición inicial para $G$ a lo largo de la línea $t = 0$ del plano $(t, z)$,
+
+Por otro lado, conociendo las probabilidades iniciales $p_n(s)$ nos permite conocer la condición inicial para $G$ a lo largo de la línea $s = 0$ del plano $(s, z)$,
 $$G(s,z)=\sum_{n=0}^\infty z^n p_n(s)=z^m$$
